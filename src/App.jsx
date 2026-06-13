@@ -149,8 +149,6 @@ export default function App() {
       setWasMusicPlaying(true);
       audioRef.current.pause();
       setIsPlaying(false);
-    } else {
-      setWasMusicPlaying(false);
     }
   };
 
@@ -217,7 +215,19 @@ export default function App() {
 
   // Story surprise audio handlers
   const openStorySurprise = () => {
-    if (isPlaying) {
+    let hadMusicPlaying = isPlaying;
+    if (letterOpen) {
+      if (letterAudioRef.current) {
+        letterAudioRef.current.pause();
+        letterAudioRef.current.currentTime = 0;
+      }
+      setLetterOpen(false);
+      if (wasMusicPlayingForLetter) {
+        hadMusicPlaying = true;
+        setWasMusicPlayingForLetter(false);
+      }
+    }
+    if (hadMusicPlaying) {
       setWasMusicPlayingForSurprise(true);
       audioRef.current.pause();
       setIsPlaying(false);
@@ -243,6 +253,30 @@ export default function App() {
     }
     setWasMusicPlayingForSurprise(false);
     setOpenSurprise(false);
+  };
+
+  // Video surprise audio handlers
+  const openVideoSurpriseDialog = () => {
+    let hadMusicPlaying = isPlaying;
+    if (letterOpen) {
+      if (letterAudioRef.current) {
+        letterAudioRef.current.pause();
+        letterAudioRef.current.currentTime = 0;
+      }
+      setLetterOpen(false);
+      if (wasMusicPlayingForLetter) {
+        hadMusicPlaying = true;
+        setWasMusicPlayingForLetter(false);
+      }
+    }
+    if (hadMusicPlaying) {
+      setWasMusicPlaying(true);
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      setWasMusicPlaying(false);
+    }
+    setOpenVideoSurprise(true);
   };
 
   // Auto-play hint overlay state
@@ -1022,9 +1056,7 @@ export default function App() {
             <Button
               size="large"
               variant="contained"
-              onClick={() => {
-                setOpenVideoSurprise(true);
-              }}
+              onClick={openVideoSurpriseDialog}
               sx={{
                 borderRadius: 50,
                 px: { xs: 4, md: 6 },
