@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -10,7 +10,6 @@ import {
   Dialog,
   DialogContent,
   IconButton,
-  Tooltip,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CloseIcon from "@mui/icons-material/Close";
@@ -21,22 +20,33 @@ import CakeIcon from "@mui/icons-material/Cake";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
+const CONFETTI_COLORS = ["#ff4081", "#ff80ab", "#ffd54f", "#4fc3f7", "#81c784", "#ba68c8"];
+const CONFETTI_PIECES = Array.from({ length: 100 }).map((_, i) => ({
+  id: i,
+  left: Math.random() * 100,
+  delay: Math.random() * 4,
+  duration: 3 + Math.random() * 3,
+  size: 8 + Math.random() * 10,
+  color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+  tilt: Math.random() * 360,
+  isCircle: Math.random() > 0.5,
+}));
+
+const DECORATORS = Array.from({ length: 25 }).map((_, i) => ({
+  id: i,
+  type: i % 2 === 0 ? "heart" : "sparkle",
+  left: Math.random() * 100,
+  top: Math.random() * 100,
+  size: 15 + Math.random() * 25,
+  duration: 8 + Math.random() * 10,
+  delay: Math.random() * 5,
+}));
+
 // Confetti Component for rain effect
 function Confetti() {
-  const colors = ["#ff4081", "#ff80ab", "#ffd54f", "#4fc3f7", "#81c784", "#ba68c8"];
-  const pieces = Array.from({ length: 100 }).map((_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    delay: Math.random() * 4,
-    duration: 3 + Math.random() * 3,
-    size: 8 + Math.random() * 10,
-    color: colors[Math.floor(Math.random() * colors.length)],
-    tilt: Math.random() * 360,
-  }));
-
   return (
     <Box sx={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", pointerEvents: "none", zIndex: 9999, overflow: "hidden" }}>
-      {pieces.map((p) => (
+      {CONFETTI_PIECES.map((p) => (
         <Box
           key={p.id}
           sx={{
@@ -46,7 +56,7 @@ function Confetti() {
             backgroundColor: p.color,
             left: `${p.left}%`,
             top: `-20px`,
-            borderRadius: Math.random() > 0.5 ? "50%" : "0%",
+            borderRadius: p.isCircle ? "50%" : "0%",
             transform: `rotate(${p.tilt}deg)`,
             animation: `fall ${p.duration}s linear ${p.delay}s infinite`,
           }}
@@ -237,17 +247,6 @@ export default function App() {
 
   // Auto-play hint overlay state
   const [showMusicHint, setShowMusicHint] = useState(true);
-
-  // Background floating elements list (hearts & sparkles)
-  const decorators = Array.from({ length: 25 }).map((_, i) => ({
-    id: i,
-    type: i % 2 === 0 ? "heart" : "sparkle",
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-    size: 15 + Math.random() * 25,
-    duration: 8 + Math.random() * 10,
-    delay: Math.random() * 5,
-  }));
 
   const togglePlay = () => {
     if (isPlaying) {
@@ -449,7 +448,7 @@ export default function App() {
       {openSurprise && <Confetti />}
 
       {/* Floating Sparkles & Hearts Background */}
-      {decorators.map((d) =>
+      {DECORATORS.map((d) =>
         d.type === "heart" ? (
           <FavoriteIcon
             key={d.id}
