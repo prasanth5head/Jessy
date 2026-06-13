@@ -11,6 +11,8 @@ import {
   DialogContent,
   IconButton,
   LinearProgress,
+  Snackbar,
+  TextField,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CloseIcon from "@mui/icons-material/Close";
@@ -30,6 +32,15 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import LockIcon from "@mui/icons-material/Lock";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import EmailIcon from "@mui/icons-material/Email";
+import SearchIcon from "@mui/icons-material/Search";
+import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
+import NightsStayIcon from "@mui/icons-material/NightsStay";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
+import VideocamIcon from "@mui/icons-material/Videocam";
 
 const CONFETTI_COLORS = ["#ff4081", "#ff80ab", "#ffd54f", "#4fc3f7", "#81c784", "#ba68c8"];
 const CONFETTI_PIECES = Array.from({ length: 100 }).map((_, i) => ({
@@ -123,6 +134,56 @@ const FUTURE_DREAMS = [
   { icon: <HomeIcon sx={{ fontSize: 30, color: "#ff4081" }} />, title: "Our Future Goals 🏡", desc: "Building a cozy home filled with warmth, laughter, and endless love." },
 ];
 
+const DIGITAL_LOVE_NOTES = [
+  "Your smile is my favorite notification.",
+  "I still remember the first time you laughed at my terrible joke.",
+  "You make every place feel like home.",
+  "I love how your eyes light up when you talk about things you love.",
+  "You are the best plot twist of my life.",
+  "Waking up knowing you're mine is the best feeling.",
+  "I love the way you pronounce certain words, it's so cute.",
+  "You're my safe place in a chaotic world.",
+  "Even your 'annoying' habits are endearing to me.",
+  "I'm so incredibly proud of the person you are.",
+  "You're the first person I want to tell good news to.",
+  "I love how we can talk for hours about absolutely nothing.",
+  "Your happiness means everything to me.",
+  "I never knew what true peace felt like until I met you.",
+  "You make me want to be a better person every single day.",
+  "Every love song suddenly makes sense because of you.",
+  "I love how fiercely you protect the people you care about.",
+  "You have the most beautiful soul I have ever encountered.",
+  "I fall for you a little more every day.",
+  "Thank you for just being you. It's more than enough.",
+];
+
+const OPEN_WHEN_LETTERS = [
+  { id: "sad", label: "Open when you're sad 🥺", emoji: "🥺", color: "#5c6bc0", bg: "linear-gradient(135deg, #5c6bc0, #9575cd)", content: "I hate knowing you're sad. Just remember that storms don't last forever. Take a deep breath, cry if you need to, but know that I am holding your hand through it all. You are so strong, and this feeling will pass. I love you." },
+  { id: "stressed", label: "Open when you're stressed 😫", emoji: "😫", color: "#f57c00", bg: "linear-gradient(135deg, #f57c00, #ffb74d)", content: "Hey. Stop. Breathe. You're taking on the world right now, and I know it's heavy. But look at everything you've overcome so far! You've got this. Take a break, drink some water, and remember I'm cheering you on. Always." },
+  { id: "missme", label: "Open when you miss me 💖", emoji: "💖", color: "#e91e63", bg: "linear-gradient(135deg, #e91e63, #f48fb1)", content: "Missing you too. A lot. Just close your eyes and imagine me hugging you really tight right now. Every second apart just means our next memory together will be even more special. See you soon, love." },
+  { id: "angry", label: "Open when you're angry at me 😤", emoji: "😤", color: "#d32f2f", bg: "linear-gradient(135deg, #d32f2f, #e57373)", content: "Okay, I know you're mad. And I probably did something stupid. I am so sorry. You have every right to feel how you feel. Please know I never want to hurt you. Let's take a breath, and when you're ready, I'm here to listen and fix it. You mean too much to me." },
+  { id: "motivation", label: "Open when you need motivation 🚀", emoji: "🚀", color: "#388e3c", bg: "linear-gradient(135deg, #388e3c, #81c784)", content: "You are capable of incredible things. Don't let a temporary setback make you doubt your immense potential. I believe in you so completely. Go out there and show the world what you're made of. I'm your biggest fan!" },
+];
+
+const COUPLE_QUIZ = [
+  { q: "What's my absolute favorite thing about you?", options: ["Your looks", "Your kindness", "Your cooking", "Your jokes"], a: "Your kindness", feedback: "Correct ❤️ Your gentle soul is my favorite." },
+  { q: "Who fell in love first?", options: ["Me", "You", "We fell at the exact same time", "Still deciding"], a: "Me", feedback: "Guilty. I fell first, and I fell hard. ❤️" },
+  { q: "What's my dream date with you?", options: ["Fancy dinner", "Movie night", "Late night drive", "Cozy at home with food"], a: "Cozy at home with food", feedback: "Yes! Nothing beats being lazy together with good food. 🍕❤️" },
+];
+
+const MUSIC_MEMORIES = [
+  { title: "Our first long call 📞", song: "The song we talked over", desc: "We lost track of time entirely.", src: "" },
+  { title: "The song that reminds me of you 🎶", song: "Every time it plays", desc: "It feels like you're right next to me.", src: "" },
+  { title: "When I missed you the most 🌧️", song: "Late night playlist", desc: "This got me through the long nights.", src: "" },
+];
+
+const FUNNY_AWARDS = [
+  { icon: <EmojiObjectsIcon sx={{ fontSize: 50, color: "#ffd54f" }} />, title: "Best Smile Award", reason: "For consistently melting my heart with zero effort." },
+  { icon: <EmojiEventsIcon sx={{ fontSize: 50, color: "#ff8a65" }} />, title: "Cutest Anger Award", reason: "For looking absolutely adorable even when fuming." },
+  { icon: <MenuBookIcon sx={{ fontSize: 50, color: "#9575cd" }} />, title: "Pro Overthinker Award", reason: "For successfully finding problems that don't exist yet! 😂" },
+  { icon: <FavoriteIcon sx={{ fontSize: 50, color: "#f06292" }} />, title: "Queen of My Heart", reason: "A lifetime achievement award. Non-transferable." },
+];
+
 // Confetti Component for rain effect
 function Confetti() {
   return (
@@ -210,6 +271,44 @@ function PolaroidCard({ img, caption, rotation }) {
   );
 }
 
+// Web Audio API Heartbeat synthesizer to play realistic low frequency lub-dub thump
+function playWebHeartbeat() {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+
+    const playThump = (time, pitch = 60, duration = 0.15, volume = 0.5) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(pitch, time);
+      osc.frequency.exponentialRampToValueAtTime(15, time + duration);
+
+      gain.gain.setValueAtTime(0.01, time);
+      gain.gain.linearRampToValueAtTime(volume, time + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.01, time + duration);
+
+      osc.start(time);
+      osc.stop(time + duration);
+    };
+
+    const now = ctx.currentTime;
+    // Play Lub-Dub repeating every 1.0 second for 4 cycles
+    for (let i = 0; i < 4; i++) {
+      const cycleStart = now + i * 1.0;
+      playThump(cycleStart, 65, 0.15, 0.6); // Lub
+      playThump(cycleStart + 0.25, 55, 0.18, 0.4); // Dub
+    }
+  } catch (e) {
+    console.error("Web Audio heartbeat error:", e);
+  }
+}
+
 export default function App() {
   const [openSurprise, setOpenSurprise] = useState(false);
   const [openVideoSurprise, setOpenVideoSurprise] = useState(false);
@@ -220,10 +319,173 @@ export default function App() {
   const [activeVideo, setActiveVideo] = useState(0);
   const [wasMusicPlayingForLetter, setWasMusicPlayingForLetter] = useState(false);
   const [wasMusicPlayingForSurprise, setWasMusicPlayingForSurprise] = useState(false);
+  const [playingMemoryIdx, setPlayingMemoryIdx] = useState(null);
   const audioRef = useRef(null);
   const videoRef = useRef(null);
   const letterAudioRef = useRef(null);
   const surpriseAudioRef = useRef(null);
+
+  // --- NEW FEATURE STATES ---
+  // Secret Hunt
+  const [foundHearts, setFoundHearts] = useState([]);
+  const [huntDialogOpen, setHuntDialogOpen] = useState(false);
+  const totalHearts = 5;
+
+  const handleFindHeart = (id) => {
+    if (!foundHearts.includes(id)) {
+      const newHearts = [...foundHearts, id];
+      setFoundHearts(newHearts);
+      if (newHearts.length === totalHearts) {
+        setTimeout(() => setHuntDialogOpen(true), 500);
+      }
+    }
+  };
+
+  // Digital Love Notes Jar
+  const [jarDialogOpen, setJarDialogOpen] = useState(false);
+  const [currentNote, setCurrentNote] = useState("");
+
+  const openJarNote = () => {
+    const randomNote = DIGITAL_LOVE_NOTES[Math.floor(Math.random() * DIGITAL_LOVE_NOTES.length)];
+    setCurrentNote(randomNote);
+    setJarDialogOpen(true);
+  };
+
+  // Open When Letters
+  const [openWhenLetter, setOpenWhenLetter] = useState(null);
+
+  // Mini Couple Quiz
+  const [quizStep, setQuizStep] = useState(0);
+  const [quizScore, setQuizScore] = useState(0);
+  const [quizFeedback, setQuizFeedback] = useState("");
+  const [quizFinished, setQuizFinished] = useState(false);
+
+  const handleQuizAnswer = (answer) => {
+    const isCorrect = answer === COUPLE_QUIZ[quizStep].a;
+    if (isCorrect) setQuizScore((prev) => prev + 1);
+    setQuizFeedback(isCorrect ? COUPLE_QUIZ[quizStep].feedback : "Oops, not quite! But I still love you. 💕");
+    
+    setTimeout(() => {
+      setQuizFeedback("");
+      if (quizStep < COUPLE_QUIZ.length - 1) {
+        setQuizStep((prev) => prev + 1);
+      } else {
+        setQuizFinished(true);
+      }
+    }, 2500);
+  };
+
+  // Time Capsule
+  const [capsuleMessage, setCapsuleMessage] = useState("");
+  const [capsuleSaved, setCapsuleSaved] = useState(false);
+
+  const saveCapsule = () => {
+    if (capsuleMessage.trim()) {
+      localStorage.setItem("jessy_capsule", capsuleMessage);
+      setCapsuleSaved(true);
+    }
+  };
+
+  useEffect(() => {
+    const saved = localStorage.getItem("jessy_capsule");
+    if (saved) setCapsuleSaved(true);
+  }, []);
+
+  // Heartbeat Moment
+  const [heartbeatActive, setHeartbeatActive] = useState(false);
+  const [heartbeatStage, setHeartbeatStage] = useState(0); // 0: heart, 1: text, 2: credits
+  const heartbeatAudioRef = useRef(null);
+
+  const triggerHeartbeat = () => {
+    // Stop and close everything else
+    setLetterOpen(false);
+    setOpenSurprise(false);
+    setOpenVideoSurprise(false);
+    setHuntDialogOpen(false);
+    setJarDialogOpen(false);
+    setOpenWhenLetter(null);
+    setOpenVoiceNote(null);
+    setPlayingMemoryIdx(null);
+
+    // Pause all playing audio elements
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+    if (letterAudioRef.current) {
+      letterAudioRef.current.pause();
+      letterAudioRef.current.currentTime = 0;
+    }
+    if (surpriseAudioRef.current) {
+      surpriseAudioRef.current.pause();
+      surpriseAudioRef.current.currentTime = 0;
+    }
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+    if (voiceNoteAudioRef.current) {
+      voiceNoteAudioRef.current.pause();
+    }
+    setIsPlaying(false);
+
+    setHeartbeatActive(true);
+    setHeartbeatStage(0);
+
+    // Play the Web Audio heartbeat thumping
+    playWebHeartbeat();
+
+    setTimeout(() => setHeartbeatStage(1), 4000);
+    setTimeout(() => setHeartbeatStage(2), 9000);
+  };
+
+  const getMemoryAudioRef = (idx) => {
+    if (idx === 0) return letterAudioRef;
+    if (idx === 1) return audioRef;
+    if (idx === 2) return surpriseAudioRef;
+    return null;
+  };
+
+  const playMusicMemory = (idx) => {
+    // Pause all other possible triggers
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+    if (letterOpen) {
+      closeLetter();
+    }
+    if (openSurprise) {
+      closeStorySurprise();
+    }
+    if (openVideoSurprise) {
+      closeVideoSurprise();
+    }
+
+    // Stop current active playing memory if any
+    if (playingMemoryIdx !== null) {
+      const prevRef = getMemoryAudioRef(playingMemoryIdx);
+      if (prevRef && prevRef.current) {
+        prevRef.current.pause();
+        prevRef.current.currentTime = 0;
+      }
+    }
+
+    if (playingMemoryIdx === idx) {
+      // Toggled off: resume background track
+      setPlayingMemoryIdx(null);
+      if (audioRef.current) {
+        audioRef.current.play().catch(console.log);
+        setIsPlaying(true);
+      }
+    } else {
+      // Toggle on new memory
+      setPlayingMemoryIdx(idx);
+      const currentRef = getMemoryAudioRef(idx);
+      if (currentRef && currentRef.current) {
+        currentRef.current.currentTime = 0;
+        currentRef.current.play().catch(console.log);
+      }
+    }
+  };
 
   // Relationship Counter
   const [timeElapsed, setTimeElapsed] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -348,6 +610,16 @@ export default function App() {
   // Letter audio handlers
   const openLetter = () => {
     if (!letterOpen) {
+      // Stop playing memory if any
+      if (playingMemoryIdx !== null) {
+        const currentRef = getMemoryAudioRef(playingMemoryIdx);
+        if (currentRef && currentRef.current) {
+          currentRef.current.pause();
+          currentRef.current.currentTime = 0;
+        }
+        setPlayingMemoryIdx(null);
+      }
+
       // Opening the letter
       if (isPlaying) {
         setWasMusicPlayingForLetter(true);
@@ -383,6 +655,16 @@ export default function App() {
 
   // Story surprise audio handlers
   const openStorySurprise = () => {
+    // Stop playing memory if any
+    if (playingMemoryIdx !== null) {
+      const currentRef = getMemoryAudioRef(playingMemoryIdx);
+      if (currentRef && currentRef.current) {
+        currentRef.current.pause();
+        currentRef.current.currentTime = 0;
+      }
+      setPlayingMemoryIdx(null);
+    }
+
     let hadMusicPlaying = isPlaying;
     if (letterOpen) {
       if (letterAudioRef.current) {
@@ -425,6 +707,16 @@ export default function App() {
 
   // Video surprise audio handlers
   const openVideoSurpriseDialog = () => {
+    // Stop playing memory if any
+    if (playingMemoryIdx !== null) {
+      const currentRef = getMemoryAudioRef(playingMemoryIdx);
+      if (currentRef && currentRef.current) {
+        currentRef.current.pause();
+        currentRef.current.currentTime = 0;
+      }
+      setPlayingMemoryIdx(null);
+    }
+
     let hadMusicPlaying = isPlaying;
     if (letterOpen) {
       if (letterAudioRef.current) {
@@ -788,6 +1080,28 @@ export default function App() {
             >
               <FavoriteIcon sx={{ color: "#ff4081", fontSize: 28 }} />
             </Box>
+
+            {/* Scavenger Heart 1 */}
+            {!foundHearts.includes(1) && (
+              <IconButton
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleFindHeart(1);
+                }}
+                sx={{
+                  position: "absolute",
+                  top: 20,
+                  left: 20,
+                  color: "rgba(255, 64, 129, 0.35)",
+                  zIndex: 3,
+                  p: 0.5,
+                  "&:hover": { color: "#ff4081", transform: "scale(1.3)" },
+                  transition: "all 0.2s",
+                }}
+              >
+                <FavoriteIcon sx={{ fontSize: 18 }} />
+              </IconButton>
+            )}
           </Box>
         </Box>
 
@@ -1054,6 +1368,27 @@ export default function App() {
                     Chapter {idx + 1}
                   </Box>
 
+                  {/* Scavenger Heart 2 - only on Chapter 3 */}
+                  {idx === 2 && !foundHearts.includes(2) && (
+                    <IconButton
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleFindHeart(2);
+                      }}
+                      sx={{
+                        position: "absolute",
+                        bottom: 8,
+                        left: 8,
+                        color: "rgba(255, 64, 129, 0.18)",
+                        p: 0.5,
+                        "&:hover": { color: "#ff4081", transform: "scale(1.3)" },
+                        transition: "all 0.2s",
+                      }}
+                    >
+                      <FavoriteIcon sx={{ fontSize: 16 }} />
+                    </IconButton>
+                  )}
+
                   <Typography
                     variant="h6"
                     fontWeight="bold"
@@ -1179,6 +1514,55 @@ export default function App() {
           </Grid>
         </Box>
 
+        {/* ── Music Memories ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
+            <LibraryMusicIcon sx={{ color: "white", fontSize: 30 }} />
+            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+              The Soundtrack of Us 🎵
+            </Typography>
+          </Box>
+          <Grid container spacing={3} sx={{ maxWidth: 960, mx: "auto", px: { xs: 2, md: 0 }, alignItems: "stretch" }}>
+            {MUSIC_MEMORIES.map((music, i) => (
+              <Grid item xs={12} sm={4} key={i}>
+                <Card sx={{
+                  p: 3, borderRadius: 4, textAlign: "center", height: "100%",
+                  display: "flex", flexDirection: "column", alignItems: "center",
+                  background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)", transition: "all 0.3s ease",
+                  "&:hover": { transform: "translateY(-5px)", boxShadow: "0 15px 35px rgba(233,30,99,0.2)" }
+                }}>
+                  <LibraryMusicIcon sx={{ fontSize: 40, color: "#e91e63", mb: 2 }} />
+                  <Typography variant="h6" fontWeight="bold" sx={{ fontFamily: "'Outfit', sans-serif", color: "#c2185b", mb: 1 }}>
+                    {music.title}
+                  </Typography>
+                  <Box sx={{ flexGrow: 1 }}>
+                    <Typography sx={{ fontFamily: "'Outfit', sans-serif", fontSize: "0.9rem", color: "#616161", mb: 2 }}>
+                      {music.desc}
+                    </Typography>
+                  </Box>
+                  <Button
+                    variant={playingMemoryIdx === i ? "contained" : "outlined"}
+                    onClick={() => playMusicMemory(i)}
+                    startIcon={playingMemoryIdx === i ? <PauseIcon /> : <PlayArrowIcon />}
+                    sx={{
+                      borderRadius: 20,
+                      color: playingMemoryIdx === i ? "#fff" : "#e91e63",
+                      bgcolor: playingMemoryIdx === i ? "#e91e63" : "transparent",
+                      borderColor: "#e91e63",
+                      "&:hover": {
+                        bgcolor: playingMemoryIdx === i ? "#c2185b" : "rgba(233,30,99,0.1)",
+                        borderColor: "#c2185b"
+                      }
+                    }}
+                  >
+                    {playingMemoryIdx === i ? "Pause" : "Play"}
+                  </Button>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
 
         {/* ── Relationship Counter ── */}
         <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
@@ -1187,6 +1571,24 @@ export default function App() {
             <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
               We've Been Together For...
             </Typography>
+            {/* Scavenger Heart 4 */}
+            {!foundHearts.includes(4) && (
+              <IconButton
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleFindHeart(4);
+                }}
+                sx={{
+                  color: "rgba(255, 255, 255, 0.35)",
+                  p: 0.5,
+                  ml: 1,
+                  "&:hover": { color: "#ff4081", transform: "scale(1.3)" },
+                  transition: "all 0.2s",
+                }}
+              >
+                <FavoriteIcon sx={{ fontSize: 20 }} />
+              </IconButton>
+            )}
           </Box>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center" }}>
             {[
@@ -1273,6 +1675,35 @@ export default function App() {
           )}
         </Box>
 
+        {/* ── Digital Love Notes Jar ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1, textAlign: "center" }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 3 }}>
+            <EmailIcon sx={{ color: "white", fontSize: 30 }} />
+            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+              Digital Love Notes Jar 💌
+            </Typography>
+          </Box>
+          <Typography sx={{ color: "rgba(255,255,255,0.8)", mb: 4, fontFamily: "'Outfit',sans-serif", fontSize: "1.05rem", maxWidth: 600, mx: "auto", px: 2 }}>
+            A jar filled with tiny reasons why I adore you. Click to draw a random note.
+          </Typography>
+          <Button
+            onClick={openJarNote}
+            sx={{
+              width: 140, height: 180, borderRadius: "20px 20px 40px 40px",
+              background: "rgba(255,255,255,0.15)", backdropFilter: "blur(10px)",
+              border: "3px solid rgba(255,255,255,0.5)",
+              boxShadow: "0 15px 40px rgba(0,0,0,0.2), inset 0 0 20px rgba(255,255,255,0.5)",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+              mx: "auto", transition: "all 0.4s ease",
+              "&:hover": { transform: "scale(1.05) rotate(2deg)", border: "3px solid #ff4081", boxShadow: "0 20px 50px rgba(255,64,129,0.3)" }
+            }}
+          >
+            <Box sx={{ width: 80, height: 20, bgcolor: "rgba(255,255,255,0.6)", borderRadius: 1, mb: 2, position: "absolute", top: -10 }} />
+            <Typography sx={{ fontSize: "3rem", filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.2))" }}>💌</Typography>
+            <Typography sx={{ color: "white", mt: 1, fontFamily: "'Outfit',sans-serif", fontWeight: "bold", textTransform: "none" }}>Draw Note</Typography>
+          </Button>
+        </Box>
+
         {/* ── Why I Choose You ── */}
         <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 5 }}>
@@ -1281,23 +1712,140 @@ export default function App() {
               Why I Choose You ❤️
             </Typography>
           </Box>
-          <Grid container spacing={3} sx={{ maxWidth: 960, mx: "auto", px: { xs: 2, md: 0 } }}>
+          <Grid container spacing={3} sx={{ maxWidth: 960, mx: "auto", px: { xs: 2, md: 0 }, alignItems: "stretch" }}>
             {WHY_CARDS.map((card, i) => (
               <Grid item xs={12} sm={6} md={4} key={i}>
                 <Card sx={{
                   height: "100%", p: 3.5, borderRadius: 5, textAlign: "center",
+                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start",
                   background: "rgba(255,255,255,0.88)", backdropFilter: "blur(16px)",
                   border: "1.5px solid rgba(255,255,255,0.6)",
                   boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
                   transition: "all 0.4s cubic-bezier(0.175,0.885,0.32,1.275)",
                   "&:hover": { transform: "translateY(-10px) scale(1.03)", boxShadow: "0 25px 50px rgba(255,64,129,0.2)", border: "1.5px solid rgba(255,64,129,0.25)" },
+                  position: "relative",
                 }}>
+                  {/* Scavenger Heart 3 - only on 5th card */}
+                  {i === 4 && !foundHearts.includes(3) && (
+                    <IconButton
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleFindHeart(3);
+                      }}
+                      sx={{
+                        position: "absolute",
+                        top: 5,
+                        right: 5,
+                        color: "rgba(255, 64, 129, 0.15)",
+                        p: 0.5,
+                        "&:hover": { color: "#ff4081", transform: "scale(1.3)" },
+                        transition: "all 0.2s",
+                      }}
+                    >
+                      <FavoriteIcon sx={{ fontSize: 16 }} />
+                    </IconButton>
+                  )}
                   <Typography sx={{ fontSize: "3rem", mb: 1.5 }}>{card.emoji}</Typography>
                   <Typography variant="h6" fontWeight="bold" sx={{ fontFamily: "'Outfit',sans-serif", color: "#c2185b", mb: 1.5, fontSize: "1.15rem" }}>
                     {card.title}
                   </Typography>
-                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#4a4a4a", lineHeight: 1.8, fontSize: "0.95rem" }}>
-                    {card.text}
+                  <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+                    <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#4a4a4a", lineHeight: 1.8, fontSize: "0.95rem" }}>
+                      {card.text}
+                    </Typography>
+                  </Box>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
+        {/* ── Mini Couple Quiz ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
+            <EmojiObjectsIcon sx={{ color: "white", fontSize: 30 }} />
+            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+              Mini Couple Quiz 🎮
+            </Typography>
+          </Box>
+          <Box sx={{ maxWidth: 600, mx: "auto", px: 2 }}>
+            <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 6, background: "rgba(255,255,255,0.95)", boxShadow: "0 20px 50px rgba(0,0,0,0.15)" }}>
+              {!quizFinished ? (
+                <Box textAlign="center" sx={{ animation: "fadeInUp 0.5s ease" }}>
+                  <Typography sx={{ color: "#d81b60", fontWeight: "bold", mb: 2, fontFamily: "'Outfit',sans-serif" }}>
+                    Question {quizStep + 1} of {COUPLE_QUIZ.length}
+                  </Typography>
+                  <Typography variant="h5" sx={{ fontFamily: "'Outfit',sans-serif", color: "#374151", mb: 4, fontWeight: "bold" }}>
+                    {COUPLE_QUIZ[quizStep].q}
+                  </Typography>
+                  <Grid container spacing={2}>
+                    {COUPLE_QUIZ[quizStep].options.map((opt, i) => (
+                      <Grid item xs={12} sm={6} key={i}>
+                        <Button
+                          fullWidth
+                          variant="outlined"
+                          onClick={() => handleQuizAnswer(opt)}
+                          disabled={!!quizFeedback}
+                          sx={{
+                            p: 2, borderRadius: 3, borderColor: "rgba(233,30,99,0.3)", color: "#c2185b",
+                            fontFamily: "'Outfit',sans-serif", textTransform: "none", fontSize: "1.05rem",
+                            "&:hover": { bgcolor: "rgba(233,30,99,0.05)", borderColor: "#e91e63" }
+                          }}
+                        >
+                          {opt}
+                        </Button>
+                      </Grid>
+                    ))}
+                  </Grid>
+                  {quizFeedback && (
+                    <Typography sx={{ mt: 3, fontFamily: "'Caveat',cursive", fontSize: "1.5rem", color: "#d81b60", animation: "pulseText 0.5s ease" }}>
+                      {quizFeedback}
+                    </Typography>
+                  )}
+                </Box>
+              ) : (
+                <Box textAlign="center" sx={{ animation: "fadeInUp 0.5s ease" }}>
+                  <EmojiEventsIcon sx={{ fontSize: 60, color: "#ffd54f", mb: 2 }} />
+                  <Typography variant="h4" sx={{ fontFamily: "'Pacifico',cursive", color: "#d81b60", mb: 2 }}>
+                    Quiz Complete!
+                  </Typography>
+                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", fontSize: "1.2rem", color: "#4a4a4a" }}>
+                    You scored {quizScore} out of {COUPLE_QUIZ.length}.<br/>
+                    Regardless of the score, you win my heart every day. ❤️
+                  </Typography>
+                </Box>
+              )}
+            </Card>
+          </Box>
+        </Box>
+
+        {/* ── Personalized Awards ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 5 }}>
+            <EmojiEventsIcon sx={{ color: "white", fontSize: 30 }} />
+            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+              Personalized Awards 🏆
+            </Typography>
+          </Box>
+          <Grid container spacing={3} sx={{ maxWidth: 960, mx: "auto", px: { xs: 2, md: 0 }, alignItems: "stretch" }}>
+            {FUNNY_AWARDS.map((award, i) => (
+              <Grid item xs={12} sm={6} md={3} key={i}>
+                <Card sx={{
+                  height: "100%", p: 3, borderRadius: 5, textAlign: "center",
+                  display: "flex", flexDirection: "column", alignItems: "center",
+                  background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                  transition: "all 0.3s ease",
+                  "&:hover": { transform: "translateY(-8px)", boxShadow: "0 15px 40px rgba(255,213,79,0.3)" }
+                }}>
+                  <Box sx={{ mb: 2, p: 2, borderRadius: "50%", bgcolor: "rgba(0,0,0,0.03)" }}>
+                    {award.icon}
+                  </Box>
+                  <Typography variant="h6" fontWeight="bold" sx={{ fontFamily: "'Outfit',sans-serif", color: "#374151", mb: 1, fontSize: "1.1rem" }}>
+                    {award.title}
+                  </Typography>
+                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#616161", fontSize: "0.9rem", flexGrow: 1 }}>
+                    {award.reason}
                   </Typography>
                 </Card>
               </Grid>
@@ -1338,6 +1886,83 @@ export default function App() {
           </Box>
         </Box>
 
+        {/* ── "Open When..." Letters ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 2 }}>
+            <EmailIcon sx={{ color: "white", fontSize: 30 }} />
+            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+              "Open When..." Letters 💌
+            </Typography>
+          </Box>
+          <Typography align="center" sx={{ color: "rgba(255,255,255,0.8)", mb: 5, fontFamily: "'Outfit',sans-serif", fontSize: "1.05rem" }}>
+            Virtual envelopes for whatever you're feeling.
+          </Typography>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center", px: { xs: 2, md: 0 }, maxWidth: 1000, mx: "auto" }}>
+            {OPEN_WHEN_LETTERS.map((letter, idx) => (
+              <Button
+                key={idx}
+                onClick={() => setOpenWhenLetter(idx)}
+                sx={{
+                  borderRadius: 4, px: 3, py: 2, minWidth: { xs: "100%", sm: 220 },
+                  background: letter.bg, color: "#fff", fontWeight: "bold",
+                  fontFamily: "'Outfit',sans-serif", fontSize: "1rem", textTransform: "none",
+                  boxShadow: `0 10px 25px ${letter.color}55`,
+                  flexDirection: "column", gap: 1,
+                  transition: "all 0.3s ease",
+                  "&:hover": { transform: "translateY(-6px)", boxShadow: `0 15px 35px ${letter.color}88` },
+                }}
+              >
+                <Typography sx={{ fontSize: "2rem" }}>{letter.emoji}</Typography>
+                {letter.label}
+              </Button>
+            ))}
+          </Box>
+        </Box>
+
+        {/* ── Constellation Night Sky ── */}
+        <Box sx={{ py: 8, position: "relative", zIndex: 1, bgcolor: "#050014", borderRadius: 8, mx: { xs: 2, md: 4 }, my: 6, boxShadow: "0 20px 60px rgba(0,0,0,0.5)", overflow: "hidden" }}>
+          {/* Starry background effect */}
+          {[...Array(30)].map((_, i) => (
+            <Box key={i} sx={{
+              position: "absolute", width: Math.random() * 3 + 1, height: Math.random() * 3 + 1,
+              bgcolor: "white", borderRadius: "50%",
+              top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`,
+              opacity: Math.random() * 0.8 + 0.2, animation: `sparkle ${Math.random() * 3 + 2}s infinite alternate`
+            }} />
+          ))}
+          <Box textAlign="center" sx={{ position: "relative", zIndex: 2, px: 2 }}>
+            <NightsStayIcon sx={{ fontSize: 60, color: "#fff", mb: 2, opacity: 0.9 }} />
+            <Typography variant="h4" sx={{ fontFamily: "'Pacifico',cursive", color: "#fff", mb: 2 }}>
+              Under This Sky
+            </Typography>
+            <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.8)", fontSize: "1.2rem", maxWidth: 500, mx: "auto", lineHeight: 1.8 }}>
+              The sky looked exactly like this on the night my life changed forever. The universe aligned, and I found you. ✨
+            </Typography>
+          </Box>
+
+          {/* Scavenger Heart 5 */}
+          {!foundHearts.includes(5) && (
+            <IconButton
+              onClick={(e) => {
+                e.stopPropagation();
+                handleFindHeart(5);
+              }}
+              sx={{
+                position: "absolute",
+                bottom: 20,
+                right: 30,
+                color: "rgba(255, 255, 255, 0.25)",
+                zIndex: 3,
+                p: 0.5,
+                "&:hover": { color: "#ff4081", transform: "scale(1.3)" },
+                transition: "all 0.2s",
+              }}
+            >
+              <FavoriteIcon sx={{ fontSize: 16 }} />
+            </IconButton>
+          )}
+        </Box>
+
         {/* ── Future Dreams Timeline ── */}
         <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
           <Typography variant="h4" align="center" fontWeight="bold" color="white" mb={2} sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
@@ -1375,6 +2000,101 @@ export default function App() {
                 </Card>
               </Box>
             ))}
+          </Box>
+        </Box>
+
+        {/* ── Before & After Section ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
+            <AutoAwesomeIcon sx={{ color: "white", fontSize: 30 }} />
+            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+              The Impact of You ✨
+            </Typography>
+          </Box>
+          <Grid container spacing={4} sx={{ maxWidth: 800, mx: "auto", px: 2 }}>
+            <Grid item xs={12} sm={6}>
+              <Card sx={{ height: "100%", p: 4, borderRadius: 6, background: "rgba(255,255,255,0.85)", backdropFilter: "blur(10px)", textAlign: "center", border: "2px solid rgba(255,255,255,0.5)" }}>
+                <Typography sx={{ fontFamily: "'Pacifico',cursive", fontSize: "1.8rem", color: "#757575", mb: 2 }}>Before You</Typography>
+                <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#616161", lineHeight: 1.8 }}>
+                  Life was okay, but it felt like a black and white movie. I was just going through the motions, waiting for something I couldn't even name.
+                </Typography>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Card sx={{ height: "100%", p: 4, borderRadius: 6, background: "linear-gradient(135deg, rgba(255,64,129,0.9), rgba(186,104,200,0.9))", color: "white", textAlign: "center", boxShadow: "0 15px 35px rgba(233,30,99,0.3)" }}>
+                <Typography sx={{ fontFamily: "'Pacifico',cursive", fontSize: "1.8rem", color: "#fff", mb: 2 }}>After You</Typography>
+                <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.9)", lineHeight: 1.8 }}>
+                  Everything is in full color. You brought laughter, purpose, and a warmth I didn't know existed. You didn't just change my days; you changed my heart.
+                </Typography>
+              </Card>
+            </Grid>
+          </Grid>
+        </Box>
+
+        {/* ── Alternate Universe Section ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1, textAlign: "center" }}>
+          <Box sx={{ maxWidth: 600, mx: "auto", px: 2 }}>
+            <Typography variant="h5" sx={{ fontFamily: "'Pacifico',cursive", color: "rgba(255,255,255,0.6)", mb: 2 }}>What if we never met?</Typography>
+            <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.5)", lineHeight: 2, fontStyle: "italic", mb: 3 }}>
+              Maybe we'd pass each other at a station.<br/>
+              Maybe we'd sit in the same café without noticing.<br/>
+              Maybe we'd never know what we were missing...
+            </Typography>
+            <Typography variant="h4" sx={{ fontFamily: "'Caveat',cursive", color: "#ff4081", fontWeight: "bold", mt: 4, textShadow: "0 0 10px rgba(255,64,129,0.5)" }}>
+              Thankfully, we did. ❤️
+            </Typography>
+          </Box>
+        </Box>
+
+        {/* ── Birthday Time Capsule ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Box sx={{ maxWidth: 500, mx: "auto", px: 2 }}>
+            <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)", textAlign: "center" }}>
+              <LockIcon sx={{ fontSize: 40, color: "#9575cd", mb: 1 }} />
+              <Typography variant="h5" fontWeight="bold" sx={{ fontFamily: "'Outfit',sans-serif", color: "#5e35b1", mb: 2 }}>
+                Birthday Time Capsule
+              </Typography>
+              <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#616161", mb: 3, fontSize: "0.95rem" }}>
+                Write a message to your future self. I'll keep it locked away safely until your next birthday.
+              </Typography>
+              {capsuleSaved ? (
+                <Box sx={{ p: 2, bgcolor: "rgba(149,117,205,0.1)", borderRadius: 3, border: "1px dashed #9575cd" }}>
+                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#5e35b1", fontWeight: "bold" }}>
+                    🔒 Sealed until next year!
+                  </Typography>
+                </Box>
+              ) : (
+                <>
+                  <TextField
+                    multiline rows={3} fullWidth
+                    placeholder="Dear future Jessy..."
+                    value={capsuleMessage}
+                    onChange={(e) => setCapsuleMessage(e.target.value)}
+                    sx={{ mb: 2, bgcolor: "rgba(255,255,255,0.5)", borderRadius: 2 }}
+                  />
+                  <Button variant="contained" onClick={saveCapsule} sx={{ bgcolor: "#5e35b1", "&:hover": { bgcolor: "#4527a0" }, borderRadius: 20, px: 4 }}>
+                    Seal Capsule
+                  </Button>
+                </>
+              )}
+            </Card>
+          </Box>
+        </Box>
+
+        {/* ── Genuine Video Placeholder ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1, textAlign: "center" }}>
+          <Typography variant="h4" sx={{ fontFamily: "'Pacifico',cursive", color: "white", mb: 3, textShadow: "0 2px 10px rgba(0,0,0,0.3)" }}>
+            A Message From Me to You 🎬
+          </Typography>
+          <Box sx={{ maxWidth: 640, mx: "auto", px: 2 }}>
+            <Card sx={{ bgcolor: "black", borderRadius: 4, overflow: "hidden", position: "relative", paddingTop: "56.25%", border: "2px solid rgba(255,255,255,0.2)" }}>
+              {/* This is a placeholder for the genuine video. Replace src below. */}
+              <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
+                <VideocamIcon sx={{ color: "rgba(255,255,255,0.3)", fontSize: 60, mb: 2 }} />
+                <Typography sx={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Outfit',sans-serif" }}>Your Genuine Video Goes Here</Typography>
+              </Box>
+              {/* <video src="/genuine-video.mp4" controls style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} /> */}
+            </Card>
           </Box>
         </Box>
 
@@ -1452,7 +2172,7 @@ export default function App() {
             Scroll down... one last thing awaits
           </Typography>
           <Button
-            onClick={() => setOpenFinalSurprise(true)}
+            onClick={triggerHeartbeat}
             variant="outlined"
             startIcon={<LockIcon />}
             sx={{
@@ -1861,79 +2581,155 @@ export default function App() {
         )}
       </Dialog>
 
-      {/* Secret Final Surprise Dialog */}
+      {/* Heartbeat & End Credits Dialog */}
       <Dialog
-        open={openFinalSurprise}
-        onClose={() => setOpenFinalSurprise(false)}
+        open={heartbeatActive}
         fullScreen
         slotProps={{
           paper: {
             sx: {
-              background: "linear-gradient(135deg,#0a0015 0%,#1a0030 40%,#0d001a 100%)",
+              background: "#000",
               display: "flex", alignItems: "center", justifyContent: "center",
               overflow: "hidden", position: "relative",
             },
           },
         }}
       >
-        {openFinalSurprise && <Confetti />}
-        <IconButton
-          onClick={() => setOpenFinalSurprise(false)}
-          sx={{ position: "absolute", top: 20, right: 20, color: "rgba(255,255,255,0.6)", "&:hover": { color: "#fff" }, zIndex: 10 }}
-        >
+        <IconButton onClick={() => setHeartbeatActive(false)} sx={{ position: "absolute", top: 20, right: 20, color: "rgba(255,255,255,0.3)", "&:hover": { color: "#fff" }, zIndex: 10 }}>
           <CloseIcon sx={{ fontSize: 32 }} />
         </IconButton>
 
-        {/* Floating hearts background */}
-        {[...Array(12)].map((_, i) => (
-          <FavoriteIcon key={i} sx={{
-            position: "absolute",
-            color: `rgba(255,64,129,${0.05 + (i % 4) * 0.04})`,
-            fontSize: `${40 + (i * 20) % 80}px`,
-            left: `${(i * 17 + 5) % 95}%`,
-            top: `${(i * 13 + 8) % 90}%`,
-            animation: `float ${8 + i * 1.5}s ease-in-out infinite`,
-            animationDelay: `${i * 0.6}s`,
-            pointerEvents: "none",
-          }} />
-        ))}
+        {heartbeatStage === 0 && (
+          <FavoriteIcon sx={{ fontSize: 100, color: "#ff4081", animation: "pulseHeart 1.5s infinite" }} />
+        )}
 
-        <Box sx={{ textAlign: "center", px: { xs: 3, md: 8 }, position: "relative", zIndex: 1, maxWidth: 780, animation: "fadeInUp 1s cubic-bezier(0.19,1,0.22,1)" }}>
-          <FavoriteIcon sx={{ fontSize: { xs: 56, md: 80 }, color: "#ff4081", mb: 3, filter: "drop-shadow(0 0 30px rgba(255,64,129,0.8))", animation: "heartbeat 1.5s infinite" }} />
-
-          <Typography sx={{
-            fontFamily: "'Pacifico',cursive",
-            fontSize: { xs: "1.6rem", md: "2.6rem" },
-            color: "#ffffff",
-            lineHeight: 1.5, mb: 4,
-            textShadow: "0 0 40px rgba(255,64,129,0.5)",
-          }}>
-            "Everything on this website is made of code.
+        {heartbeatStage === 1 && (
+          <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#fff", fontSize: { xs: "1.5rem", md: "2.5rem" }, textAlign: "center", animation: "fadeInUp 2s ease", px: 4 }}>
+            Of all the people in this world... I found you. ❤️
           </Typography>
-          <Typography sx={{
-            fontFamily: "'Pacifico',cursive",
-            fontSize: { xs: "1.6rem", md: "2.6rem" },
-            background: "linear-gradient(90deg,#ff4081,#ba68c8,#ff80ab)",
-            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-            lineHeight: 1.5, mb: 6,
-          }}>
-            But every line of code exists because of you."
-          </Typography>
+        )}
 
-          <Box sx={{ width: 80, height: 2, background: "linear-gradient(90deg,transparent,#ff4081,transparent)", mx: "auto", mb: 5 }} />
+        {heartbeatStage === 2 && (
+          <Box sx={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", animation: "fadeInUp 3s ease" }}>
+            <Box textAlign="center">
+              <Typography sx={{ fontFamily: "'Pacifico',cursive", color: "#ff4081", fontSize: "3rem", mb: 6 }}>
+                Jessy's Birthday Project
+              </Typography>
+              <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.7)", fontSize: "1.2rem", mb: 2, letterSpacing: "2px" }}>
+                PRODUCED & DIRECTED BY
+              </Typography>
+              <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#fff", fontSize: "1.8rem", mb: 5 }}>
+                Prasad
+              </Typography>
 
-          <Typography sx={{
-            fontFamily: "'Caveat',cursive", fontSize: { xs: "2rem", md: "2.8rem" },
-            color: "rgba(255,255,255,0.9)", fontWeight: 700,
-            textShadow: "0 0 20px rgba(255,64,129,0.4)",
-          }}>
-            Happy Birthday, Jessy. ❤️
-          </Typography>
-          <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.5)", mt: 2, fontSize: "1rem" }}>
-            — Yours forever, Prasad
+              <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.7)", fontSize: "1.2rem", mb: 2, letterSpacing: "2px" }}>
+                STARRING
+              </Typography>
+              <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#fff", fontSize: "1.8rem", mb: 5 }}>
+                Jessy ❤️
+              </Typography>
+
+              <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.7)", fontSize: "1.2rem", mb: 2, letterSpacing: "2px" }}>
+                SOUNDTRACK
+              </Typography>
+              <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#fff", fontSize: "1.8rem", mb: 6 }}>
+                Our Love
+              </Typography>
+
+              <Typography sx={{ fontFamily: "'Caveat',cursive", color: "#ff80ab", fontSize: "2rem", mt: 6 }}>
+                Thanks for watching... see you in reality. ✨
+              </Typography>
+            </Box>
+          </Box>
+        )}
+      </Dialog>
+
+      {/* ── Hunt Achievement Dialog ── */}
+      <Dialog open={huntDialogOpen} onClose={() => setHuntDialogOpen(false)} PaperProps={{ sx: { borderRadius: 6, p: 4, textAlign: "center", maxWidth: 400 } }}>
+        <EmojiEventsIcon sx={{ fontSize: 60, color: "#ffd54f", mx: "auto", mb: 2 }} />
+        <Typography variant="h5" sx={{ fontFamily: "'Outfit',sans-serif", fontWeight: "bold", color: "#c2185b", mb: 1 }}>
+          Achievement Unlocked! ❤️
+        </Typography>
+        <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#616161", mb: 3 }}>
+          You found every hidden piece of my heart. But the truth is, you've had it all along.
+        </Typography>
+        <Button variant="contained" onClick={() => setHuntDialogOpen(false)} sx={{ bgcolor: "#e91e63", borderRadius: 20 }}>
+          I Love You Too
+        </Button>
+      </Dialog>
+
+      {/* ── Jar Note Dialog ── */}
+      <Dialog open={jarDialogOpen} onClose={() => setJarDialogOpen(false)} PaperProps={{ sx: { borderRadius: 6, p: 5, textAlign: "center", maxWidth: 400, background: "linear-gradient(135deg, #fff, #ffebee)" } }}>
+        <Typography sx={{ fontSize: 50, mb: 2, animation: "float 3s ease-in-out infinite" }}>💌</Typography>
+        <Typography sx={{ fontFamily: "'Caveat',cursive", fontSize: "2rem", color: "#d81b60", fontWeight: "bold", lineHeight: 1.5 }}>
+          "{currentNote}"
+        </Typography>
+        <Button variant="outlined" onClick={() => setJarDialogOpen(false)} sx={{ mt: 4, borderRadius: 20, color: "#d81b60", borderColor: "#d81b60" }}>
+          Fold Note Back
+        </Button>
+      </Dialog>
+
+      {/* ── Open When Letter Dialog ── */}
+      <Dialog open={openWhenLetter !== null} onClose={() => setOpenWhenLetter(null)} PaperProps={{ sx: { borderRadius: 6, p: 4, maxWidth: 450, background: openWhenLetter !== null ? OPEN_WHEN_LETTERS[openWhenLetter].bg : "#fff", color: "#fff" } }}>
+        {openWhenLetter !== null && (
+          <Box textAlign="center">
+            <Typography sx={{ fontSize: 60, mb: 2 }}>{OPEN_WHEN_LETTERS[openWhenLetter].emoji}</Typography>
+            <Typography variant="h5" sx={{ fontFamily: "'Outfit',sans-serif", fontWeight: "bold", mb: 3 }}>
+              {OPEN_WHEN_LETTERS[openWhenLetter].label}
+            </Typography>
+            <Box sx={{ bgcolor: "rgba(255,255,255,0.15)", p: 3, borderRadius: 4, backdropFilter: "blur(5px)" }}>
+              <Typography sx={{ fontFamily: "'Outfit',sans-serif", fontSize: "1.15rem", lineHeight: 1.8 }}>
+                {OPEN_WHEN_LETTERS[openWhenLetter].content}
+              </Typography>
+            </Box>
+            <Button variant="contained" onClick={() => setOpenWhenLetter(null)} sx={{ mt: 4, bgcolor: "rgba(255,255,255,0.3)", color: "#fff", borderRadius: 20, "&:hover": { bgcolor: "rgba(255,255,255,0.5)" } }}>
+              Close Envelope
+            </Button>
+          </Box>
+        )}
+      </Dialog>
+
+      {/* Scavenger Hunt Floating Progress */}
+      {foundHearts.length > 0 && (
+        <Box
+          sx={{
+            position: "fixed",
+            bottom: 20,
+            left: 20,
+            zIndex: 1000,
+            background: "rgba(255, 255, 255, 0.75)",
+            backdropFilter: "blur(12px)",
+            border: "1.5px solid rgba(255, 255, 255, 0.6)",
+            borderRadius: 50,
+            px: 2.5,
+            py: 1.2,
+            boxShadow: "0 10px 30px rgba(233, 30, 99, 0.15)",
+            display: "flex",
+            alignItems: "center",
+            gap: 1.5,
+            animation: "fadeInUp 0.5s ease",
+          }}
+        >
+          <FavoriteIcon
+            sx={{
+              color: foundHearts.length === totalHearts ? "#e91e63" : "#ff80ab",
+              animation: foundHearts.length === totalHearts ? "heartbeat 1s infinite" : "none"
+            }}
+          />
+          <Typography
+            variant="body2"
+            fontWeight="bold"
+            sx={{
+              color: "#c2185b",
+              fontFamily: "'Outfit', sans-serif",
+            }}
+          >
+            {foundHearts.length === totalHearts
+              ? "All Hearts Found! ❤️"
+              : `Hearts Found: ${foundHearts.length} / ${totalHearts}`}
           </Typography>
         </Box>
-      </Dialog>
+      )}
 
       {/* Embedded Custom CSS Styles */}
       <style>
