@@ -10,6 +10,7 @@ import {
   Dialog,
   DialogContent,
   IconButton,
+  LinearProgress,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CloseIcon from "@mui/icons-material/Close";
@@ -19,6 +20,16 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import CakeIcon from "@mui/icons-material/Cake";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import MicIcon from "@mui/icons-material/Mic";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import LocalCafeIcon from "@mui/icons-material/LocalCafe";
+import WbTwilightIcon from "@mui/icons-material/WbTwilight";
+import HomeIcon from "@mui/icons-material/Home";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import PauseIcon from "@mui/icons-material/Pause";
+import LockIcon from "@mui/icons-material/Lock";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 const CONFETTI_COLORS = ["#ff4081", "#ff80ab", "#ffd54f", "#4fc3f7", "#81c784", "#ba68c8"];
 const CONFETTI_PIECES = Array.from({ length: 100 }).map((_, i) => ({
@@ -41,6 +52,76 @@ const DECORATORS = Array.from({ length: 25 }).map((_, i) => ({
   duration: 8 + Math.random() * 10,
   delay: Math.random() * 5,
 }));
+
+// Relationship start date: Feb 19, 2025
+const RELATIONSHIP_START = new Date("2025-02-19T00:00:00");
+
+const MEMORIES = [
+  {
+    img: "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM.jpeg",
+    date: "Feb 19, 2025",
+    story: "The day everything changed. One message turned into a whole new world.",
+    joke: "You still pretend you weren't nervous 😏",
+  },
+  {
+    img: "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM (2).jpeg",
+    date: "March 2025",
+    story: "Late nights, endless calls, and realizing this was something truly special.",
+    joke: "Who fell asleep first? Not saying. 😴",
+  },
+  {
+    img: "/image/WhatsApp Image 2026-06-13 at 12.19.19 AM.jpeg",
+    date: "April 2025",
+    story: "Even distance couldn't dim the warmth. Every message felt like a hug.",
+    joke: "Your read receipts gave me mini heart attacks 😂",
+  },
+  {
+    img: "/image/WhatsApp Image 2026-06-13 at 12.19.20 AM.jpeg",
+    date: "May 2025",
+    story: "The moment I knew — you are my favorite part of every single day.",
+    joke: "You denied it. Twice. Then smiled. 🥺",
+  },
+  {
+    img: "/image/WhatsApp Image 2026-06-13 at 12.29.00 AM.jpeg",
+    date: "June 2025",
+    story: "Sunshine, laughter, and you. My definition of a perfect day.",
+    joke: "The selfie war was totally your fault 📸",
+  },
+  {
+    img: "/image/WhatsApp Image 2026-06-13 at 12.29.00 AM (1).jpeg",
+    date: "Aug 2025",
+    story: "We've been through storms together, and I'd choose them all again with you.",
+    joke: "You win every argument. I'll admit it now. 🏳️",
+  },
+  {
+    img: "/image/WhatsApp Image 2026-06-13 at 12.29.01 AM.jpeg",
+    date: "Today ❤️",
+    story: "Happy Birthday, my love. Every memory leads right back to you.",
+    joke: "You're stuck with me. No refunds. 😘",
+  },
+];
+
+const WHY_CARDS = [
+  { emoji: "🥰", title: "Your Kind Heart", text: "You care deeply for everyone around you, even when they don't deserve it. That gentle soul of yours is one of the most beautiful things I've ever known." },
+  { emoji: "😊", title: "Your Infectious Smile", text: "No matter how dark my day gets, one smile from you lights everything up instantly. I could stare at it forever and never get tired." },
+  { emoji: "🤝", title: "Your Absolute Trust", text: "The way you feel safe being yourself around me — no masks, no filters — is the greatest gift you've ever given me. I'll always protect that trust." },
+  { emoji: "⚡", title: "Your Tiny Storms", text: "Even when you're short-tempered, it's honestly the cutest thing ever. Behind every tiny storm is the most tender heart I've ever seen." },
+  { emoji: "💫", title: "Your Quiet Strength", text: "You handle so much silently, never asking for credit. That quiet, steady strength inspires me every single day." },
+  { emoji: "🌹", title: "Just Being You", text: "The way you laugh, talk, think, dream — every unique little thing about you is exactly why I choose you, today and every day." },
+];
+
+const VOICE_NOTES = [
+  { label: "Open when you're sad 🥺", color: "#5c6bc0", gradient: "linear-gradient(135deg,#5c6bc0,#9575cd)", src: null, message: "Hey... I know things feel heavy right now. But I need you to know — you are not alone. Not even for a second. I'm right here, always. You're stronger than you think, and this feeling will pass. I love you so much. 💙" },
+  { label: "Open when you miss me 💖", color: "#e91e63", gradient: "linear-gradient(135deg,#e91e63,#f48fb1)", src: null, message: "Missing me? Good. That means something real is there. 😄 Close your eyes — I'm closer than you think. Every memory we made is just proof that the best ones are still ahead. I miss you too, always. ❤️" },
+  { label: "Open when you need a smile 😊", color: "#f57c00", gradient: "linear-gradient(135deg,#f57c00,#ffb74d)", src: null, message: "Okay, stop whatever you're doing and just smile. Right now. Yes, really. 😄 Because you have the most beautiful smile in the world and it deserves to be seen. Everything's going to be okay. I promise. 🌟" },
+];
+
+const FUTURE_DREAMS = [
+  { icon: <FlightTakeoffIcon sx={{ fontSize: 30, color: "#ff4081" }} />, title: "First Trip Together ✈️", desc: "Exploring new horizons, hand in hand. Wherever we go, it becomes our favorite place." },
+  { icon: <LocalCafeIcon sx={{ fontSize: 30, color: "#ff4081" }} />, title: "Favorite Café Date ☕", desc: "Sipping coffee, sharing stories, and laughing until our cheeks hurt." },
+  { icon: <WbTwilightIcon sx={{ fontSize: 30, color: "#ff4081" }} />, title: "Watching Sunsets Together 🌅", desc: "Quiet, peaceful moments — just us, watching the sky turn golden." },
+  { icon: <HomeIcon sx={{ fontSize: 30, color: "#ff4081" }} />, title: "Our Future Goals 🏡", desc: "Building a cozy home filled with warmth, laughter, and endless love." },
+];
 
 // Confetti Component for rain effect
 function Confetti() {
@@ -143,6 +224,93 @@ export default function App() {
   const videoRef = useRef(null);
   const letterAudioRef = useRef(null);
   const surpriseAudioRef = useRef(null);
+
+  // Relationship Counter
+  const [timeElapsed, setTimeElapsed] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  useEffect(() => {
+    const tick = () => {
+      const now = new Date();
+      const diff = Math.floor((now - RELATIONSHIP_START) / 1000);
+      setTimeElapsed({
+        days: Math.floor(diff / 86400),
+        hours: Math.floor((diff % 86400) / 3600),
+        minutes: Math.floor((diff % 3600) / 60),
+        seconds: diff % 60,
+      });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  // Random Memory
+  const [currentMemory, setCurrentMemory] = useState(null);
+  const pickRandomMemory = () => {
+    const idx = Math.floor(Math.random() * MEMORIES.length);
+    setCurrentMemory(MEMORIES[idx]);
+  };
+  const closeMemory = () => setCurrentMemory(null);
+
+  // Voice Notes
+  const [openVoiceNote, setOpenVoiceNote] = useState(null); // index 0/1/2
+  const voiceNoteAudioRef = useRef(null);
+  const [voiceNoteWasMusicPlaying, setVoiceNoteWasMusicPlaying] = useState(false);
+  const [voiceNotePlaying, setVoiceNotePlaying] = useState(false);
+  const [voiceNoteProgress, setVoiceNoteProgress] = useState(0);
+
+  const openVoiceNoteDialog = (idx) => {
+    if (isPlaying) {
+      setVoiceNoteWasMusicPlaying(true);
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      setVoiceNoteWasMusicPlaying(false);
+    }
+    setVoiceNotePlaying(false);
+    setVoiceNoteProgress(0);
+    setOpenVoiceNote(idx);
+  };
+
+  const closeVoiceNoteDialog = () => {
+    if (voiceNoteAudioRef.current) {
+      voiceNoteAudioRef.current.pause();
+    }
+    if (voiceNoteWasMusicPlaying) {
+      audioRef.current.play().catch(console.log);
+      setIsPlaying(true);
+    }
+    setVoiceNoteWasMusicPlaying(false);
+    setVoiceNotePlaying(false);
+    setVoiceNoteProgress(0);
+    setOpenVoiceNote(null);
+  };
+
+  const toggleVoiceNote = () => {
+    const audio = voiceNoteAudioRef.current;
+    if (!audio) return;
+    if (voiceNotePlaying) {
+      audio.pause();
+      setVoiceNotePlaying(false);
+    } else {
+      audio.play().catch(console.log);
+      setVoiceNotePlaying(true);
+    }
+  };
+
+  const handleVoiceNoteTimeUpdate = () => {
+    const audio = voiceNoteAudioRef.current;
+    if (audio && audio.duration) {
+      setVoiceNoteProgress((audio.currentTime / audio.duration) * 100);
+    }
+  };
+
+  const handleVoiceNoteEnded = () => {
+    setVoiceNotePlaying(false);
+    setVoiceNoteProgress(0);
+  };
+
+  // Secret Final Surprise
+  const [openFinalSurprise, setOpenFinalSurprise] = useState(false);
 
   const handleVideoPlay = () => {
     if (isPlaying) {
@@ -1011,6 +1179,205 @@ export default function App() {
           </Grid>
         </Box>
 
+
+        {/* ── Relationship Counter ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
+            <AccessTimeIcon sx={{ color: "white", fontSize: 30 }} />
+            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+              We've Been Together For...
+            </Typography>
+          </Box>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center" }}>
+            {[
+              { label: "Days", value: timeElapsed.days },
+              { label: "Hours", value: timeElapsed.hours },
+              { label: "Minutes", value: timeElapsed.minutes },
+              { label: "Seconds", value: timeElapsed.seconds },
+            ].map((item) => (
+              <Box key={item.label} sx={{ textAlign: "center" }}>
+                <Card sx={{
+                  minWidth: { xs: 130, md: 160 }, py: 3, px: 3, borderRadius: 5,
+                  background: "rgba(255,255,255,0.15)", backdropFilter: "blur(20px)",
+                  border: "1.5px solid rgba(255,255,255,0.4)",
+                  boxShadow: "0 12px 35px rgba(255,64,129,0.2)",
+                  transition: "transform 0.3s ease",
+                  "&:hover": { transform: "translateY(-6px) scale(1.04)" },
+                }}>
+                  <Typography sx={{ fontFamily: "'Pacifico', cursive", fontSize: { xs: "2.8rem", md: "3.5rem" }, color: "#fff", lineHeight: 1, fontWeight: 700, textShadow: "0 2px 10px rgba(255,64,129,0.4)" }}>
+                    {String(item.value).padStart(2, "0")}
+                  </Typography>
+                  <Typography sx={{ fontFamily: "'Outfit', sans-serif", color: "rgba(255,255,255,0.85)", fontSize: "0.9rem", fontWeight: 600, letterSpacing: "2px", textTransform: "uppercase", mt: 1 }}>
+                    {item.label}
+                  </Typography>
+                </Card>
+              </Box>
+            ))}
+          </Box>
+          <Typography align="center" sx={{ color: "rgba(255,255,255,0.7)", mt: 3, fontFamily: "'Outfit', sans-serif", fontSize: "1rem" }}>
+            Since February 19, 2025 ❤️
+          </Typography>
+        </Box>
+
+        {/* ── Random Memory Generator ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Typography variant="h4" align="center" color="white" fontWeight="bold" mb={4} sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+            🎲 Random Memory Generator
+          </Typography>
+          <Box textAlign="center" mb={5}>
+            <Button
+              variant="contained"
+              size="large"
+              onClick={pickRandomMemory}
+              startIcon={<AutoAwesomeIcon />}
+              sx={{
+                borderRadius: 50, px: 5, py: 1.8, fontSize: "1.15rem", fontWeight: "bold",
+                background: "linear-gradient(45deg,#ffd54f,#ffb300,#ff8f00)",
+                color: "#3e2723", boxShadow: "0 10px 30px rgba(255,213,79,0.45)",
+                fontFamily: "'Outfit', sans-serif",
+                "&:hover": { transform: "scale(1.06) translateY(-3px)", boxShadow: "0 15px 40px rgba(255,213,79,0.6)" },
+                transition: "all 0.3s cubic-bezier(0.175,0.885,0.32,1.275)",
+              }}
+            >
+              ✨ Give Me A Random Memory
+            </Button>
+          </Box>
+
+          {currentMemory && (
+            <Box sx={{ maxWidth: 600, mx: "auto", px: { xs: 2, md: 0 }, animation: "fadeInUp 0.6s cubic-bezier(0.19,1,0.22,1)" }}>
+              <Card sx={{
+                borderRadius: 6, overflow: "hidden", boxShadow: "0 25px 60px rgba(255,64,129,0.25)",
+                background: "rgba(255,255,255,0.96)", border: "2px solid rgba(255,64,129,0.15)",
+                position: "relative",
+              }}>
+                <IconButton onClick={closeMemory} sx={{ position: "absolute", top: 12, right: 12, zIndex: 2, bgcolor: "rgba(255,255,255,0.8)", "&:hover": { bgcolor: "white" } }}>
+                  <CloseIcon />
+                </IconButton>
+                <Box component="img" src={currentMemory.img} alt="memory" sx={{ width: "100%", height: 280, objectFit: "cover" }} />
+                <Box sx={{ p: 3 }}>
+                  <Box sx={{ display: "inline-block", bgcolor: "#ff4081", color: "#fff", borderRadius: 20, px: 2, py: 0.4, fontSize: "0.8rem", fontWeight: "bold", fontFamily: "'Outfit',sans-serif", mb: 2 }}>
+                    {currentMemory.date}
+                  </Box>
+                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", fontSize: "1.1rem", color: "#374151", lineHeight: 1.8, mb: 2 }}>
+                    {currentMemory.story}
+                  </Typography>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1, bgcolor: "rgba(255,64,129,0.07)", borderRadius: 3, px: 2, py: 1.2 }}>
+                    <Typography sx={{ fontSize: "1.4rem" }}>😄</Typography>
+                    <Typography sx={{ fontFamily: "'Caveat',cursive", fontSize: "1.3rem", color: "#d81b60", fontWeight: 700 }}>
+                      Inside joke: {currentMemory.joke}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Card>
+            </Box>
+          )}
+        </Box>
+
+        {/* ── Why I Choose You ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 5 }}>
+            <FavoriteIcon sx={{ color: "white", fontSize: 30 }} />
+            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+              Why I Choose You ❤️
+            </Typography>
+          </Box>
+          <Grid container spacing={3} sx={{ maxWidth: 960, mx: "auto", px: { xs: 2, md: 0 } }}>
+            {WHY_CARDS.map((card, i) => (
+              <Grid item xs={12} sm={6} md={4} key={i}>
+                <Card sx={{
+                  height: "100%", p: 3.5, borderRadius: 5, textAlign: "center",
+                  background: "rgba(255,255,255,0.88)", backdropFilter: "blur(16px)",
+                  border: "1.5px solid rgba(255,255,255,0.6)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                  transition: "all 0.4s cubic-bezier(0.175,0.885,0.32,1.275)",
+                  "&:hover": { transform: "translateY(-10px) scale(1.03)", boxShadow: "0 25px 50px rgba(255,64,129,0.2)", border: "1.5px solid rgba(255,64,129,0.25)" },
+                }}>
+                  <Typography sx={{ fontSize: "3rem", mb: 1.5 }}>{card.emoji}</Typography>
+                  <Typography variant="h6" fontWeight="bold" sx={{ fontFamily: "'Outfit',sans-serif", color: "#c2185b", mb: 1.5, fontSize: "1.15rem" }}>
+                    {card.title}
+                  </Typography>
+                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#4a4a4a", lineHeight: 1.8, fontSize: "0.95rem" }}>
+                    {card.text}
+                  </Typography>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
+        {/* ── Hidden Voice Notes ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 2 }}>
+            <MicIcon sx={{ color: "white", fontSize: 30 }} />
+            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+              Hidden Voice Notes 🎤
+            </Typography>
+          </Box>
+          <Typography align="center" sx={{ color: "rgba(255,255,255,0.8)", mb: 5, fontFamily: "'Outfit',sans-serif", fontSize: "1.05rem" }}>
+            Special messages, just for you 💌
+          </Typography>
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center", px: { xs: 2, md: 0 } }}>
+            {VOICE_NOTES.map((note, idx) => (
+              <Button
+                key={idx}
+                onClick={() => openVoiceNoteDialog(idx)}
+                sx={{
+                  borderRadius: 4, px: 4, py: 3, minWidth: { xs: "100%", sm: 280 }, maxWidth: 320,
+                  background: note.gradient, color: "#fff", fontWeight: "bold",
+                  fontFamily: "'Outfit',sans-serif", fontSize: "1.05rem",
+                  boxShadow: `0 12px 35px ${note.color}55`,
+                  flexDirection: "column", gap: 1,
+                  transition: "all 0.35s cubic-bezier(0.175,0.885,0.32,1.275)",
+                  "&:hover": { transform: "translateY(-6px) scale(1.04)", boxShadow: `0 20px 45px ${note.color}88` },
+                }}
+              >
+                <MicIcon sx={{ fontSize: 32 }} />
+                {note.label}
+              </Button>
+            ))}
+          </Box>
+        </Box>
+
+        {/* ── Future Dreams Timeline ── */}
+        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
+          <Typography variant="h4" align="center" fontWeight="bold" color="white" mb={2} sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+            Coming Soon ❤️
+          </Typography>
+          <Typography align="center" sx={{ color: "rgba(255,255,255,0.8)", mb: 6, fontFamily: "'Outfit',sans-serif", fontSize: "1.05rem" }}>
+            Our future dreams, waiting to be lived ✨
+          </Typography>
+          <Box sx={{ maxWidth: 700, mx: "auto", px: { xs: 2, md: 0 }, position: "relative" }}>
+            {/* vertical line */}
+            <Box sx={{ position: "absolute", left: { xs: 28, md: 36 }, top: 0, bottom: 0, width: 3, background: "linear-gradient(to bottom, #ff4081, #ba68c8, #5c6bc0)", borderRadius: 10, opacity: 0.5 }} />
+            {FUTURE_DREAMS.map((dream, i) => (
+              <Box key={i} sx={{ display: "flex", gap: 3, mb: 4, alignItems: "flex-start", position: "relative" }}>
+                <Box sx={{
+                  minWidth: 56, height: 56, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
+                  background: "rgba(255,255,255,0.9)", boxShadow: "0 8px 24px rgba(255,64,129,0.25)",
+                  border: "2.5px solid rgba(255,64,129,0.3)", zIndex: 1, flexShrink: 0,
+                }}>
+                  {dream.icon}
+                </Box>
+                <Card sx={{
+                  flex: 1, p: 3, borderRadius: 4,
+                  background: "rgba(255,255,255,0.88)", backdropFilter: "blur(12px)",
+                  border: "1.5px solid rgba(255,255,255,0.6)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.07)",
+                  transition: "all 0.35s ease",
+                  "&:hover": { transform: "translateX(6px)", boxShadow: "0 14px 36px rgba(255,64,129,0.18)" },
+                }}>
+                  <Typography fontWeight="bold" sx={{ fontFamily: "'Outfit',sans-serif", color: "#c2185b", mb: 0.8, fontSize: "1.1rem" }}>
+                    {dream.title}
+                  </Typography>
+                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#4a4a4a", lineHeight: 1.8, fontSize: "0.95rem" }}>
+                    {dream.desc}
+                  </Typography>
+                </Card>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+
         {/* Final Surprise Button Section */}
         <Box textAlign="center" sx={{ py: 8, position: "relative", zIndex: 1 }}>
           <Typography
@@ -1078,7 +1445,32 @@ export default function App() {
             </Button>
           </Box>
         </Box>
+
+        {/* ── Secret Final Surprise ── */}
+        <Box textAlign="center" sx={{ py: 6, pb: 10, position: "relative", zIndex: 1 }}>
+          <Typography sx={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Outfit',sans-serif", fontSize: "0.9rem", mb: 3, letterSpacing: "2px", textTransform: "uppercase" }}>
+            Scroll down... one last thing awaits
+          </Typography>
+          <Button
+            onClick={() => setOpenFinalSurprise(true)}
+            variant="outlined"
+            startIcon={<LockIcon />}
+            sx={{
+              borderRadius: 50, px: 5, py: 1.8, fontSize: "1.1rem", fontWeight: "bold",
+              borderColor: "rgba(255,255,255,0.4)", color: "rgba(255,255,255,0.85)",
+              fontFamily: "'Outfit',sans-serif",
+              backdropFilter: "blur(10px)",
+              background: "rgba(255,255,255,0.08)",
+              animation: "heartbeat 3s infinite",
+              "&:hover": { borderColor: "#ff4081", color: "#fff", background: "rgba(255,64,129,0.15)", transform: "scale(1.05)" },
+              transition: "all 0.3s ease",
+            }}
+          >
+            One Last Surprise... 🔒
+          </Button>
+        </Box>
       </Container>
+
 
       {/* Surprise Popup Slideshow Dialog */}
       <Dialog
@@ -1372,6 +1764,177 @@ export default function App() {
         </DialogContent>
       </Dialog>
 
+      {/* Voice Note Dialog */}
+      <Dialog
+        open={openVoiceNote !== null}
+        onClose={closeVoiceNoteDialog}
+        slotProps={{
+          paper: {
+            sx: {
+              borderRadius: 6, p: 0, maxWidth: 420, width: "90%",
+              overflow: "hidden", boxShadow: "0 30px 80px rgba(0,0,0,0.4)",
+            },
+          },
+        }}
+      >
+        {openVoiceNote !== null && (
+          <>
+            {/* Header gradient */}
+            <Box sx={{
+              background: VOICE_NOTES[openVoiceNote].gradient,
+              py: 4, px: 3, textAlign: "center", position: "relative",
+            }}>
+              <IconButton onClick={closeVoiceNoteDialog} sx={{ position: "absolute", top: 10, right: 10, color: "rgba(255,255,255,0.8)", "&:hover": { color: "#fff" } }}>
+                <CloseIcon />
+              </IconButton>
+              <MicIcon sx={{ fontSize: 48, color: "#fff", mb: 1 }} />
+              <Typography sx={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, color: "#fff", fontSize: "1.1rem" }}>
+                {VOICE_NOTES[openVoiceNote].label}
+              </Typography>
+              {/* Equalizer animation */}
+              <Box sx={{ display: "flex", gap: 0.8, justifyContent: "center", mt: 2, alignItems: "flex-end", height: 36 }}>
+                {[1, 0.6, 0.9, 0.5, 0.8, 0.4, 0.7, 1, 0.6, 0.85].map((h, i) => (
+                  <Box key={i} sx={{
+                    width: 5, borderRadius: 3,
+                    bgcolor: "rgba(255,255,255,0.85)",
+                    height: voiceNotePlaying ? `${h * 100}%` : "20%",
+                    animation: voiceNotePlaying ? `eqBar ${0.5 + i * 0.1}s ease-in-out infinite alternate` : "none",
+                    transition: "height 0.3s ease",
+                  }} />
+                ))}
+              </Box>
+            </Box>
+
+            <DialogContent sx={{ px: 3, pb: 3, pt: 2.5 }}>
+              {/* Message */}
+              <Box sx={{ bgcolor: "rgba(0,0,0,0.03)", borderRadius: 3, p: 2.5, mb: 3 }}>
+                <Typography sx={{ fontFamily: "'Caveat',cursive", fontSize: "1.3rem", color: "#374151", lineHeight: 1.7, textAlign: "center" }}>
+                  💬 {VOICE_NOTES[openVoiceNote].message}
+                </Typography>
+              </Box>
+
+              {/* Progress bar */}
+              <LinearProgress
+                variant="determinate"
+                value={voiceNoteProgress}
+                sx={{
+                  height: 6, borderRadius: 3, mb: 2.5,
+                  bgcolor: "rgba(0,0,0,0.08)",
+                  "& .MuiLinearProgress-bar": { background: VOICE_NOTES[openVoiceNote].gradient, borderRadius: 3 },
+                }}
+              />
+
+              {/* Audio element (hidden — no src yet, message-only mode) */}
+              {VOICE_NOTES[openVoiceNote].src && (
+                <audio
+                  ref={voiceNoteAudioRef}
+                  src={VOICE_NOTES[openVoiceNote].src}
+                  onTimeUpdate={handleVoiceNoteTimeUpdate}
+                  onEnded={handleVoiceNoteEnded}
+                />
+              )}
+
+              {/* Play button */}
+              {VOICE_NOTES[openVoiceNote].src ? (
+                <Box textAlign="center">
+                  <IconButton
+                    onClick={toggleVoiceNote}
+                    sx={{
+                      width: 60, height: 60,
+                      background: VOICE_NOTES[openVoiceNote].gradient,
+                      color: "#fff",
+                      boxShadow: `0 8px 24px ${VOICE_NOTES[openVoiceNote].color}55`,
+                      "&:hover": { transform: "scale(1.1)" },
+                      transition: "transform 0.2s ease",
+                    }}
+                  >
+                    {voiceNotePlaying ? <PauseIcon sx={{ fontSize: 30 }} /> : <PlayArrowIcon sx={{ fontSize: 30 }} />}
+                  </IconButton>
+                </Box>
+              ) : (
+                <Typography align="center" sx={{ color: "#9e9e9e", fontFamily: "'Outfit',sans-serif", fontSize: "0.85rem" }}>
+                  🎙️ Voice note from Prasad — read the message above with your heart 💙
+                </Typography>
+              )}
+            </DialogContent>
+          </>
+        )}
+      </Dialog>
+
+      {/* Secret Final Surprise Dialog */}
+      <Dialog
+        open={openFinalSurprise}
+        onClose={() => setOpenFinalSurprise(false)}
+        fullScreen
+        slotProps={{
+          paper: {
+            sx: {
+              background: "linear-gradient(135deg,#0a0015 0%,#1a0030 40%,#0d001a 100%)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              overflow: "hidden", position: "relative",
+            },
+          },
+        }}
+      >
+        {openFinalSurprise && <Confetti />}
+        <IconButton
+          onClick={() => setOpenFinalSurprise(false)}
+          sx={{ position: "absolute", top: 20, right: 20, color: "rgba(255,255,255,0.6)", "&:hover": { color: "#fff" }, zIndex: 10 }}
+        >
+          <CloseIcon sx={{ fontSize: 32 }} />
+        </IconButton>
+
+        {/* Floating hearts background */}
+        {[...Array(12)].map((_, i) => (
+          <FavoriteIcon key={i} sx={{
+            position: "absolute",
+            color: `rgba(255,64,129,${0.05 + (i % 4) * 0.04})`,
+            fontSize: `${40 + (i * 20) % 80}px`,
+            left: `${(i * 17 + 5) % 95}%`,
+            top: `${(i * 13 + 8) % 90}%`,
+            animation: `float ${8 + i * 1.5}s ease-in-out infinite`,
+            animationDelay: `${i * 0.6}s`,
+            pointerEvents: "none",
+          }} />
+        ))}
+
+        <Box sx={{ textAlign: "center", px: { xs: 3, md: 8 }, position: "relative", zIndex: 1, maxWidth: 780, animation: "fadeInUp 1s cubic-bezier(0.19,1,0.22,1)" }}>
+          <FavoriteIcon sx={{ fontSize: { xs: 56, md: 80 }, color: "#ff4081", mb: 3, filter: "drop-shadow(0 0 30px rgba(255,64,129,0.8))", animation: "heartbeat 1.5s infinite" }} />
+
+          <Typography sx={{
+            fontFamily: "'Pacifico',cursive",
+            fontSize: { xs: "1.6rem", md: "2.6rem" },
+            color: "#ffffff",
+            lineHeight: 1.5, mb: 4,
+            textShadow: "0 0 40px rgba(255,64,129,0.5)",
+          }}>
+            "Everything on this website is made of code.
+          </Typography>
+          <Typography sx={{
+            fontFamily: "'Pacifico',cursive",
+            fontSize: { xs: "1.6rem", md: "2.6rem" },
+            background: "linear-gradient(90deg,#ff4081,#ba68c8,#ff80ab)",
+            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+            lineHeight: 1.5, mb: 6,
+          }}>
+            But every line of code exists because of you."
+          </Typography>
+
+          <Box sx={{ width: 80, height: 2, background: "linear-gradient(90deg,transparent,#ff4081,transparent)", mx: "auto", mb: 5 }} />
+
+          <Typography sx={{
+            fontFamily: "'Caveat',cursive", fontSize: { xs: "2rem", md: "2.8rem" },
+            color: "rgba(255,255,255,0.9)", fontWeight: 700,
+            textShadow: "0 0 20px rgba(255,64,129,0.4)",
+          }}>
+            Happy Birthday, Jessy. ❤️
+          </Typography>
+          <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.5)", mt: 2, fontSize: "1rem" }}>
+            — Yours forever, Prasad
+          </Typography>
+        </Box>
+      </Dialog>
+
       {/* Embedded Custom CSS Styles */}
       <style>
         {`
@@ -1429,6 +1992,10 @@ export default function App() {
               opacity: 1;
               transform: translateY(0);
             }
+          }
+          @keyframes eqBar {
+            0% { transform: scaleY(0.3); }
+            100% { transform: scaleY(1); }
           }
         `}
       </style>
