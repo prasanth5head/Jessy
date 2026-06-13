@@ -181,6 +181,28 @@ function Confetti() {
 }
 
 /* ═══════════════════════════════════════════
+   RAINING HEARTS COMPONENT
+   ═══════════════════════════════════════════ */
+function RainingHearts() {
+  const pieces = useRef(Array.from({ length: 30 }, (_, i) => ({
+    id: i, left: Math.random() * 100, delay: Math.random() * 10,
+    dur: 6 + Math.random() * 6, size: 10 + Math.random() * 15,
+    color: ["rgba(233, 30, 99, 0.4)", "rgba(255, 64, 129, 0.4)", "rgba(244, 143, 177, 0.4)", "rgba(186, 104, 200, 0.4)"][i % 4],
+  }))).current;
+  return (
+    <Box sx={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, overflow: "hidden" }}>
+      {pieces.map((p) => (
+        <FavoriteIcon key={p.id} sx={{
+          position: "absolute", color: p.color, left: `${p.left}%`, top: "-10%",
+          fontSize: p.size,
+          animation: `rainFall ${p.dur}s linear ${p.delay}s infinite`,
+        }} />
+      ))}
+    </Box>
+  );
+}
+
+/* ═══════════════════════════════════════════
    SECTION WRAPPER
    ═══════════════════════════════════════════ */
 const Section = ({ title, icon, children, dark, sx: sxOverride }) => (
@@ -451,6 +473,7 @@ export default function App() {
       position: "relative",
       pb: 12,
     }}>
+      <RainingHearts />
       <audio ref={audioRef} loop />
 
       {/* ── FLOATING MUSIC PLAYER ── */}
@@ -1445,6 +1468,12 @@ export default function App() {
         @keyframes twinkle {
           0%{opacity:0.4;transform:scale(0.8)}
           100%{opacity:1;transform:scale(1.15)}
+        }
+        @keyframes rainFall {
+          0%{transform:translateY(0) rotate(0deg);opacity:0}
+          10%{opacity:1}
+          90%{opacity:1}
+          100%{transform:translateY(120vh) rotate(360deg);opacity:0}
         }
       `}</style>
     </Box>
