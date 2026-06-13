@@ -163,7 +163,724 @@ const OPEN_WHEN_LETTERS = [
   { id: "missme", label: "Open when you miss me 💖", emoji: "💖", color: "#e91e63", bg: "linear-gradient(135deg, #e91e63, #f48fb1)", content: "Missing you too. A lot. Just close your eyes and imagine me hugging you really tight right now. Every second apart just means our next memory together will be even more special. See you soon, love." },
   { id: "angry", label: "Open when you're angry at me 😤", emoji: "😤", color: "#d32f2f", bg: "linear-gradient(135deg, #d32f2f, #e57373)", content: "Okay, I know you're mad. And I probably did something stupid. I am so sorry. You have every right to feel how you feel. Please know I never want to hurt you. Let's take a breath, and when you're ready, I'm here to listen and fix it. You mean too much to me." },
   { id: "motivation", label: "Open when you need motivation 🚀", emoji: "🚀", color: "#388e3c", bg: "linear-gradient(135deg, #388e3c, #81c784)", content: "You are capable of incredible things. Don't let a temporary setback make you doubt your immense potential. I believe in you so completely. Go out there and show the world what you're made of. I'm your biggest fan!" },
+  { id: "doubting", label: "Open when you're doubting yourself 🥺💫", emoji: "💫", color: "#6a1b9a", bg: "linear-gradient(135deg, #6a1b9a, #ab47bc)", content: "Stop doubting your magic. You are one of the smartest, most beautiful, and kindest souls I have ever met. You handle things with grace even when it's hard. I believe in you even when you can't. You've got this, my star. ✨" },
+  { id: "cant-sleep", label: "Open when you can't sleep 🌙💤", emoji: "🌙", color: "#0d47a1", bg: "linear-gradient(135deg, #0d47a1, #1976d2)", content: "Can't sleep? Close your eyes and imagine resting your head on my shoulder. I'm whispering to you how much you mean to me. Take deep breaths. Let go of today's thoughts. I'm holding you tight. Goodnight, my love." },
+  { id: "happy", label: "Open when you're happy 😄🎉", emoji: "🎉", color: "#ffd54f", bg: "linear-gradient(135deg, #fbc02d, #fdd835)", content: "Yay! Seeing you happy is my absolute favorite thing in the world! Keep that gorgeous smile on your face and spread your beautiful energy. Tell me all about it, I want to celebrate your happiness with you!" },
+  { id: "crying", label: "Open when you're crying 😭🫂", emoji: "🫂", color: "#00acc1", bg: "linear-gradient(135deg, #00838f, #00acc1)", content: "I wish I could be there to wipe your tears. It's okay to let it out. Don't bottle it up. You are safe with me. Cry as much as you need to, and when you're ready, I'm here to make you laugh again. You are incredibly loved." }
 ];
+
+// --- NEW DH INTERACTIVE HUB DATA ---
+const REASONS_I_LOVE_YOU = [
+  "Because you say 'hmm' before answering my questions when you're thinking.",
+  "Because your laugh starts small and then becomes completely uncontrollable.",
+  "Because you remember the tiniest details about things I said weeks ago.",
+  "Because you pretend to be angry but still check if I ate my food.",
+  "Because you send a message and somehow my worst moods disappear instantly.",
+  "Because you overthink things simply because you care so deeply.",
+  "Because you make ordinary, boring days feel incredibly special and important.",
+  "Because you get defensive about your height when I tease you about it.",
+  "Because you have a signature pout that melts my heart in a millisecond.",
+  "Because you read old chats just to relive those sweet moments.",
+  "Because you send me screenshots of random things that remind you of me.",
+  "Because you try to hide your smile when I compliment you, but your eyes give it away.",
+  "Because you make sleepy, half-awake voice notes that are the cutest things ever.",
+  "Because you always make sure I'm safe when I'm traveling.",
+  "Because you have an imaginary scenario argument list ready at all times.",
+  "Because you support my dreams even when they seem completely wild.",
+  "Because you look absolutely beautiful when you don't even realize it.",
+  "Because you play with your hair when you're nervous or shy.",
+  "Because you say 'I'm fine' in that specific tone that tells me everything.",
+  "Because you pretend not to be cute while doing the most adorable things.",
+  "Because you listen to my long, rambling stories with actual enthusiasm.",
+  "Because you trust me with your deepest secrets and vulnerable thoughts.",
+  "Because you're my favorite notification on my phone screen.",
+  "Because you are my first and last thought of every single day.",
+  "Because you look like a little kid when you get excited about food.",
+  "Because you call me by that special nickname only we share.",
+  "Because you hold onto my arm like you never want to let go.",
+  "Because you write cute paragraphs when I least expect them.",
+  "Because you have a list of terms and conditions for loving you.",
+  "Because you claim you don't care, but you're actually the most caring person ever.",
+  "Because you remember our special dates and anniversaries so precisely.",
+  "Because you understand my silent moods without me saying a word.",
+  "Because you get jealous in the most affectionate, cute way.",
+  "Because you send me random selfies that make my heart race.",
+  "Because you are the best plot twist in my life's story.",
+  "Because you have the softest heart, even if you try to act tough.",
+  "Because you make me want to be the best version of myself for you.",
+  "Because you let me win the argument sometimes (even if we both know you actually won).",
+  "Because you look so cute when you are sleepy and trying to stay awake for me.",
+  "Because you make even simple grocery shopping feel like a fun date.",
+  "Because you have a heart that belongs completely to me.",
+  "Because you believe in us, even through long distances.",
+  "Because you occupy 99.8% of my mind space.",
+  "Because you make me feel safe, heard, and completely understood.",
+  "Because you are my home and my favorite adventure all in one.",
+  "Because you look so lovely in traditional wear.",
+  "Because you make funny faces to make me laugh when I'm stressed.",
+  "Because you choose me, day after day, through everything.",
+  "Because you are my favorite person in the entire universe.",
+  "Because you send a message and somehow my bad mood disappears.",
+  "Because you say you're angry but still care about me.",
+  "Because you make ordinary days feel important.",
+  "Because you look cute when you overthink.",
+  "Because you're always my favorite hello and hardest goodbye.",
+  "Because you make my heart warm even in cold weather.",
+  "Because your eyes sparkle when you smile.",
+  "Because you have a beautiful soul that matches your face.",
+  "Because you are my absolute dream come true.",
+  "Because you make me feel loved every single day.",
+  "Because you are the reason I smile at my phone."
+];
+
+const NETFLIX_EPISODES = [
+  { id: 1, title: "Episode 1: Stranger ➔ Friend", duration: "45m", match: "98% Match", year: "2025", desc: "The season opener. One random message turns into a whole new world. Follow the sparks as casual conversations turn into midnight habits.", thoughts: "You probably thought it was a normal day. I had no idea my life was about to change.", img: "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM.jpeg" },
+  { id: 2, title: "Episode 2: The Late-Night Calls", duration: "55m", match: "99% Match", year: "2025", desc: "Endless calls, learning each other's secrets, and losing track of time entirely. Who fell asleep first? That remains a mystery.", thoughts: "I pretended I wasn't tired because I never wanted our conversation to end.", img: "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM (2).jpeg" },
+  { id: 3, title: "Episode 3: The Missing You Era", duration: "50m", match: "97% Match", year: "2025", desc: "Navigating distances, screenshots, and counting days. An emotional look at how even miles away, every text felt like a warm hug.", thoughts: "Sometimes I read old chats just to relive those moments and feel you close.", img: "/image/WhatsApp Image 2026-06-13 at 12.19.19 AM.jpeg" },
+  { id: 4, title: "Episode 4: The Arguments We Survived", duration: "48m", match: "95% Match", year: "2025", desc: "Every couple has storms. A look at the misunderstandings, the 'I'm fine' texts, the apologies, and the realization that we are stronger together.", thoughts: "You probably don't remember, but I was struggling, and your random text saved my day.", img: "/image/WhatsApp Image 2026-06-13 at 12.29.00 AM.jpeg" },
+  { id: 5, title: "Episode 5: My Favorite Human", duration: "60m", match: "100% Match", year: "2026", desc: "The season finale (so far). Realizing you are my safe place, my happiest memory, and the person I want to tell everything to.", thoughts: "Out of all the paths life could have taken, I'm grateful every day they led to you.", img: "/image/WhatsApp Image 2026-06-13 at 12.29.01 AM.jpeg" }
+];
+
+const LOVE_COUPONS = [
+  { title: "Forehead Kiss Coupon 😘", desc: "Redeemable for one warm forehead kiss whenever you need to feel safe.", code: "KISS-FOREHEAD-999" },
+  { title: "Movie Night Choice 🎬", desc: "You get to choose the movie, the snacks, and I can't complain at all.", code: "MOVIE-PREMIUM-777" },
+  { title: "Win the Argument Coupon 😂", desc: "Play this card to instantly win any lighthearted argument. Single-use!", code: "ARGUMENT-WINNER-100" },
+  { title: "Unlimited Hugs Session 🤗", desc: "One session of tight, comfortable hugs that last as long as you want.", code: "HUG-UNLIMITED-INF" },
+  { title: "Emergency Comfort Call 📞", desc: "Redeemable at any hour of the night. I will wake up and listen.", code: "EMERGENCY-CALL-SOS" }
+];
+
+const CALENDAR_MEMORIES = {
+  3: "The day we talked for 6 hours straight.",
+  7: "You looked beautiful in your photo and didn't even realize it.",
+  12: "We laughed for 2 hours over something that wasn't even funny.",
+  19: "The anniversary date. The day our story truly began. ❤️",
+  24: "You sent me a surprise message that made my entire week.",
+  28: "The night I listened to your favorite song on loop thinking of you."
+};
+
+const THOUGHTS_GENERATOR_LIST = [
+  "She's probably being cute right now.",
+  "I should tell her I love her again.",
+  "I wonder if she's smiling.",
+  "She's my favorite notification.",
+  "I got so incredibly lucky with her.",
+  "I wish I could hug her right this second."
+];
+
+const PICKUP_LINES = [
+  "Are you a magician? Because whenever I look at you, everyone else disappears. ✨",
+  "Is your name Google? Because you have everything I've been searching for. 🔍",
+  "Do you have a map? I keep getting lost in your eyes. 🗺️",
+  "If I could rearrange the alphabet, I'd put 'U' and 'I' together. 💕",
+  "Are you carbon? Because I want to build a stable bond with you. 🧪",
+  "I must be in a museum, because you are a complete work of art. 🎨"
+];
+
+// --- GAME HELPER COMPONENTS ---
+function CatchHeartsGame() {
+  const canvasRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
+  const [gameWon, setGameWon] = useState(false);
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let animationFrameId;
+    let basket = { x: canvas.width / 2 - 30, w: 60, h: 15, speed: 8 };
+    let hearts = [];
+    let gameScore = 0;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        basket.x = Math.max(0, basket.x - basket.speed * 2);
+      } else if (e.key === "ArrowRight") {
+        basket.x = Math.min(canvas.width - basket.w, basket.x + basket.speed * 2);
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        const touchX = e.touches[0].clientX - rect.left;
+        basket.x = Math.max(0, Math.min(canvas.width - basket.w, touchX - basket.w / 2));
+      }
+    };
+
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      basket.x = Math.max(0, Math.min(canvas.width - basket.w, mouseX - basket.w / 2));
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    canvas.addEventListener("touchmove", handleTouchMove);
+    canvas.addEventListener("mousemove", handleMouseMove);
+
+    const spawnHeart = () => {
+      hearts.push({
+        x: 10 + Math.random() * (canvas.width - 20),
+        y: 0,
+        size: 10 + Math.random() * 10,
+        speed: 2 + Math.random() * 3
+      });
+    };
+
+    let spawnTimer = 0;
+
+    const gameLoop = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#ff4081";
+      ctx.fillRect(basket.x, canvas.height - basket.h - 5, basket.w, basket.h);
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "12px Outfit";
+      ctx.fillText("🧺 Catch!", basket.x + 8, canvas.height - 9);
+
+      spawnTimer++;
+      if (spawnTimer > 40) {
+        spawnHeart();
+        spawnTimer = 0;
+      }
+
+      for (let i = hearts.length - 1; i >= 0; i--) {
+        const heart = hearts[i];
+        heart.y += heart.speed;
+
+        ctx.fillStyle = "#e91e63";
+        ctx.beginPath();
+        const size = heart.size;
+        ctx.moveTo(heart.x, heart.y + size * 0.25);
+        ctx.bezierCurveTo(heart.x, heart.y, heart.x - size / 2, heart.y, heart.x - size / 2, heart.y + size * 0.25);
+        ctx.bezierCurveTo(heart.x - size / 2, heart.y + size * 0.6, heart.x, heart.y + size * 0.8, heart.x, heart.y + size);
+        ctx.bezierCurveTo(heart.x, heart.y + size * 0.8, heart.x + size / 2, heart.y + size * 0.6, heart.x + size / 2, heart.y + size * 0.25);
+        ctx.bezierCurveTo(heart.x + size / 2, heart.y, heart.x, heart.y, heart.x, heart.y + size * 0.25);
+        ctx.closePath();
+        ctx.fill();
+
+        const basketY = canvas.height - basket.h - 5;
+        if (
+          heart.y + size >= basketY &&
+          heart.x >= basket.x &&
+          heart.x <= basket.x + basket.w
+        ) {
+          gameScore++;
+          setScore(gameScore);
+          hearts.splice(i, 1);
+          if (gameScore >= 15) {
+            setGameWon(true);
+            setIsPlaying(false);
+            if (gameScore > highScore) setHighScore(gameScore);
+          }
+        } else if (heart.y > canvas.height) {
+          hearts.splice(i, 1);
+        }
+      }
+
+      if (isPlaying) {
+        animationFrameId = requestAnimationFrame(gameLoop);
+      }
+    };
+
+    gameLoop();
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      if (canvas) {
+        canvas.removeEventListener("touchmove", handleTouchMove);
+        canvas.removeEventListener("mousemove", handleMouseMove);
+      }
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [isPlaying]);
+
+  return (
+    <Box sx={{ p: 2, textAlign: "center" }}>
+      <Typography variant="h6" color="#d81b60" fontWeight="bold" gutterBottom>
+        ❤️ Catch the Hearts
+      </Typography>
+      <Typography variant="body2" sx={{ color: "#666", mb: 2 }}>
+        Move mouse or drag finger. Catch 15 hearts to win!
+      </Typography>
+      <Box sx={{ display: "flex", justifyContent: "space-between", px: 2, mb: 1 }}>
+        <Typography variant="body2" fontWeight="bold">Score: {score}</Typography>
+        <Typography variant="body2" fontWeight="bold">High: {highScore}</Typography>
+      </Box>
+      <Box sx={{ position: "relative", width: 280, height: 200, mx: "auto", border: "2px solid #ff80ab", borderRadius: 4, overflow: "hidden", bgcolor: "#fff0f5" }}>
+        <canvas ref={canvasRef} width={280} height={200} style={{ display: "block" }} />
+        {!isPlaying && (
+          <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", bgcolor: "rgba(255,255,255,0.85)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", p: 2 }}>
+            <Typography variant="body1" fontWeight="bold" color="#e91e63" gutterBottom>
+              {gameWon ? "🎉 You Won! You caught 15 hearts!" : "Ready to play?"}
+            </Typography>
+            <Button
+              variant="contained"
+              onClick={() => {
+                setScore(0);
+                setGameWon(false);
+                setIsPlaying(true);
+              }}
+              sx={{ bgcolor: "#ff4081", color: "#fff", borderRadius: 20, mt: 1 }}
+            >
+              {gameWon ? "Play Again" : "Start Game"}
+            </Button>
+          </Box>
+        )}
+      </Box>
+    </Box>
+  );
+}
+
+function MemoryMatchGame() {
+  const [cards, setCards] = useState([]);
+  const [flipped, setFlipped] = useState([]);
+  const [matched, setMatched] = useState([]);
+  const [moves, setMoves] = useState(0);
+  const [gameWon, setGameWon] = useState(false);
+
+  const images = [
+    "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM.jpeg",
+    "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM (2).jpeg",
+    "/image/WhatsApp Image 2026-06-13 at 12.19.19 AM.jpeg",
+    "/image/WhatsApp Image 2026-06-13 at 12.19.20 AM.jpeg",
+    "/image/WhatsApp Image 2026-06-13 at 12.29.00 AM.jpeg",
+    "/image/WhatsApp Image 2026-06-13 at 12.29.01 AM.jpeg"
+  ];
+
+  const initGame = () => {
+    const deck = [...images, ...images]
+      .map((img, index) => ({ id: index, img, matched: false }))
+      .sort(() => Math.random() - 0.5);
+    setCards(deck);
+    setFlipped([]);
+    setMatched([]);
+    setMoves(0);
+    setGameWon(false);
+  };
+
+  useEffect(() => {
+    initGame();
+  }, []);
+
+  const handleCardClick = (id) => {
+    if (flipped.length === 2 || matched.includes(id) || flipped.includes(id)) return;
+
+    const newFlipped = [...flipped, id];
+    setFlipped(newFlipped);
+
+    if (newFlipped.length === 2) {
+      setMoves((prev) => prev + 1);
+      const [firstId, secondId] = newFlipped;
+      if (cards[firstId].img === cards[secondId].img) {
+        setMatched((prev) => {
+          const next = [...prev, firstId, secondId];
+          if (next.length === cards.length) {
+            setGameWon(true);
+          }
+          return next;
+        });
+        setFlipped([]);
+      } else {
+        setTimeout(() => setFlipped([]), 1000);
+      }
+    }
+  };
+
+  return (
+    <Box sx={{ p: 2, textAlign: "center" }}>
+      <Typography variant="h6" color="#d81b60" fontWeight="bold" gutterBottom>
+        🧩 Photo Memory Match
+      </Typography>
+      <Typography variant="body2" sx={{ color: "#666", mb: 2 }}>
+        Find matching pairs of our sweet photos! Moves: {moves}
+      </Typography>
+      <Grid container spacing={1.5} sx={{ maxWidth: 300, mx: "auto", justifyContent: "center" }}>
+        {cards.map((card, index) => {
+          const isFlipped = flipped.includes(index) || matched.includes(index);
+          return (
+            <Grid item xs={4} key={card.id}>
+              <Box
+                onClick={() => handleCardClick(index)}
+                sx={{
+                  width: "100%",
+                  pt: "100%",
+                  position: "relative",
+                  cursor: "pointer",
+                  perspective: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    transition: "transform 0.6s",
+                    transformStyle: "preserve-3d",
+                    transform: isFlipped ? "rotateY(180deg)" : "none",
+                    borderRadius: 3,
+                    boxShadow: "0 4px 10px rgba(0,0,0,0.15)"
+                  }}
+                >
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      backfaceVisibility: "hidden",
+                      bgcolor: "#ff4081",
+                      borderRadius: 3,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#fff"
+                    }}
+                  >
+                    <FavoriteIcon sx={{ fontSize: 24 }} />
+                  </Box>
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      backfaceVisibility: "hidden",
+                      transform: "rotateY(180deg)",
+                      borderRadius: 3,
+                      overflow: "hidden"
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src={card.img}
+                      sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+          );
+        })}
+      </Grid>
+      {gameWon && (
+        <Box sx={{ mt: 3 }}>
+          <Typography variant="body1" color="success.main" fontWeight="bold" gutterBottom>
+            🎉 You matched all pairs in {moves} moves!
+          </Typography>
+          <Button
+            variant="contained"
+            onClick={initGame}
+            sx={{ bgcolor: "#ff4081", color: "#fff", borderRadius: 20 }}
+          >
+            Play Again
+          </Button>
+        </Box>
+      )}
+    </Box>
+  );
+}
+
+function NightSky() {
+  const [activeMemory, setActiveMemory] = useState(null);
+  const [stars, setStars] = useState([]);
+
+  useEffect(() => {
+    const starThoughts = [
+      "The day you made me laugh until my stomach hurt. 😂",
+      "The day I realized I loved you. 💖",
+      "The day I missed you the most. 🌧️",
+      "The day we had our first 5-hour phone call. 📞",
+      "When I saw your selfie and smiled like an idiot. 🫣",
+      "The first time you called me by my nickname. 🥺",
+      "The night we stayed up until 4 AM talking. 🌙",
+      "When you said you were angry but still cared about me. 🥰",
+      "The exact moment I knew you were my person. 🌹",
+      "The day we resolved our biggest fight. 🤝",
+      "When you sent that sleepy, adorable voice note. 🎙️",
+      "Hearing your real laugh for the first time. 🔊",
+      "When you overthought things because you cared deeply. 🧠",
+      "That sunset where I wished you were next to me. 🌅",
+      "The time you made my bad mood disappear in seconds. 🪄",
+      "When you said 'no refunds' and I smiled. 🔒",
+      "The first time you texted 'I miss you' first. 💬",
+      "Our first selfie swap war. 📸",
+      "The first time we planned a virtual date. 🍕",
+      "The day you sent a random reassure message. 🫂"
+    ];
+
+    const generatedStars = Array.from({ length: 40 }).map((_, i) => ({
+      id: i,
+      x: 5 + Math.random() * 90,
+      y: 5 + Math.random() * 90,
+      size: 2 + Math.random() * 3,
+      pulse: 1 + Math.random() * 2,
+      thought: starThoughts[i % starThoughts.length]
+    }));
+    setStars(generatedStars);
+  }, []);
+
+  return (
+    <Box sx={{ p: 2, textAlign: "center" }}>
+      <Typography variant="h5" color="white" fontWeight="bold" gutterBottom sx={{ fontFamily: "'Outfit', sans-serif" }}>
+        🌙 The Night Sky
+      </Typography>
+      <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)", mb: 3 }}>
+        Click on any star in Kuttymaa's night sky to reveal a secret thought...
+      </Typography>
+
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          height: 300,
+          background: "radial-gradient(circle at center, #0f172a, #020617)",
+          borderRadius: 5,
+          overflow: "hidden",
+          border: "2px solid rgba(255,255,255,0.15)",
+          boxShadow: "0 15px 35px rgba(0,0,0,0.3)"
+        }}
+      >
+        {stars.map((star) => (
+          <Box
+            key={star.id}
+            onClick={() => setActiveMemory(star.thought)}
+            sx={{
+              position: "absolute",
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              width: star.size,
+              height: star.size,
+              bgcolor: "#fff",
+              borderRadius: "50%",
+              cursor: "pointer",
+              boxShadow: "0 0 10px #fff, 0 0 20px #ff80ab",
+              animation: `sparkle ${star.pulse}s infinite alternate`,
+              "&:hover": {
+                transform: "scale(2.5)",
+                bgcolor: "#ff4081",
+                boxShadow: "0 0 15px #ff4081, 0 0 30px #ff4081"
+              },
+              transition: "transform 0.2s"
+            }}
+          />
+        ))}
+
+        {activeMemory && (
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: 20,
+              left: "5%",
+              width: "90%",
+              bgcolor: "rgba(255, 255, 255, 0.92)",
+              backdropFilter: "blur(5px)",
+              color: "#c2185b",
+              p: 2,
+              borderRadius: 3,
+              boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
+              animation: "fadeInUp 0.3s ease",
+              textAlign: "center",
+              zIndex: 10
+            }}
+          >
+            <Typography variant="body2" fontWeight="bold" sx={{ fontFamily: "'Outfit', sans-serif" }}>
+              {activeMemory}
+            </Typography>
+            <Button
+              size="small"
+              onClick={() => setActiveMemory(null)}
+              sx={{ mt: 1, color: "#ff4081", textTransform: "none", fontWeight: "bold" }}
+            >
+              Close
+            </Button>
+          </Box>
+        )}
+      </Box>
+    </Box>
+  );
+}
+
+function LoveMap() {
+  const [activePin, setActivePin] = useState(null);
+
+  const pins = [
+    { id: 1, name: "Where We Met 🌍", x: 25, y: 35, memory: "The digital universe where our paths crossed. One message turned into a lifetime story." },
+    { id: 2, name: "First Call Location 📞", x: 45, y: 55, memory: "The location of our very first call. We talked for hours and forgot that time existed." },
+    { id: 3, name: "First Photo Exchange 📸", x: 65, y: 40, memory: "When we shared our photos and I saw your beautiful smile. My heart skipped a beat." },
+    { id: 4, name: "Our Dream Café ☕", x: 75, y: 70, memory: "The virtual coffee dates we share, sipping drinks and talking about our dreams." }
+  ];
+
+  return (
+    <Box sx={{ p: 2, textAlign: "center" }}>
+      <Typography variant="h5" color="white" fontWeight="bold" gutterBottom sx={{ fontFamily: "'Outfit', sans-serif" }}>
+        🗺️ Our Love Map
+      </Typography>
+      <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)", mb: 3 }}>
+        Click on the pins to explore key milestones in our journey.
+      </Typography>
+
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          height: 320,
+          background: "linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%)",
+          borderRadius: 5,
+          overflow: "hidden",
+          border: "2px solid rgba(255,255,255,0.4)",
+          boxShadow: "0 15px 35px rgba(0,0,0,0.15)"
+        }}
+      >
+        <svg style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, pointerEvents: "none" }}>
+          <path d="M 25 35 Q 45 55 65 40 T 75 70" fill="none" stroke="#ff4081" strokeWidth="2" strokeDasharray="5,5" />
+        </svg>
+
+        {pins.map((pin) => (
+          <Box
+            key={pin.id}
+            onClick={() => setActivePin(pin)}
+            sx={{
+              position: "absolute",
+              left: `${pin.x}%`,
+              top: `${pin.y}%`,
+              cursor: "pointer",
+              transform: "translate(-50%, -50%)",
+              "&:hover": { transform: "translate(-50%, -50%) scale(1.2)" },
+              transition: "transform 0.2s"
+            }}
+          >
+            <Box
+              sx={{
+                width: 16, height: 16, bgcolor: "#e91e63", borderRadius: "50%",
+                border: "2px solid #fff", boxShadow: "0 0 10px rgba(233,30,99,0.8)",
+                animation: "pulseHeart 2s infinite"
+              }}
+            />
+            <Typography variant="caption" sx={{ display: "block", mt: 0.5, bgcolor: "rgba(255,255,255,0.85)", px: 0.8, py: 0.2, borderRadius: 2, fontWeight: "bold", color: "#c2185b", whiteSpace: "nowrap" }}>
+              {pin.name}
+            </Typography>
+          </Box>
+        ))}
+
+        {activePin && (
+          <Dialog
+            open={activePin !== null}
+            onClose={() => setActivePin(null)}
+            PaperProps={{ sx: { borderRadius: 4, p: 3, maxWidth: 300, textAlign: "center" } }}
+          >
+            <Typography variant="h6" color="#d81b60" fontWeight="bold" gutterBottom>
+              {activePin.name}
+            </Typography>
+            <Typography variant="body2" sx={{ color: "#555", mb: 2 }}>
+              {activePin.memory}
+            </Typography>
+            <Button
+              variant="contained"
+              size="small"
+              onClick={() => setActivePin(null)}
+              sx={{ bgcolor: "#ff4081", color: "#fff", borderRadius: 20 }}
+            >
+              Sweet! ❤️
+            </Button>
+          </Dialog>
+        )}
+      </Box>
+    </Box>
+  );
+}
+
+function TypewriterFinalSequence({ onClose }) {
+  const [stage, setStage] = useState(0);
+  const [text, setText] = useState("");
+  
+  const messages = [
+    "Before you close this page...",
+    "I hope you always remember something.",
+    "You were loved on your good days.",
+    "You were loved on your bad days.",
+    "You were loved when you laughed.",
+    "You were loved when you cried.",
+    "You were loved when you felt strong.",
+    "You were loved when you felt broken.",
+    "And you'll be loved tomorrow too.",
+    "Out of all the people in this world,",
+    "all the places I could have been,",
+    "all the paths life could have taken,",
+    "I'm grateful every single day that they led me to you.",
+    "Meeting you was the best thing that ever happened to me. ❤️",
+    "Happy Birthday, Kuttymaa. 🎂",
+    "See you in our next chapter..."
+  ];
+
+  useEffect(() => {
+    let timer;
+    let charIndex = 0;
+    let currentMsg = messages[stage];
+    
+    const type = () => {
+      if (charIndex <= currentMsg.length) {
+        setText(currentMsg.slice(0, charIndex));
+        charIndex++;
+        timer = setTimeout(type, 60);
+      } else {
+        timer = setTimeout(() => {
+          if (stage < messages.length - 1) {
+            setStage(stage + 1);
+            setText("");
+          } else {
+            setStage(stage + 1);
+          }
+        }, 2200);
+      }
+    };
+
+    type();
+
+    return () => clearTimeout(timer);
+  }, [stage]);
+
+  if (stage >= messages.length) {
+    return (
+      <Box sx={{ animation: "fadeIn 2s ease" }}>
+        <Typography variant="h3" sx={{ fontFamily: "'Caveat', cursive", color: "#ff4081", mb: 3 }}>
+          Forever Yours.
+        </Typography>
+        <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.7)", mb: 4, fontFamily: "'Outfit', sans-serif" }}>
+          Happy Birthday, Kuttymaa! ❤️
+        </Typography>
+        <Button variant="contained" onClick={onClose} sx={{ bgcolor: "#ff4081", color: "#fff", borderRadius: 20 }}>
+          Back to Dashboard
+        </Button>
+      </Box>
+    );
+  }
+
+  return (
+    <Typography
+      sx={{
+        fontFamily: stage >= 12 ? "'Caveat', cursive" : "'Outfit', sans-serif",
+        fontSize: stage >= 12 ? { xs: "1.8rem", md: "2.8rem" } : { xs: "1.2rem", md: "1.8rem" },
+        lineHeight: 1.6,
+        fontWeight: stage >= 12 ? "bold" : "normal",
+        color: stage >= 13 ? "#ff4081" : "#fff",
+        minHeight: 100,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }}
+    >
+      {text}
+      <Box component="span" sx={{ display: "inline-block", width: 3, height: "1.2em", bgcolor: "#ff4081", ml: 0.5, animation: "blink 1s step-end infinite" }} />
+    </Typography>
+  );
+}
 
 const COUPLE_QUIZ = [
   { q: "What's my absolute favorite thing about you?", options: ["Your looks", "Your kindness", "Your cooking", "Your jokes"], a: "Your kindness", feedback: "Correct ❤️ Your gentle soul is my favorite." },
@@ -526,6 +1243,17 @@ function HeartRainBackground() {
 }
 
 export default function App() {
+  const [activeTab, setActiveTab] = useState("home");
+  const [reasonsCount, setReasonsCount] = useState(1247);
+  const [currentReason, setCurrentReason] = useState("");
+  const [reasonsDialogOpen, setReasonsDialogOpen] = useState(false);
+  const [vaultPassword, setVaultPassword] = useState("");
+  const [vaultUnlocked, setVaultUnlocked] = useState(false);
+  const [vaultError, setVaultError] = useState("");
+  const [randomThought, setRandomThought] = useState("");
+  const [pickupLine, setPickupLine] = useState("");
+  const [selectedCoupon, setSelectedCoupon] = useState(null);
+
   const [openSurprise, setOpenSurprise] = useState(false);
   const [openVideoSurprise, setOpenVideoSurprise] = useState(false);
   const [letterOpen, setLetterOpen] = useState(false);
@@ -1059,6 +1787,9 @@ export default function App() {
         src="/Maru-Varthai-Pesathey-MassTamilan.com.mp3"
       />
 
+      {/* Heart Rain Background */}
+      <HeartRainBackground />
+
       {/* Floating Music Player Card */}
       <Box
         sx={{
@@ -1154,13 +1885,7 @@ export default function App() {
         )}
       </Box>
 
-      {/* Confetti when surprise is open */}
-      {openSurprise && <Confetti />}
-
-      {/* Interactive Canvas-based falling heart drops background */}
-      <HeartRainBackground />
-
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 10 }}>
         {/* Hero Section */}
         <Box sx={{ textAlign: "center", py: { xs: 8, md: 10 }, position: "relative", zIndex: 1 }}>
           <Box sx={{ display: "inline-block", position: "relative", mb: 3, overflow: "visible" }}>
@@ -1294,577 +2019,915 @@ export default function App() {
           </Box>
         </Box>
 
-        {/* Interactive Sealed Envelope (The Love Letter) */}
-        <Box sx={{ py: 4, position: "relative", zIndex: 2 }}>
-          <Card
-            onClick={openLetter}
-            sx={{
-              cursor: "pointer",
-              p: letterOpen ? { xs: 4, md: 6 } : { xs: 4, md: 5 },
-              borderRadius: 6,
-              backdropFilter: "blur(20px)",
-              background: letterOpen
-                ? "rgba(255,255,255,0.95)"
-                : "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.3) 100%)",
-              border: letterOpen
-                ? "2px solid rgba(255, 64, 129, 0.2)"
-                : "2px dashed rgba(255, 255, 255, 0.8)",
-              boxShadow: letterOpen
-                ? "0 30px 60px rgba(255, 64, 129, 0.2)"
-                : "0 20px 45px rgba(0,0,0,0.08)",
-              mb: 8,
-              transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
-              textAlign: "center",
-              position: "relative",
-              overflow: "hidden",
-              "&:hover": {
-                transform: letterOpen ? "none" : "translateY(-8px) scale(1.02)",
-                boxShadow: "0 25px 50px rgba(255, 64, 129, 0.25)",
+        {/* Dashboard Tab Bar */}
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 1.5, flexWrap: "wrap", mt: 2, mb: 4, position: "relative", zIndex: 10 }}>
+          {[
+            { id: "home", label: "🏠 Home & Stats" },
+            { id: "memories", label: "🎬 Memory Lane" },
+            { id: "vault", label: "💌 Love Vault" },
+            { id: "arcade", label: "🕹️ Arcade Hub" },
+            { id: "cosmos", label: "🌌 Sky & Map" },
+            { id: "future", label: "🌸 Future Trail" }
+          ].map((tab) => (
+            <Button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              variant={activeTab === tab.id ? "contained" : "outlined"}
+              sx={{
+                borderRadius: 50,
+                px: { xs: 2, sm: 3 },
+                py: 1,
+                fontFamily: "'Outfit', sans-serif",
+                fontWeight: "bold",
+                fontSize: "0.85rem",
+                color: activeTab === tab.id ? "#fff" : "#ff4081",
+                bgcolor: activeTab === tab.id ? "#ff4081" : "rgba(255,255,255,0.65)",
                 borderColor: "#ff4081",
-              },
-            }}
-          >
-            {!letterOpen ? (
-              <Box sx={{ py: 6 }}>
-                <Box
-                  sx={{
-                    display: "inline-flex",
-                    p: 2.5,
-                    borderRadius: "50%",
-                    bgcolor: "rgba(255, 64, 129, 0.15)",
-                    mb: 3,
-                    animation: "heartbeat 2s infinite",
-                  }}
-                >
-                  <FavoriteIcon sx={{ color: "#ff4081", fontSize: 50 }} />
+                backdropFilter: "blur(8px)",
+                boxShadow: activeTab === tab.id ? "0 8px 20px rgba(255, 64, 129, 0.3)" : "none",
+                "&:hover": {
+                  bgcolor: activeTab === tab.id ? "#d81b60" : "rgba(255, 64, 129, 0.1)",
+                  borderColor: "#d81b60"
+                },
+                transition: "all 0.3s ease"
+              }}
+            >
+              {tab.label}
+            </Button>
+          ))}
+        </Box>
+
+        {/* Home Tab Panel */}
+        {activeTab === "home" && (
+          <Box sx={{ animation: "fadeInUp 0.6s ease", mt: 2 }}>
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.9)", border: "2px solid rgba(255,64,129,0.15)", textAlign: "center", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                  <Typography variant="h5" color="#c2185b" fontWeight="bold" gutterBottom sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                    Reasons I Love You Counter
+                  </Typography>
+                  <Typography variant="h3" color="#ff4081" fontWeight="bold" sx={{ fontFamily: "'Pacifico', cursive", my: 3 }}>
+                    {reasonsCount} and counting...
+                  </Typography>
+                  <Button
+                    variant="contained"
+                    onClick={() => {
+                      const next = reasonsCount + 1;
+                      setReasonsCount(next);
+                      const randomReason = REASONS_I_LOVE_YOU[Math.floor(Math.random() * REASONS_I_LOVE_YOU.length)];
+                      setCurrentReason(randomReason);
+                      setReasonsDialogOpen(true);
+                    }}
+                    sx={{ bgcolor: "#ff4081", color: "#fff", borderRadius: 20, px: 4, py: 1.2, fontWeight: "bold", "&:hover": { bgcolor: "#d81b60" } }}
+                  >
+                    Click to reveal a reason ❤️
+                  </Button>
+                  <Typography variant="caption" sx={{ color: "#777", mt: 2, fontFamily: "'Outfit', sans-serif" }}>
+                    Every click reveals a hyper-specific observation.
+                  </Typography>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.9)", border: "1.5px solid rgba(255,255,255,0.6)", height: "100%" }}>
+                  <Typography variant="h6" color="#d81b60" fontWeight="bold" gutterBottom sx={{ fontFamily: "'Outfit', sans-serif", mb: 3 }}>
+                    🧠 Inside My Head
+                  </Typography>
+                  {[
+                    { label: "Thinking About You", value: 99.8, color: "#ff4081" },
+                    { label: "Missing You", value: 93, color: "#ba68c8" },
+                    { label: "Trying Not To Smile", value: 2, color: "#ffd54f" },
+                    { label: "Successfully Not Smiling", value: 0, color: "#9e9e9e" }
+                  ].map((item) => (
+                    <Box key={item.label} sx={{ mb: 3 }}>
+                      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.8 }}>
+                        <Typography variant="body2" fontWeight="bold" color="#4a4a4a">{item.label}</Typography>
+                        <Typography variant="body2" fontWeight="bold" color="#c2185b">{item.value}%</Typography>
+                      </Box>
+                      <LinearProgress variant="determinate" value={item.value} sx={{ height: 12, borderRadius: 5, bgcolor: "rgba(0,0,0,0.05)", "& .MuiLinearProgress-bar": { bgcolor: item.color, borderRadius: 5 } }} />
+                    </Box>
+                  ))}
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.9)", border: "1.5px solid rgba(255,255,255,0.6)", height: "100%" }}>
+                  <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 3 }}>
+                    <AccessTimeIcon sx={{ color: "#e91e63", fontSize: 28 }} />
+                    <Typography variant="h5" fontWeight="bold" color="#d81b60" sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                      Our Time Together...
+                    </Typography>
+                    {!foundHearts.includes(4) && (
+                      <IconButton onClick={() => handleFindHeart(4)} sx={{ color: "rgba(255, 64, 129, 0.25)", p: 0.5, "&:hover": { color: "#ff4081" } }}>
+                        <FavoriteIcon sx={{ fontSize: 18 }} />
+                      </IconButton>
+                    )}
+                  </Box>
+                  <Grid container spacing={2} sx={{ justifyContent: "center" }}>
+                    {[
+                      { label: "Days", value: timeElapsed.days },
+                      { label: "Hours", value: timeElapsed.hours },
+                      { label: "Minutes", value: timeElapsed.minutes },
+                      { label: "Seconds", value: timeElapsed.seconds }
+                    ].map((item) => (
+                      <Grid item xs={6} sm={3} key={item.label} sx={{ textAlign: "center" }}>
+                        <Box sx={{ p: 2, bgcolor: "rgba(233,30,99,0.04)", borderRadius: 3, border: "1.5px solid rgba(233,30,99,0.1)" }}>
+                          <Typography sx={{ fontFamily: "'Pacifico', cursive", fontSize: "1.8rem", color: "#e91e63" }}>
+                            {String(item.value).padStart(2, "0")}
+                          </Typography>
+                          <Typography sx={{ fontFamily: "'Outfit', sans-serif", color: "#666", fontSize: "0.8rem", fontWeight: "bold" }}>
+                            {item.label}
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    ))}
+                  </Grid>
+                  <Typography align="center" sx={{ color: "#777", mt: 3, fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}>
+                    Since February 19, 2025 ❤️
+                  </Typography>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.9)", border: "1.5px solid rgba(255,255,255,0.6)", height: "100%" }}>
+                  <Typography variant="h6" color="#d81b60" fontWeight="bold" gutterBottom sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                    📊 Playful Stats
+                  </Typography>
+                  <Grid container spacing={2} sx={{ mt: 1 }}>
+                    {[
+                      { title: "Hours Spent Talking 📞", value: "1,840+ hrs" },
+                      { title: "Good Morning Texts Sent 🌅", value: "480+ texts" },
+                      { title: "Times She Said 'I'm Angry' 😂", value: "99+ times" },
+                      { title: "Times She Made Me Smile 😊", value: "Infinite" }
+                    ].map((stat) => (
+                      <Grid item xs={6} key={stat.title}>
+                        <Box sx={{ p: 2, bgcolor: "rgba(233,30,99,0.03)", borderRadius: 3, height: "100%" }}>
+                          <Typography variant="body2" sx={{ color: "#555", fontWeight: "bold", fontSize: "0.85rem", mb: 1 }}>{stat.title}</Typography>
+                          <Typography variant="h6" color="#c2185b" fontWeight="bold">{stat.value}</Typography>
+                        </Box>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.9)", border: "1.5px solid rgba(255,255,255,0.6)", height: "100%" }}>
+                  <Typography variant="h6" color="#d81b60" fontWeight="bold" gutterBottom sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                    📞 Missed Calls From My Heart
+                  </Typography>
+                  <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 2 }}>
+                    {[
+                      { time: "2:17 AM", reason: "Thinking about you again. 🌙" },
+                      { time: "5:43 PM", reason: "Saw something that reminded me of you. 🌸" }
+                    ].map((call, i) => (
+                      <Box key={i} sx={{ display: "flex", alignItems: "center", gap: 2, p: 2, bgcolor: "rgba(233,30,99,0.04)", borderRadius: 3, border: "1px solid rgba(233,30,99,0.08)" }}>
+                        <Box sx={{ width: 40, height: 40, borderRadius: "50%", bgcolor: "#ffebee", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <span style={{ fontSize: "1.2rem" }}>📞</span>
+                        </Box>
+                        <Box>
+                          <Typography variant="body2" fontWeight="bold" color="#c2185b">Missed Call • {call.time}</Typography>
+                          <Typography variant="caption" color="#666">Reason: {call.reason}</Typography>
+                        </Box>
+                      </Box>
+                    ))}
+                  </Box>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.9)", border: "1.5px solid rgba(255,255,255,0.6)", height: "100%" }}>
+                  <Typography variant="h6" color="#d81b60" fontWeight="bold" gutterBottom sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                    😂 Things Kuttymaa Does (Affectionate Roasts)
+                  </Typography>
+                  <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, mt: 2 }}>
+                    {[
+                      { title: "Says 'I'm fine' when not fine 🤫", desc: "Requires pro decoding skills to see she actually wants comfort." },
+                      { title: "Overthinks level: Expert 🧠", desc: "Successfully finding hypothetical scenarios to worry about." },
+                      { title: "Starts arguments with imaginary scenarios 💭", desc: "'What if we met in another timeline and I was a cat?'" },
+                      { title: "Pretends not to be cute 🧸", desc: "A total failure because she melts my heart easily." }
+                    ].map((roast, i) => (
+                      <Box key={i} sx={{ p: 1.5, bgcolor: "rgba(0,0,0,0.02)", borderRadius: 3 }}>
+                        <Typography variant="body2" fontWeight="bold" color="#374151">{roast.title}</Typography>
+                        <Typography variant="caption" color="#666">{roast.desc}</Typography>
+                      </Box>
+                    ))}
+                  </Box>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.9)", border: "2px solid rgba(255,64,129,0.15)" }}>
+                  <Typography variant="h6" color="#d81b60" fontWeight="bold" gutterBottom sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                    📜 Terms & Conditions of Loving Kuttymaa
+                  </Typography>
+                  <Grid container spacing={2} sx={{ mt: 1 }}>
+                    {[
+                      { art: "Article 1", text: "Must remind her she's pretty even when she strongly disagrees." },
+                      { art: "Article 2", text: "Must survive occasional tiny storms and sweet temper outbursts." },
+                      { art: "Article 3", text: "Must listen to random, long stories with absolute enthusiasm." },
+                      { art: "Article 4", text: "Must love her forever. Agreement expires: NEVER." }
+                    ].map((tc) => (
+                      <Grid item xs={12} sm={6} key={tc.art}>
+                        <Box sx={{ p: 2, bgcolor: "rgba(233,30,99,0.03)", borderRadius: 3, height: "100%", borderLeft: "4px solid #ff4081" }}>
+                          <Typography variant="body2" fontWeight="bold" color="#c2185b">{tc.art}</Typography>
+                          <Typography variant="body2" color="#555">{tc.text}</Typography>
+                        </Box>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Card>
+              </Grid>
+
+              {/* Personalized Awards */}
+              <Grid item xs={12}>
+                <Box sx={{ py: 2 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
+                    <EmojiEventsIcon sx={{ color: "white", fontSize: 30 }} />
+                    <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit',sans-serif", textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
+                      Personalized Awards 🏆
+                    </Typography>
+                  </Box>
+                  <Grid container spacing={3} sx={{ alignItems: "stretch" }}>
+                    {FUNNY_AWARDS.map((award, i) => (
+                      <Grid item xs={12} sm={6} md={3} key={i}>
+                        <Card sx={{
+                          height: "100%", p: 3, borderRadius: 5, textAlign: "center",
+                          display: "flex", flexDirection: "column", alignItems: "center",
+                          background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)",
+                          boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                          transition: "all 0.3s ease",
+                          "&:hover": { transform: "translateY(-8px)", boxShadow: "0 15px 40px rgba(255,213,79,0.3)" }
+                        }}>
+                          <Box sx={{ mb: 2, p: 2, borderRadius: "50%", bgcolor: "rgba(0,0,0,0.03)" }}>
+                            {award.icon}
+                          </Box>
+                          <Typography variant="h6" fontWeight="bold" sx={{ fontFamily: "'Outfit',sans-serif", color: "#374151", mb: 1, fontSize: "1.1rem" }}>
+                            {award.title}
+                          </Typography>
+                          <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#616161", fontSize: "0.9rem", flexGrow: 1 }}>
+                            {award.reason}
+                          </Typography>
+                        </Card>
+                      </Grid>
+                    ))}
+                  </Grid>
                 </Box>
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontFamily: "'Outfit', sans-serif",
-                    fontWeight: 700,
-                    color: "#d81b60",
-                    mb: 1.5,
-                    fontSize: { xs: "1.8rem", md: "2.4rem" },
-                  }}
-                >
-                  To Kuttymaa, My Love 💌
+              </Grid>
+            </Grid>
+          </Box>
+        )}
+
+        {/* Memories Tab Panel */}
+        {activeTab === "memories" && (
+          <Box sx={{ animation: "fadeInUp 0.6s ease", mt: 2 }}>
+            {/* Netflix Carousel */}
+            <Box sx={{ mb: 6 }}>
+              <Typography variant="h5" color="white" fontWeight="bold" mb={3} sx={{ fontFamily: "'Outfit', sans-serif", textShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
+                🎬 The Movie of Us (Netflix Style)
+              </Typography>
+              <Grid container spacing={3} sx={{ overflowX: "auto", flexWrap: { xs: "nowrap", md: "wrap" }, pb: 2 }}>
+                {NETFLIX_EPISODES.map((ep) => (
+                  <Grid item xs={10} sm={6} md={2.4} key={ep.id} sx={{ flexShrink: 0 }}>
+                    <Card
+                      sx={{
+                        bgcolor: "#181818", color: "#fff", height: "100%", borderRadius: 3, overflow: "hidden",
+                        transition: "all 0.3s ease",
+                        "&:hover": { transform: "scale(1.05) translateY(-5px)", boxShadow: "0 15px 30px rgba(0,0,0,0.5)" }
+                      }}
+                    >
+                      <CardMedia component="img" image={ep.img} sx={{ height: 140, objectFit: "cover" }} />
+                      <Box sx={{ p: 2 }}>
+                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1 }}>
+                          <Typography variant="caption" sx={{ color: "#46d369", fontWeight: "bold" }}>{ep.match}</Typography>
+                          <Typography variant="caption" sx={{ color: "#777" }}>{ep.duration}</Typography>
+                        </Box>
+                        <Typography variant="body2" fontWeight="bold" sx={{ color: "#fff", mb: 1, height: 40, overflow: "hidden" }}>{ep.title}</Typography>
+                        <Typography variant="caption" sx={{ color: "#b3b3b3", display: "block", height: 80, overflow: "hidden", mb: 2 }}>{ep.desc}</Typography>
+                        <Button
+                          fullWidth size="small" variant="contained"
+                          onClick={() => {
+                            setCurrentReason(ep.thoughts);
+                            setReasonsDialogOpen(true);
+                          }}
+                          sx={{ bgcolor: "#e50914", color: "#fff", fontWeight: "bold", textTransform: "none", "&:hover": { bgcolor: "#b80710" } }}
+                        >
+                          Play Thought ▶️
+                        </Button>
+                      </Box>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+
+            {/* Polaroid Memory Grid */}
+            <Box sx={{ mb: 6 }}>
+              <Typography variant="h5" align="center" color="white" fontWeight="bold" mb={4} sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                📸 Polaroid Memories
+              </Typography>
+              <Grid container spacing={4} sx={{ justifyContent: "center" }}>
+                {MEMORIES.map((m, i) => (
+                  <Grid item xs={12} sm={6} md={4} key={i}>
+                    <PolaroidCard img={m.img} caption={m.story} rotation={i % 2 === 0 ? -2 : 2} />
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+
+            {/* Soundtracks */}
+            <Box sx={{ mb: 6 }}>
+              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
+                <LibraryMusicIcon sx={{ color: "white", fontSize: 28 }} />
+                <Typography variant="h5" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                  🎵 Our Soundtrack
                 </Typography>
-                <Typography variant="body1" sx={{ color: "#5c5c5c", fontSize: "1.1rem", mb: 3 }}>
-                  Click to open your special handwritten letter
+              </Box>
+              <Grid container spacing={3} sx={{ maxWidth: 960, mx: "auto", alignItems: "stretch" }}>
+                {MUSIC_MEMORIES.map((music, i) => (
+                  <Grid item xs={12} sm={4} key={i}>
+                    <Card sx={{ p: 3, borderRadius: 4, textAlign: "center", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)", boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}>
+                      <LibraryMusicIcon sx={{ fontSize: 40, color: "#e91e63", mb: 2 }} />
+                      <Typography variant="h6" fontWeight="bold" sx={{ fontFamily: "'Outfit', sans-serif", color: "#c2185b", mb: 1 }}>{music.title}</Typography>
+                      <Typography sx={{ fontFamily: "'Outfit', sans-serif", fontSize: "0.9rem", color: "#616161", mb: 2, flexGrow: 1 }}>{music.desc}</Typography>
+                      
+                      <Box sx={{ bgcolor: "rgba(233,30,99,0.05)", p: 1.5, borderRadius: 2, mb: 2, width: "100%" }}>
+                        <Typography variant="caption" sx={{ fontStyle: "italic", color: "#8e24aa" }}>
+                          {i === 0 && "Why it counts: Because that night, I realized your voice was my favorite melody. ❤️"}
+                          {i === 1 && "Why it counts: Every lyric feels like it was written directly about your smile. 🎶"}
+                          {i === 2 && "Why it counts: On long lonely nights, this was the bridge that connected my thoughts to you. 🌧️"}
+                        </Typography>
+                      </Box>
+
+                      <Button
+                        variant={playingMemoryIdx === i ? "contained" : "outlined"}
+                        onClick={() => playMusicMemory(i)}
+                        startIcon={playingMemoryIdx === i ? <PauseIcon /> : <PlayArrowIcon />}
+                        sx={{ borderRadius: 20, color: playingMemoryIdx === i ? "#fff" : "#e91e63", bgcolor: playingMemoryIdx === i ? "#e91e63" : "transparent", borderColor: "#e91e63" }}
+                      >
+                        {playingMemoryIdx === i ? "Pause" : "Play Track"}
+                      </Button>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+
+            {/* 365 Days Calendar */}
+            <Box sx={{ mb: 6 }}>
+              <Typography variant="h5" color="white" fontWeight="bold" mb={3} sx={{ fontFamily: "'Outfit', sans-serif", textShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
+                📅 365 Days of You Calendar
+              </Typography>
+              <Card sx={{ p: 4, borderRadius: 5, background: "rgba(255,255,255,0.92)", maxWidth: 500, mx: "auto" }}>
+                <Typography variant="subtitle1" fontWeight="bold" color="#c2185b" align="center" mb={2}>June 2025</Typography>
+                <Grid container spacing={1} sx={{ justifyContent: "center" }}>
+                  {Array.from({ length: 30 }).map((_, dIdx) => {
+                    const dayNum = dIdx + 1;
+                    const hasMemory = CALENDAR_MEMORIES[dayNum];
+                    return (
+                      <Grid item xs={1.7} key={dayNum} sx={{ display: "flex", justifyContent: "center" }}>
+                        <Button
+                          onClick={() => {
+                            if (hasMemory) {
+                              setCurrentReason(hasMemory);
+                              setReasonsDialogOpen(true);
+                            }
+                          }}
+                          variant={hasMemory ? "contained" : "outlined"}
+                          sx={{
+                            width: 40, height: 40, minWidth: 40, borderRadius: "50%", p: 0,
+                            bgcolor: hasMemory ? "#ff4081" : "transparent",
+                            color: hasMemory ? "#fff" : "#777",
+                            borderColor: hasMemory ? "#ff4081" : "rgba(0,0,0,0.15)",
+                            fontWeight: "bold",
+                            "&:hover": { bgcolor: hasMemory ? "#e91e63" : "rgba(0,0,0,0.05)" }
+                          }}
+                        >
+                          {dayNum}
+                        </Button>
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+                <Typography variant="caption" sx={{ display: "block", color: "#666", mt: 3, textAlign: "center", fontStyle: "italic" }}>
+                  *Click on highlighted dates to unlock calendar thoughts!
+                </Typography>
+              </Card>
+            </Box>
+
+            {/* Freeze Time */}
+            <Box sx={{ mb: 6 }}>
+              <Typography variant="h5" color="white" fontWeight="bold" mb={3} sx={{ fontFamily: "'Outfit', sans-serif", textShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
+                ⏳ If I Could Freeze Time Moments
+              </Typography>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2, maxWidth: 650, mx: "auto" }}>
+                {[
+                  "That night when we couldn't stop laughing and forgot the world existed. 💫",
+                  "The moment you called me by my nickname for the very first time. 🥺",
+                  "Watching sunsets virtually while listening to our soundtrack. 🌅",
+                  "That sleepy 3 AM phone call where we just listened to each other breathe. 🌙",
+                  "The moment you sent your selfie and I realized I fell hard. 🌹"
+                ].map((moment, mIdx) => (
+                  <Card key={mIdx} sx={{ p: 3, borderRadius: 4, background: "rgba(255,255,255,0.9)", borderLeft: "5px solid #ff4081" }}>
+                    <Typography variant="body1" fontWeight="bold" color="#c2185b" sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                      Moment #{mIdx + 1}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: "#374151", mt: 1 }}>
+                      {moment}
+                    </Typography>
+                  </Card>
+                ))}
+              </Box>
+            </Box>
+
+            {/* Video surprises card */}
+            <Box sx={{ pb: 4, textAlign: "center" }}>
+              <Card sx={{ p: 4, borderRadius: 6, background: "linear-gradient(135deg, rgba(186,104,200,0.1), rgba(255,255,255,0.9))", border: "2px solid rgba(186,104,200,0.3)", maxWidth: 500, mx: "auto" }}>
+                <Typography variant="h6" color="#8e24aa" fontWeight="bold" gutterBottom>
+                  🎬 Video Surprise Reels
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#666", mb: 3 }}>
+                  Watch special customized video diaries dedicated to you.
                 </Typography>
                 <Button
                   variant="contained"
-                  sx={{
-                    bgcolor: "#ff4081",
-                    color: "#fff",
-                    borderRadius: 20,
-                    px: 4,
-                    py: 1.2,
-                    fontWeight: "bold",
-                    fontFamily: "'Outfit', sans-serif",
-                    boxShadow: "0 8px 20px rgba(255, 64, 129, 0.3)",
-                    "&:hover": {
-                      bgcolor: "#d81b60",
-                    },
-                  }}
+                  onClick={openVideoSurpriseDialog}
+                  sx={{ bgcolor: "#ab47bc", color: "#fff", borderRadius: 20, px: 4, py: 1.2, fontWeight: "bold", "&:hover": { bgcolor: "#8e24aa" } }}
                 >
-                  Open Letter 💖
+                  Open Video Player 🎬
                 </Button>
-              </Box>
-            ) : (
-              <Box sx={{ animation: "fadeInUp 0.8s cubic-bezier(0.19, 1, 0.22, 1)" }}>
-                <IconButton
-                  onClick={(e) => {
-                    e.stopPropagation(); // Avoid refiring click on parent Card
-                    closeLetter();
-                  }}
-                  sx={{
-                    position: "absolute",
-                    right: 20,
-                    top: 20,
-                    color: "grey.600",
-                    border: "1px solid rgba(0,0,0,0.1)",
-                  }}
-                >
-                  <CloseIcon />
-                </IconButton>
-                <Typography
-                  variant="h3"
-                  align="center"
-                  gutterBottom
-                  sx={{
-                    fontFamily: "'Pacifico', cursive",
-                    color: "#d81b60",
-                    fontSize: { xs: "2.2rem", md: "3.2rem" },
-                    mb: 4,
-                  }}
-                >
-                  Dearest Kuttymaa, 💌
-                </Typography>
+              </Card>
+            </Box>
+          </Box>
+        )}
 
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: { xs: "1.1rem", md: "1.35rem" },
-                    lineHeight: 2.3,
-                    textAlign: "center",
-                    color: "#374151",
-                    maxWidth: "800px",
-                    margin: "0 auto",
-                    fontFamily: "'Outfit', sans-serif",
-                    letterSpacing: "0.2px",
-                  }}
-                >
-                  Happy Birthday, my love! 🎂✨
-                  <br />
-                  Today is a celebration of the day you came into this world and made it infinitely more beautiful.
-                  Thank you for bringing so much warmth, laughter, and endless light into my life.
-                  <br />
-                  You are my favorite person, my safe place, and the most precious chapter of my story.
-                  I cherish every little moment we share, from the sweet laughs to the quiet glances.
-                  <br />
-                  I hope today shines as brightly as your smile and brings you all the happiness you deserve.
-                  I am so lucky to walk this beautiful journey of life with you by my side.
-                </Typography>
-
-                <Typography
-                  sx={{
-                    fontFamily: "'Caveat', cursive",
-                    fontSize: "2.8rem",
-                    color: "#ff4081",
-                    fontWeight: 700,
-                    mt: 5,
-                    textAlign: "right",
-                    pr: { xs: 2, md: 10 },
-                  }}
-                >
-                  Yours Forever & Always,
-                  <br />
-                  Prasanth ❤️
-                </Typography>
-              </Box>
-            )}
-          </Card>
-        </Box>
-
-        {/* Timeline of Milestones / Our Story */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Typography
-            variant="h4"
-            align="center"
-            color="white"
-            fontWeight="bold"
-            mb={6}
-            sx={{
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: { xs: "1.8rem", md: "2.5rem" },
-              textShadow: "0 4px 10px rgba(106, 27, 154, 0.2)",
-            }}
-          >
-            Our Beautiful Journey ✨
-          </Typography>
-
-          {/* 7-Chapter Story Cards */}
-          <Box sx={{ maxWidth: "900px", margin: "0 auto", px: { xs: 2, md: 0 }, display: "flex", flexDirection: "column", gap: 4 }}>
-            {[
-              {
-                title: "The Day Everything Changed 💖",
-                text: "I never knew one person could change my whole world until you came into my life. What started as simple conversations slowly became the most beautiful part of my every day. Meeting you wasn't just a moment — it was the beginning of my favorite story.",
-                align: "left",
-              },
-              {
-                title: "Through Every Distance 🌍❤️",
-                text: "There were times when life kept us apart and moments when we couldn't be together as much as we wanted. Yet somehow, every reunion felt special, every message felt precious, and every call reminded me that our bond was stronger than any distance or absence.",
-                align: "right",
-              },
-              {
-                title: "The Real You 🌹",
-                text: "You may be a little short-tempered sometimes, but that's one of the many things that makes you uniquely you. Behind that tiny storm is the sweetest, most innocent soul I've ever known. Your heart is pure, your intentions are genuine, and your smile has a way of making everything better.",
-                align: "left",
-              },
-              {
-                title: "Our Safe Place 🤗",
-                text: "One of the things I treasure most is the trust we share. You've let me see the real you — the happy you, the emotional you, the stubborn you, and the innocent you. Knowing that you're comfortable being yourself with me is one of the greatest gifts you've ever given me.",
-                align: "right",
-              },
-              {
-                title: "The Memories We Created 📸",
-                text: "From random conversations to unforgettable moments, from laughter that made our cheeks hurt to the smallest memories that only we understand, every moment with you has become a piece of a beautiful collection I'll cherish forever.",
-                align: "left",
-              },
-              {
-                title: "My Happiness, My Home ❤️",
-                text: "What I love most is seeing you happy. Some of my favorite memories are the moments when we forgot about everything else and simply enjoyed being together. Your happiness has become my happiness, and your smile will always be one of my favorite sights in the world.",
-                align: "right",
-              },
-              {
-                title: "Today & Forever 🎂✨",
-                text: "On your birthday, I just want you to know how grateful I am for every moment, every memory, every challenge we've overcome, and every smile we've shared. Thank you for trusting me, for staying by my side, and for being the beautiful person you are. No matter what comes next, our story will always be one of the most precious parts of my life.",
-                align: "left",
-                highlight: true,
-              },
-            ].map((item, idx) => (
-              <Box
-                key={idx}
-                sx={{
-                  display: "flex",
-                  justifyContent: item.align === "right" ? "flex-end" : "flex-start",
-                }}
-              >
-                <Card
-                  sx={{
-                    p: { xs: 3, md: 4 },
-                    borderRadius: 5,
-                    maxWidth: { xs: "100%", md: "72%" },
-                    background: item.highlight
-                      ? "linear-gradient(135deg, rgba(255,64,129,0.10) 0%, rgba(255,255,255,0.97) 100%)"
-                      : "rgba(255,255,255,0.82)",
-                    border: item.highlight
-                      ? "2px solid rgba(255,64,129,0.35)"
-                      : "1px solid rgba(255,255,255,0.6)",
-                    boxShadow: item.highlight
-                      ? "0 18px 45px rgba(255,64,129,0.2)"
-                      : "0 10px 25px rgba(0,0,0,0.07)",
-                    backdropFilter: "blur(12px)",
-                    transition: "all 0.35s cubic-bezier(0.4,0,0.2,1)",
-                    position: "relative",
-                    "&:hover": {
-                      transform: "translateY(-6px)",
-                      boxShadow: "0 22px 45px rgba(255,64,129,0.22)",
-                    },
-                  }}
-                >
-                  {/* Chapter badge */}
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      top: -14,
-                      left: item.align === "right" ? "auto" : 20,
-                      right: item.align === "right" ? 20 : "auto",
-                      bgcolor: "#ff4081",
-                      color: "#fff",
-                      borderRadius: 20,
-                      px: 1.8,
-                      py: 0.3,
-                      fontSize: "0.72rem",
-                      fontWeight: "bold",
-                      fontFamily: "'Outfit', sans-serif",
-                      letterSpacing: "0.5px",
-                      boxShadow: "0 4px 10px rgba(255,64,129,0.35)",
-                    }}
-                  >
-                    Chapter {idx + 1}
-                  </Box>
-
-                  {/* Scavenger Heart 2 - only on Chapter 3 */}
-                  {idx === 2 && !foundHearts.includes(2) && (
-                    <IconButton
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleFindHeart(2);
-                      }}
+        {/* Love Vault Tab Panel */}
+        {activeTab === "vault" && (
+          <Box sx={{ animation: "fadeInUp 0.6s ease", mt: 2 }}>
+            <Grid container spacing={4} sx={{ mb: 6 }}>
+              {/* Vault check card */}
+              <Grid item xs={12} md={6}>
+                {!vaultUnlocked ? (
+                  <Card sx={{ p: 4, borderRadius: 6, background: "linear-gradient(135deg, #2c3e50, #000)", color: "#fff", border: "2px solid rgba(255,255,255,0.1)", textAlign: "center", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
+                    <LockIcon sx={{ fontSize: 60, color: "#ff4081", mb: 2, animation: "pulseHeart 2s infinite" }} />
+                    <Typography variant="h5" fontWeight="bold" mb={2} sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                      🔒 Vault of Secrets
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.6)", mb: 3 }}>
+                      Unlock to read what I admire most, what scares me, and the exact moment I fell. Hint: starts with k or j.
+                    </Typography>
+                    <TextField
+                      placeholder="Enter nickname..."
+                      value={vaultPassword}
+                      onChange={(e) => setVaultPassword(e.target.value)}
+                      size="small"
                       sx={{
-                        position: "absolute",
-                        bottom: 8,
-                        left: 8,
-                        color: "rgba(255, 64, 129, 0.18)",
-                        p: 0.5,
-                        "&:hover": { color: "#ff4081", transform: "scale(1.3)" },
-                        transition: "all 0.2s",
+                        bgcolor: "rgba(255,255,255,0.1)",
+                        borderRadius: 2,
+                        input: { color: "#fff", textAlign: "center" },
+                        fieldset: { borderColor: "rgba(255,255,255,0.2)" },
+                        "& .MuiOutlinedInput-root:hover fieldset": { borderColor: "#ff4081" },
+                        mb: 2,
+                        width: "100%"
+                      }}
+                    />
+                    {vaultError && <Typography variant="caption" color="error" sx={{ display: "block", mb: 2 }}>{vaultError}</Typography>}
+                    <Button
+                      variant="contained"
+                      onClick={handleUnlockVault}
+                      sx={{ bgcolor: "#ff4081", color: "#fff", borderRadius: 20, px: 5, py: 1.2, fontWeight: "bold", "&:hover": { bgcolor: "#d81b60" } }}
+                    >
+                      Unlock Secrets 🔑
+                    </Button>
+                  </Card>
+                ) : (
+                  <Card sx={{ p: 4, borderRadius: 6, background: "linear-gradient(135deg, #fff0f5, #fff)", border: "2px solid #ff4081", height: "100%", position: "relative" }}>
+                    <IconButton onClick={() => setVaultUnlocked(false)} sx={{ position: "absolute", top: 10, right: 10 }} size="small"><LockIcon sx={{ color: "#ff4081" }} /></IconButton>
+                    <Typography variant="h5" color="#c2185b" fontWeight="bold" align="center" mb={3} sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                      🔑 Welcome, Kuttymaa.
+                    </Typography>
+                    
+                    <Box sx={{ display: "flex", flexDirection: "column", gap: 3, textAlign: "left" }}>
+                      <Box>
+                        <Typography variant="subtitle2" fontWeight="bold" color="#ff4081">📖 The Day I Fell</Typography>
+                        <Typography variant="body2" sx={{ color: "#374151", mt: 1, lineHeight: 1.7 }}>
+                          We were talking normally. Nothing dramatic happened. No music. No movie scene. Then suddenly I realized: "This is the person I want to tell everything to." ❤️
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography variant="subtitle2" fontWeight="bold" color="#ff4081">🤝 What I Admire Most</Typography>
+                        <Typography variant="body2" sx={{ color: "#374151", mt: 1, lineHeight: 1.7 }}>
+                          Your absolute innocence, your pure soul, and the fierce loyalty you carry. You love with all your heart, and that is rare.
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography variant="subtitle2" fontWeight="bold" color="#ff4081">🔒 What Scares Me</Typography>
+                        <Typography variant="body2" sx={{ color: "#374151", mt: 1, lineHeight: 1.7 }}>
+                          Losing the comfort, the laughter, and the safe place we built together. You are my home, and losing home is terrifying.
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Card>
+                )}
+              </Grid>
+
+              {/* Emergency Kit */}
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.9)", border: "1.5px solid rgba(255,255,255,0.6)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                  <Typography variant="h5" color="#d81b60" fontWeight="bold" align="center" mb={3} sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                    📦 Emergency Kuttymaa Kit
+                  </Typography>
+                  <Grid container spacing={2} sx={{ justifyContent: "center" }}>
+                    {[
+                      { label: "When Sad 🫂", content: "Virtual Hug: Close your eyes and feel my arms around you. Reassurance letter: I am right here, I'm never letting go. You are safe." },
+                      { label: "When Angry 🍫", content: "Virtual Chocolate Box: Here is a giant box of double-fudge dark chocolates. Single-click eating, calorie-free comfort!" },
+                      { label: "When Missing Me 📞", content: "Instant Call Coupon: Redeemable now! Hit call, and I will pick up no matter what I'm doing." },
+                      { label: "When Overthinking 💌", content: "Reassurance: Breathe. Everything is okay. My feelings haven't changed, they grow stronger every single day. I choose you." }
+                    ].map((kit, kIdx) => (
+                      <Grid item xs={6} key={kIdx}>
+                        <Button
+                          fullWidth variant="contained"
+                          onClick={() => {
+                            setCurrentReason(kit.content);
+                            setReasonsDialogOpen(true);
+                          }}
+                          sx={{
+                            height: 100, borderRadius: 4, bgcolor: "rgba(255,255,255,0.9)", color: "#c2185b",
+                            fontFamily: "'Outfit', sans-serif", fontWeight: "bold", border: "1.5px solid rgba(255,64,129,0.2)",
+                            boxShadow: "0 8px 20px rgba(0,0,0,0.06)", flexDirection: "column", textTransform: "none",
+                            "&:hover": { bgcolor: "#fff", transform: "scale(1.04)" }
+                          }}
+                        >
+                          {kit.label}
+                        </Button>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Card>
+              </Grid>
+            </Grid>
+
+            {/* Love Coupons */}
+            <Box sx={{ mb: 6 }}>
+              <Typography variant="h5" color="white" fontWeight="bold" align="center" mb={3} sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                🎫 Redeemable Love Coupons
+              </Typography>
+              <Grid container spacing={3} sx={{ justifyContent: "center" }}>
+                {LOVE_COUPONS.map((coupon, cIdx) => (
+                  <Grid item xs={12} sm={6} md={4} key={cIdx}>
+                    <Card
+                      sx={{
+                        p: 3, borderRadius: 4, background: "linear-gradient(135deg, #fff, #ffebee)",
+                        border: "2px dashed #ff4081", textCenter: "center", position: "relative",
+                        boxShadow: "0 10px 25px rgba(0,0,0,0.05)"
                       }}
                     >
+                      <Typography variant="subtitle1" fontWeight="bold" color="#c2185b">{coupon.title}</Typography>
+                      <Typography variant="body2" sx={{ color: "#666", my: 2, height: 40, overflow: "hidden" }}>{coupon.desc}</Typography>
+                      <Box sx={{ bgcolor: "rgba(233,30,99,0.05)", p: 1, borderRadius: 2, mb: 2, textAlign: "center" }}>
+                        <Typography variant="caption" sx={{ fontFamily: "monospace", fontWeight: "bold", color: "#e91e63" }}>CODE: {coupon.code}</Typography>
+                      </Box>
+                      <Button
+                        fullWidth size="small" variant="contained"
+                        onClick={() => {
+                          setSelectedCoupon(coupon);
+                          // Trigger confetti
+                          setOpenSurprise(true);
+                          setTimeout(() => setOpenSurprise(false), 3000);
+                        }}
+                        sx={{ bgcolor: "#ff4081", color: "#fff", borderRadius: 20, "&:hover": { bgcolor: "#d81b60" } }}
+                      >
+                        Redeem Coupon 🎫
+                      </Button>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+              {selectedCoupon && (
+                <Dialog open={selectedCoupon !== null} onClose={() => setSelectedCoupon(null)} PaperProps={{ sx: { borderRadius: 6, p: 4, textAlign: "center", maxWidth: 350 } }}>
+                  <Typography variant="h5" color="#c2185b" fontWeight="bold" gutterBottom>Coupon Activated! 🎉</Typography>
+                  <Typography sx={{ my: 2, color: "#374151" }}>You have officially redeemed: <br/><strong>{selectedCoupon.title}</strong></Typography>
+                  <Typography variant="caption" color="text.secondary">Screenshot this code: <strong>{selectedCoupon.code}</strong> and send it to Prasanth! 💬</Typography>
+                  <Button variant="contained" onClick={() => setSelectedCoupon(null)} sx={{ mt: 3, bgcolor: "#ff4081", borderRadius: 20 }}>Awesome! ❤️</Button>
+                </Dialog>
+              )}
+            </Box>
+
+            {/* Open When Letters */}
+            <Box sx={{ mb: 6 }}>
+              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
+                <EmailIcon sx={{ color: "white", fontSize: 28 }} />
+                <Typography variant="h5" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                  💌 Open When Letters
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center", px: { xs: 2, md: 0 }, maxWidth: 1000, mx: "auto" }}>
+                {OPEN_WHEN_LETTERS.map((letter, idx) => (
+                  <Button
+                    key={idx}
+                    onClick={() => setOpenWhenLetter(idx)}
+                    sx={{
+                      borderRadius: 4, px: 3, py: 2, minWidth: { xs: "100%", sm: 220 }, maxWidth: 280,
+                      background: letter.bg, color: "#fff", fontWeight: "bold",
+                      fontFamily: "'Outfit',sans-serif", fontSize: "1rem", textTransform: "none",
+                      boxShadow: `0 10px 25px ${letter.color}55`,
+                      flexDirection: "column", gap: 1,
+                      transition: "all 0.3s ease",
+                      "&:hover": { transform: "translateY(-6px)", boxShadow: `0 15px 35px ${letter.color}88` },
+                    }}
+                  >
+                    <Typography sx={{ fontSize: "2rem" }}>{letter.emoji}</Typography>
+                    {letter.label}
+                  </Button>
+                ))}
+              </Box>
+            </Box>
+
+            {/* Sealed Envelope */}
+            <Box sx={{ py: 4, position: "relative", zIndex: 1 }}>
+              <Card
+                onClick={openLetter}
+                sx={{
+                  cursor: "pointer", p: letterOpen ? { xs: 4, md: 6 } : { xs: 4, md: 5 },
+                  borderRadius: 6, backdropFilter: "blur(20px)",
+                  background: letterOpen ? "rgba(255,255,255,0.95)" : "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.3) 100%)",
+                  border: letterOpen ? "2px solid rgba(255, 64, 129, 0.2)" : "2px dashed rgba(255, 255, 255, 0.8)",
+                  boxShadow: letterOpen ? "0 30px 60px rgba(255, 64, 129, 0.2)" : "0 20px 45px rgba(0,0,0,0.08)",
+                  transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                  textAlign: "center"
+                }}
+              >
+                {!letterOpen ? (
+                  <Box sx={{ py: 6 }}>
+                    <Box sx={{ display: "inline-flex", p: 2.5, borderRadius: "50%", bgcolor: "rgba(255, 64, 129, 0.15)", mb: 3, animation: "heartbeat 2s infinite" }}>
+                      <FavoriteIcon sx={{ color: "#ff4081", fontSize: 50 }} />
+                    </Box>
+                    <Typography variant="h4" sx={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: "#d81b60", mb: 1.5 }}>
+                      To Kuttymaa, My Love 💌
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: "#5c5c5c", fontSize: "1.1rem", mb: 3 }}>
+                      Click to open your special handwritten letter
+                    </Typography>
+                    <Button variant="contained" sx={{ bgcolor: "#ff4081", color: "#fff", borderRadius: 20, px: 4 }}>
+                      Open Letter 💖
+                    </Button>
+                  </Box>
+                ) : (
+                  <Box sx={{ animation: "fadeInUp 0.8s cubic-bezier(0.19, 1, 0.22, 1)", textAlign: "left" }}>
+                    <IconButton onClick={(e) => { e.stopPropagation(); closeLetter(); }} sx={{ position: "absolute", right: 20, top: 20 }}><CloseIcon /></IconButton>
+                    <Typography variant="h3" align="center" sx={{ fontFamily: "'Pacifico', cursive", color: "#d81b60", mb: 4 }}>
+                      My Dearest Kuttymaa,
+                    </Typography>
+                    <Typography variant="body1" sx={{ fontFamily: "'Outfit', sans-serif", color: "#374151", lineHeight: 2.0, fontSize: "1.1rem", mb: 4 }}>
+                      Words often fail me when I try to write down what you mean to me. You came into my life like a quiet breeze, and before I knew it, you became my entire atmosphere. Every laugh we share, every late-night call where we lose track of time, and even the moments when distance makes things hard, only serves to show me how special what we have is. <br/><br/>
+                      You have a way of lighting up my darkest days with just a single text. I love your innocence, your gentle soul, and the fierce loyalty you carry. On your birthday, I want to promise you that no matter what storms come, I am holding your hand. I believe in you, in your dreams, and in us. Thank you for choosing me every single day. Happy Birthday, my love. ❤️
+                    </Typography>
+                    <Typography align="right" sx={{ fontFamily: "'Caveat', cursive", fontSize: "2rem", color: "#ff4081", fontWeight: "bold" }}>
+                      Yours Forever, Prasanth.
+                    </Typography>
+                  </Box>
+                )}
+              </Card>
+            </Box>
+          </Box>
+        )}
+
+        {/* Arcade Hub Tab Panel */}
+        {activeTab === "arcade" && (
+          <Box sx={{ animation: "fadeInUp 0.6s ease", mt: 2 }}>
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 3, borderRadius: 5, background: "rgba(255,255,255,0.92)", border: "1.5px solid rgba(255,255,255,0.6)", height: "100%" }}>
+                  <CatchHeartsGame />
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 3, borderRadius: 5, background: "rgba(255,255,255,0.92)", border: "1.5px solid rgba(255,255,255,0.6)", height: "100%" }}>
+                  <MemoryMatchGame />
+                </Card>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 6, background: "rgba(255,255,255,0.95)", border: "1.5px solid rgba(255,64,129,0.15)" }}>
+                  <Typography variant="h5" color="#d81b60" fontWeight="bold" align="center" mb={3} sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                    🎮 Couple Quiz Challenge
+                  </Typography>
+                  {!quizFinished ? (
+                    <Box textAlign="center" sx={{ animation: "fadeInUp 0.5s ease" }}>
+                      <Typography sx={{ color: "#d81b60", fontWeight: "bold", mb: 2 }}>Question {quizStep + 1} of {COUPLE_QUIZ.length}</Typography>
+                      <Typography variant="h6" sx={{ color: "#374151", mb: 4, fontWeight: "bold" }}>{COUPLE_QUIZ[quizStep].q}</Typography>
+                      <Grid container spacing={2}>
+                        {COUPLE_QUIZ[quizStep].options.map((opt, i) => (
+                          <Grid item xs={12} sm={6} key={i}>
+                            <Button
+                              fullWidth variant="outlined"
+                              onClick={() => handleQuizAnswer(opt)}
+                              disabled={!!quizFeedback}
+                              sx={{ p: 2, borderRadius: 3, borderColor: "rgba(233,30,99,0.3)", color: "#c2185b", textTransform: "none" }}
+                            >
+                              {opt}
+                            </Button>
+                          </Grid>
+                        ))}
+                      </Grid>
+                      {quizFeedback && (
+                        <Typography sx={{ mt: 3, fontFamily: "'Caveat',cursive", fontSize: "1.5rem", color: "#d81b60" }}>{quizFeedback}</Typography>
+                      )}
+                    </Box>
+                  ) : (
+                    <Box textAlign="center">
+                      <EmojiEventsIcon sx={{ fontSize: 60, color: "#ffd54f", mb: 2 }} />
+                      <Typography variant="h4" sx={{ fontFamily: "'Pacifico',cursive", color: "#d81b60", mb: 2 }}>Quiz Complete!</Typography>
+                      <Typography sx={{ fontSize: "1.2rem", color: "#4a4a4a" }}>
+                        You scored {quizScore} out of {COUPLE_QUIZ.length}. Regardless of the score, you win my heart every day. ❤️
+                      </Typography>
+                      <Button variant="contained" onClick={() => { setQuizStep(0); setQuizScore(0); setQuizFinished(false); }} sx={{ mt: 3, bgcolor: "#ff4081", borderRadius: 20 }}>Retry Quiz</Button>
+                    </Box>
+                  )}
+                </Card>
+              </Grid>
+            </Grid>
+          </Box>
+        )}
+
+        {/* Cosmos Tab Panel */}
+        {activeTab === "cosmos" && (
+          <Box sx={{ animation: "fadeInUp 0.6s ease", mt: 2 }}>
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 3, borderRadius: 5, bgcolor: "#050014", border: "1.5px solid rgba(255,255,255,0.15)", height: "100%", position: "relative" }}>
+                  {!foundHearts.includes(5) && (
+                    <IconButton onClick={() => handleFindHeart(5)} sx={{ position: "absolute", bottom: 10, right: 10, color: "rgba(255,255,255,0.2)", "&:hover": { color: "#ff4081" } }}>
                       <FavoriteIcon sx={{ fontSize: 16 }} />
                     </IconButton>
                   )}
-
-                  <Typography
-                    variant="h6"
-                    fontWeight="bold"
-                    sx={{
-                      fontFamily: "'Outfit', sans-serif",
-                      color: "#c2185b",
-                      mb: 1.5,
-                      fontSize: { xs: "1.05rem", md: "1.2rem" },
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontFamily: "'Outfit', sans-serif",
-                      color: "#374151",
-                      lineHeight: 1.9,
-                      fontSize: { xs: "0.95rem", md: "1.05rem" },
-                    }}
-                  >
-                    "{item.text}"
-                  </Typography>
-
-                  {item.highlight && (
-                    <Typography
-                      sx={{
-                        fontFamily: "'Caveat', cursive",
-                        fontSize: { xs: "1.6rem", md: "2rem" },
-                        color: "#ff4081",
-                        fontWeight: 700,
-                        mt: 3,
-                        textAlign: "right",
-                      }}
-                    >
-                      Happy Birthday, My Love. ❤️🎂✨
-                    </Typography>
-                  )}
-                </Card>
-              </Box>
-            ))}
-
-            {/* Closing Quote */}
-            <Box sx={{ textAlign: "center", mt: 3, mb: 2, px: 2 }}>
-              <Typography
-                sx={{
-                  fontFamily: "'Caveat', cursive",
-                  fontSize: { xs: "1.6rem", md: "2.2rem" },
-                  color: "white",
-                  fontWeight: 700,
-                  textShadow: "0 2px 10px rgba(106,27,154,0.3)",
-                  lineHeight: 1.5,
-                }}
-              >
-                "You are my favorite chapter, my safest place, and the most beautiful blessing life has given me." ❤️
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
-
-
-        {/* Gallery / Polaroid Section */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Typography
-            variant="h4"
-            align="center"
-            color="white"
-            fontWeight="bold"
-            mb={6}
-            sx={{
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: { xs: "1.8rem", md: "2.5rem" },
-              textShadow: "1px 2px 5px rgba(0,0,0,0.15)",
-            }}
-          >
-            Our Sweet Memories 📸
-          </Typography>
-
-          <Grid container spacing={4} sx={{ justifyContent: "center" }}>
-            <Grid item xs={12} sm={6} md={4}>
-              <PolaroidCard
-                img="/image/WhatsApp Image 2026-06-13 at 12.19.15 AM.jpeg"
-                caption="Warm moments ✨"
-                rotation={-3}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <PolaroidCard
-                img="/image/WhatsApp Image 2026-06-13 at 12.19.15 AM (2).jpeg"
-                caption="Perfect together 💖"
-                rotation={2}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <PolaroidCard
-                img="/image/WhatsApp Image 2026-06-13 at 12.19.19 AM.jpeg"
-                caption="Sweet sunsets 🌅"
-                rotation={-1}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <PolaroidCard
-                img="/image/WhatsApp Image 2026-06-13 at 12.29.00 AM.jpeg"
-                caption="Forever yours 💕"
-                rotation={3}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <PolaroidCard
-                img="/image/WhatsApp Image 2026-06-13 at 12.29.00 AM (1).jpeg"
-                caption="Our happy days 🌸"
-                rotation={-2}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-              <PolaroidCard
-                img="/image/WhatsApp Image 2026-06-13 at 12.29.01 AM.jpeg"
-                caption="My beautiful Kuttymaa 🌹"
-                rotation={1}
-              />
-            </Grid>
-          </Grid>
-        </Box>
-
-        {/* ── Music Memories ── */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
-            <LibraryMusicIcon sx={{ color: "white", fontSize: 30 }} />
-            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
-              The Soundtrack of Us 🎵
-            </Typography>
-          </Box>
-          <Grid container spacing={3} sx={{ maxWidth: 960, mx: "auto", px: { xs: 2, md: 0 }, alignItems: "stretch" }}>
-            {MUSIC_MEMORIES.map((music, i) => (
-              <Grid item xs={12} sm={4} key={i}>
-                <Card sx={{
-                  p: 3, borderRadius: 4, textAlign: "center", height: "100%",
-                  display: "flex", flexDirection: "column", alignItems: "center",
-                  background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)", transition: "all 0.3s ease",
-                  "&:hover": { transform: "translateY(-5px)", boxShadow: "0 15px 35px rgba(233,30,99,0.2)" }
-                }}>
-                  <LibraryMusicIcon sx={{ fontSize: 40, color: "#e91e63", mb: 2 }} />
-                  <Typography variant="h6" fontWeight="bold" sx={{ fontFamily: "'Outfit', sans-serif", color: "#c2185b", mb: 1 }}>
-                    {music.title}
-                  </Typography>
-                  <Box sx={{ flexGrow: 1 }}>
-                    <Typography sx={{ fontFamily: "'Outfit', sans-serif", fontSize: "0.9rem", color: "#616161", mb: 2 }}>
-                      {music.desc}
-                    </Typography>
-                  </Box>
-                  <Button
-                    variant={playingMemoryIdx === i ? "contained" : "outlined"}
-                    onClick={() => playMusicMemory(i)}
-                    startIcon={playingMemoryIdx === i ? <PauseIcon /> : <PlayArrowIcon />}
-                    sx={{
-                      borderRadius: 20,
-                      color: playingMemoryIdx === i ? "#fff" : "#e91e63",
-                      bgcolor: playingMemoryIdx === i ? "#e91e63" : "transparent",
-                      borderColor: "#e91e63",
-                      "&:hover": {
-                        bgcolor: playingMemoryIdx === i ? "#c2185b" : "rgba(233,30,99,0.1)",
-                        borderColor: "#c2185b"
-                      }
-                    }}
-                  >
-                    {playingMemoryIdx === i ? "Pause" : "Play"}
-                  </Button>
+                  <NightSky />
                 </Card>
               </Grid>
-            ))}
-          </Grid>
-        </Box>
 
-        {/* ── Relationship Counter ── */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
-            <AccessTimeIcon sx={{ color: "white", fontSize: 30 }} />
-            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
-              We've Been Together For...
-            </Typography>
-            {/* Scavenger Heart 4 */}
-            {!foundHearts.includes(4) && (
-              <IconButton
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleFindHeart(4);
-                }}
-                sx={{
-                  color: "rgba(255, 255, 255, 0.35)",
-                  p: 0.5,
-                  ml: 1,
-                  "&:hover": { color: "#ff4081", transform: "scale(1.3)" },
-                  transition: "all 0.2s",
-                }}
-              >
-                <FavoriteIcon sx={{ fontSize: 20 }} />
-              </IconButton>
-            )}
-          </Box>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center" }}>
-            {[
-              { label: "Days", value: timeElapsed.days },
-              { label: "Hours", value: timeElapsed.hours },
-              { label: "Minutes", value: timeElapsed.minutes },
-              { label: "Seconds", value: timeElapsed.seconds },
-            ].map((item) => (
-              <Box key={item.label} sx={{ textAlign: "center" }}>
-                <Card sx={{
-                  minWidth: { xs: 130, md: 160 }, py: 3, px: 3, borderRadius: 5,
-                  background: "rgba(255,255,255,0.15)", backdropFilter: "blur(20px)",
-                  border: "1.5px solid rgba(255,255,255,0.4)",
-                  boxShadow: "0 12px 35px rgba(255,64,129,0.2)",
-                  transition: "transform 0.3s ease",
-                  "&:hover": { transform: "translateY(-6px) scale(1.04)" },
-                }}>
-                  <Typography sx={{ fontFamily: "'Pacifico', cursive", fontSize: { xs: "2.8rem", md: "3.5rem" }, color: "#fff", lineHeight: 1, fontWeight: 700, textShadow: "0 2px 10px rgba(255,64,129,0.4)" }}>
-                    {String(item.value).padStart(2, "0")}
-                  </Typography>
-                  <Typography sx={{ fontFamily: "'Outfit', sans-serif", color: "rgba(255,255,255,0.85)", fontSize: "0.9rem", fontWeight: 600, letterSpacing: "2px", textTransform: "uppercase", mt: 1 }}>
-                    {item.label}
-                  </Typography>
+              <Grid item xs={12} md={6}>
+                <Card sx={{ p: 3, borderRadius: 5, background: "rgba(255,255,255,0.92)", border: "1.5px solid rgba(255,255,255,0.6)", height: "100%" }}>
+                  <LoveMap />
                 </Card>
+              </Grid>
+            </Grid>
+          </Box>
+        )}
+
+        {/* Future Tab Panel */}
+        {activeTab === "future" && (
+          <Box sx={{ animation: "fadeInUp 0.6s ease", mt: 2 }}>
+            {/* Timeline */}
+            <Box sx={{ mb: 6 }}>
+              <Typography variant="h5" color="white" fontWeight="bold" align="center" mb={2} sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                🌸 Interactive Roadmap Timeline
+              </Typography>
+              <Typography align="center" sx={{ color: "rgba(255,255,255,0.8)", mb: 4 }}>Our dreams and adventures, plotted in time... ✨</Typography>
+              
+              <Box sx={{ maxWidth: 700, mx: "auto", px: 2, position: "relative" }}>
+                <Box sx={{ position: "absolute", left: { xs: 28, md: 36 }, top: 0, bottom: 0, width: 3, background: "linear-gradient(to bottom, #ff4081, #ba68c8, #5c6bc0)", opacity: 0.5 }} />
+                {[
+                  { year: "2026 🌸", title: "First Trip Together ✈️", desc: "Exploring new horizons, hand in hand. Wherever we go, it becomes our favorite place." },
+                  { year: "2027 🏡", title: "Our Dream Cozy Nest", desc: "Building a space filled with warmth, endless coffee, and arguments over wall colors. 😂" },
+                  { year: "2028 ✨", title: "More Adventures", desc: "Sipping coffee, writing stories, sharing sunsets, and growing stronger together." },
+                  { year: "2030 ⏳", title: "Letter from Future Me", desc: "Click below to read a message sent from June 13, 2030." }
+                ].map((item, i) => (
+                  <Box key={i} sx={{ display: "flex", gap: 3, mb: 4, alignItems: "flex-start", position: "relative" }}>
+                    <Box sx={{ minWidth: 56, height: 56, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", bgcolor: "#fff", border: "2.5px solid #ff4081", zIndex: 1, fontWeight: "bold", color: "#c2185b" }}>
+                      {item.year.split(" ")[0]}
+                    </Box>
+                    <Card sx={{ flex: 1, p: 3, borderRadius: 4, background: "rgba(255,255,255,0.88)", border: "1.5px solid rgba(255,255,255,0.6)", transition: "all 0.3s ease", "&:hover": { transform: "translateX(6px)" } }}>
+                      <Typography fontWeight="bold" color="#c2185b" mb={1}>{item.title}</Typography>
+                      <Typography variant="body2" color="#4a4a4a" mb={2}>{item.desc}</Typography>
+                      {i === 3 && (
+                        <Button
+                          size="small" variant="contained"
+                          onClick={() => {
+                            setCurrentReason("Date: June 13, 2030 \n\nHey Kuttymaa, \n\nWe still laugh at the same silly things. We still annoy each other. And somehow I still fall in love with you every day. Happy 5-year future anniversary! \n\nLove, \nPrasanth.");
+                            setReasonsDialogOpen(true);
+                          }}
+                          sx={{ bgcolor: "#ff4081", borderRadius: 20 }}
+                        >
+                          Read Future Letter ✉️
+                        </Button>
+                      )}
+                    </Card>
+                  </Box>
+                ))}
               </Box>
-            ))}
-          </Box>
-          <Typography align="center" sx={{ color: "rgba(255,255,255,0.7)", mt: 3, fontFamily: "'Outfit', sans-serif", fontSize: "1rem" }}>
-            Since February 19, 2025 ❤️
-          </Typography>
-        </Box>
+            </Box>
 
-        {/* ── Random Memory Generator ── */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Typography variant="h4" align="center" color="white" fontWeight="bold" mb={4} sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
-            🎲 Random Memory Generator
-          </Typography>
-          <Box textAlign="center" mb={5}>
-            <Button
-              variant="contained"
-              size="large"
-              onClick={pickRandomMemory}
-              startIcon={<AutoAwesomeIcon />}
-              sx={{
-                borderRadius: 50, px: 5, py: 1.8, fontSize: "1.15rem", fontWeight: "bold",
-                background: "linear-gradient(45deg,#ffd54f,#ffb300,#ff8f00)",
-                color: "#3e2723", boxShadow: "0 10px 30px rgba(255,213,79,0.45)",
-                fontFamily: "'Outfit', sans-serif",
-                "&:hover": { transform: "scale(1.06) translateY(-3px)", boxShadow: "0 15px 40px rgba(255,213,79,0.6)" },
-                transition: "all 0.3s cubic-bezier(0.175,0.885,0.32,1.275)",
-              }}
-            >
-              ✨ Give Me A Random Memory
-            </Button>
-          </Box>
+            {/* Alternate Universes */}
+            <Box sx={{ mb: 6 }}>
+              <Typography variant="h5" color="white" fontWeight="bold" align="center" mb={3} sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                🌍 Alternate Universes
+              </Typography>
+              <Grid container spacing={3} sx={{ maxWidth: 900, mx: "auto" }}>
+                {[
+                  { title: "Universe 1", desc: "The universe where we never met. Different routines, different dreams. A gray, empty universe." },
+                  { title: "Universe 2", desc: "The universe where we met, but we never spoke. Just strangers who passed by each other in the crowd." },
+                  { title: "Universe 3", desc: "The universe where we spoke, but never became close. Just friends who checked up once a year." },
+                  { title: "This Universe ❤️", desc: "The one where you are reading this right now. The one where we talk for hours, annoy each other, and love deeply. The only universe I want.", highlight: true }
+                ].map((uni, uIdx) => (
+                  <Grid item xs={12} sm={6} md={3} key={uIdx}>
+                    <Card sx={{ p: 3, borderRadius: 4, height: "100%", bgcolor: uni.highlight ? "#fff" : "rgba(255,255,255,0.8)", border: uni.highlight ? "2.5px solid #ff4081" : "1px solid rgba(255,255,255,0.4)" }}>
+                      <Typography variant="subtitle1" fontWeight="bold" color={uni.highlight ? "#ff4081" : "#555"} align="center" mb={2}>{uni.title}</Typography>
+                      <Typography variant="body2" sx={{ color: "#4a4a4a", lineHeight: 1.6 }}>{uni.desc}</Typography>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
 
-          {currentMemory && (
-            <Box sx={{ maxWidth: 600, mx: "auto", px: { xs: 2, md: 0 }, animation: "fadeInUp 0.6s cubic-bezier(0.19,1,0.22,1)" }}>
-              <Card sx={{
-                borderRadius: 6, overflow: "hidden", boxShadow: "0 25px 60px rgba(255,64,129,0.25)",
-                background: "rgba(255,255,255,0.96)", border: "2px solid rgba(255,64,129,0.15)",
-                position: "relative",
-              }}>
-                <IconButton onClick={closeMemory} sx={{ position: "absolute", top: 12, right: 12, zIndex: 2, bgcolor: "rgba(255,255,255,0.8)", "&:hover": { bgcolor: "white" } }}>
-                  <CloseIcon />
-                </IconButton>
-                <Box component="img" src={currentMemory.img} alt="memory" sx={{ width: "100%", height: 280, objectFit: "cover" }} />
-                <Box sx={{ p: 3 }}>
-                  <Box sx={{ display: "inline-block", bgcolor: "#ff4081", color: "#fff", borderRadius: 20, px: 2, py: 0.4, fontSize: "0.8rem", fontWeight: "bold", fontFamily: "'Outfit',sans-serif", mb: 2 }}>
-                    {currentMemory.date}
-                  </Box>
-                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", fontSize: "1.1rem", color: "#374151", lineHeight: 1.8, mb: 2 }}>
-                    {currentMemory.story}
-                  </Typography>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1, bgcolor: "rgba(255,64,129,0.07)", borderRadius: 3, px: 2, py: 1.2 }}>
-                    <Typography sx={{ fontSize: "1.4rem" }}>😄</Typography>
-                    <Typography sx={{ fontFamily: "'Caveat',cursive", fontSize: "1.3rem", color: "#d81b60", fontWeight: 700 }}>
-                      Inside joke: {currentMemory.joke}
-                    </Typography>
-                  </Box>
+            {/* Things I Hope For You */}
+            <Box sx={{ mb: 6 }}>
+              <Card sx={{ p: 4, borderRadius: 6, background: "rgba(255,255,255,0.92)", maxWidth: 650, mx: "auto" }}>
+                <Typography variant="h6" color="#d81b60" fontWeight="bold" align="center" mb={3}>
+                  🌸 Things I Hope For You (Personal Wishes)
+                </Typography>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, textAlign: "left" }}>
+                  {[
+                    "I hope you become everything you've ever dreamed of, succeeding in all your goals.",
+                    "I hope you never lose that precious smile of yours that lights up my entire screen.",
+                    "I hope you learn how amazing, intelligent, and strong you truly are.",
+                    "I hope life is always gentle with your heart, and I promise to try my best to keep it safe."
+                  ].map((hope, hIdx) => (
+                    <Box key={hIdx} sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
+                      <span style={{ fontSize: "1.2rem", color: "#ff4081" }}>🌸</span>
+                      <Typography variant="body2" color="#374151">{hope}</Typography>
+                    </Box>
+                  ))}
                 </Box>
               </Card>
             </Box>
-          )}
-        </Box>
 
-        {/* ── Digital Love Notes Jar ── */}
+            {/* Kuttymaa According to People */}
+            <Box sx={{ mb: 6 }}>
+              <Typography variant="h5" color="white" fontWeight="bold" align="center" mb={3} sx={{ fontFamily: "'Outfit', sans-serif" }}>
+                🎭 Kuttymaa According to Different People
+              </Typography>
+              <Grid container spacing={3} sx={{ maxWidth: 800, mx: "auto" }}>
+                {[
+                  { label: "The World 🌍", desc: "Just another girl in the crowd." },
+                  { label: "Her Friends 👥", desc: "A sweet, supportive, fun friend." },
+                  { label: "Her Family 🏡", desc: "A beloved, caring daughter." },
+                  { label: "Me ❤️", desc: "My absolute favorite person, my home, my universe." }
+                ].map((people, pIdx) => (
+                  <Grid item xs={6} sm={3} key={pIdx}>
+                    <Card sx={{ p: 2.5, borderRadius: 3, textAlign: "center", bgcolor: "rgba(255,255,255,0.9)", height: "100%", border: "1.5px solid rgba(255,64,129,0.1)" }}>
+                      <Typography variant="subtitle2" fontWeight="bold" color="#c2185b" mb={1}>{people.label}</Typography>
+                      <Typography variant="body2" color="#4a4a4a">{people.desc}</Typography>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+
+            {/* Buttons: Thought generator, Pickup lines */}
+            <Box sx={{ py: 4, display: "flex", gap: 3, justifyContent: "center", flexWrap: "wrap" }}>
+              <Button
+                variant="contained"
+                onClick={() => {
+                  const t = THOUGHTS_GENERATOR_LIST[Math.floor(Math.random() * THOUGHTS_GENERATOR_LIST.length)];
+                  setRandomThought(t);
+                }}
+                sx={{ bgcolor: "#ff4081", color: "#fff", borderRadius: 20, px: 4, py: 1.2, fontWeight: "bold" }}
+              >
+                💭 What am I thinking right now?
+              </Button>
+
+              <Button
+                variant="contained"
+                onClick={() => {
+                  const l = PICKUP_LINES[Math.floor(Math.random() * PICKUP_LINES.length)];
+                  setPickupLine(l);
+                }}
+                sx={{ bgcolor: "#ba68c8", color: "#fff", borderRadius: 20, px: 4, py: 1.2, fontWeight: "bold" }}
+              >
+                🌹 Get a pickup line
+              </Button>
+
+              {randomThought && (
+                <Dialog open={randomThought !== ""} onClose={() => setRandomThought("")} PaperProps={{ sx: { borderRadius: 4, p: 3, textAlign: "center", maxWidth: 320 } }}>
+                  <Typography variant="h6" color="#d81b60" fontWeight="bold" gutterBottom>🧠 My Thought Right Now</Typography>
+                  <Typography variant="body1" sx={{ fontStyle: "italic", my: 2, color: "#374151" }}>"{randomThought}"</Typography>
+                  <Button variant="contained" onClick={() => setRandomThought("")} sx={{ bgcolor: "#ff4081", borderRadius: 20 }}>Cute! ❤️</Button>
+                </Dialog>
+              )}
+
+              {pickupLine && (
+                <Dialog open={pickupLine !== ""} onClose={() => setPickupLine("")} PaperProps={{ sx: { borderRadius: 4, p: 3, textAlign: "center", maxWidth: 320 } }}>
+                  <Typography variant="h6" color="#8e24aa" fontWeight="bold" gutterBottom>🌹 Pick-up Line for You</Typography>
+                  <Typography variant="body1" sx={{ my: 2, color: "#374151" }}>"{pickupLine}"</Typography>
+                  <Button variant="contained" onClick={() => setPickupLine("")} sx={{ bgcolor: "#ba68c8", borderRadius: 20 }}>Smile! 😊</Button>
+                </Dialog>
+              )}
+            </Box>
+          </Box>
+        )}
+
+        {/* Digital Love Notes Jar Drawer */}
         <Box sx={{ py: 6, position: "relative", zIndex: 1, textAlign: "center" }}>
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 3 }}>
             <EmailIcon sx={{ color: "white", fontSize: 30 }} />
@@ -1893,156 +2956,7 @@ export default function App() {
           </Button>
         </Box>
 
-        {/* ── Why I Choose You ── */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 5 }}>
-            <FavoriteIcon sx={{ color: "white", fontSize: 30 }} />
-            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
-              Why I Choose You ❤️
-            </Typography>
-          </Box>
-          <Grid container spacing={3} sx={{ maxWidth: 960, mx: "auto", px: { xs: 2, md: 0 }, alignItems: "stretch" }}>
-            {WHY_CARDS.map((card, i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
-                <Card sx={{
-                  height: "100%", p: 3.5, borderRadius: 5, textAlign: "center",
-                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start",
-                  background: "rgba(255,255,255,0.88)", backdropFilter: "blur(16px)",
-                  border: "1.5px solid rgba(255,255,255,0.6)",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-                  transition: "all 0.4s cubic-bezier(0.175,0.885,0.32,1.275)",
-                  "&:hover": { transform: "translateY(-10px) scale(1.03)", boxShadow: "0 25px 50px rgba(255,64,129,0.2)", border: "1.5px solid rgba(255,64,129,0.25)" },
-                  position: "relative",
-                }}>
-                  {/* Scavenger Heart 3 - only on 5th card */}
-                  {i === 4 && !foundHearts.includes(3) && (
-                    <IconButton
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleFindHeart(3);
-                      }}
-                      sx={{
-                        position: "absolute",
-                        top: 5,
-                        right: 5,
-                        color: "rgba(255, 64, 129, 0.15)",
-                        p: 0.5,
-                        "&:hover": { color: "#ff4081", transform: "scale(1.3)" },
-                        transition: "all 0.2s",
-                      }}
-                    >
-                      <FavoriteIcon sx={{ fontSize: 16 }} />
-                    </IconButton>
-                  )}
-                  <Typography sx={{ fontSize: "3rem", mb: 1.5 }}>{card.emoji}</Typography>
-                  <Typography variant="h6" fontWeight="bold" sx={{ fontFamily: "'Outfit',sans-serif", color: "#c2185b", mb: 1.5, fontSize: "1.15rem" }}>
-                    {card.title}
-                  </Typography>
-                  <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-                    <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#4a4a4a", lineHeight: 1.8, fontSize: "0.95rem" }}>
-                      {card.text}
-                    </Typography>
-                  </Box>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        {/* ── Mini Couple Quiz ── */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
-            <EmojiObjectsIcon sx={{ color: "white", fontSize: 30 }} />
-            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
-              Mini Couple Quiz 🎮
-            </Typography>
-          </Box>
-          <Box sx={{ maxWidth: 600, mx: "auto", px: 2 }}>
-            <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 6, background: "rgba(255,255,255,0.95)", boxShadow: "0 20px 50px rgba(0,0,0,0.15)" }}>
-              {!quizFinished ? (
-                <Box textAlign="center" sx={{ animation: "fadeInUp 0.5s ease" }}>
-                  <Typography sx={{ color: "#d81b60", fontWeight: "bold", mb: 2, fontFamily: "'Outfit',sans-serif" }}>
-                    Question {quizStep + 1} of {COUPLE_QUIZ.length}
-                  </Typography>
-                  <Typography variant="h5" sx={{ fontFamily: "'Outfit',sans-serif", color: "#374151", mb: 4, fontWeight: "bold" }}>
-                    {COUPLE_QUIZ[quizStep].q}
-                  </Typography>
-                  <Grid container spacing={2}>
-                    {COUPLE_QUIZ[quizStep].options.map((opt, i) => (
-                      <Grid item xs={12} sm={6} key={i}>
-                        <Button
-                          fullWidth
-                          variant="outlined"
-                          onClick={() => handleQuizAnswer(opt)}
-                          disabled={!!quizFeedback}
-                          sx={{
-                            p: 2, borderRadius: 3, borderColor: "rgba(233,30,99,0.3)", color: "#c2185b",
-                            fontFamily: "'Outfit',sans-serif", textTransform: "none", fontSize: "1.05rem",
-                            "&:hover": { bgcolor: "rgba(233,30,99,0.05)", borderColor: "#e91e63" }
-                          }}
-                        >
-                          {opt}
-                        </Button>
-                      </Grid>
-                    ))}
-                  </Grid>
-                  {quizFeedback && (
-                    <Typography sx={{ mt: 3, fontFamily: "'Caveat',cursive", fontSize: "1.5rem", color: "#d81b60", animation: "pulseText 0.5s ease" }}>
-                      {quizFeedback}
-                    </Typography>
-                  )}
-                </Box>
-              ) : (
-                <Box textAlign="center" sx={{ animation: "fadeInUp 0.5s ease" }}>
-                  <EmojiEventsIcon sx={{ fontSize: 60, color: "#ffd54f", mb: 2 }} />
-                  <Typography variant="h4" sx={{ fontFamily: "'Pacifico',cursive", color: "#d81b60", mb: 2 }}>
-                    Quiz Complete!
-                  </Typography>
-                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", fontSize: "1.2rem", color: "#4a4a4a" }}>
-                    You scored {quizScore} out of {COUPLE_QUIZ.length}.<br/>
-                    Regardless of the score, you win my heart every day. ❤️
-                  </Typography>
-                </Box>
-              )}
-            </Card>
-          </Box>
-        </Box>
-
-        {/* ── Personalized Awards ── */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 5 }}>
-            <EmojiEventsIcon sx={{ color: "white", fontSize: 30 }} />
-            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
-              Personalized Awards 🏆
-            </Typography>
-          </Box>
-          <Grid container spacing={3} sx={{ maxWidth: 960, mx: "auto", px: { xs: 2, md: 0 }, alignItems: "stretch" }}>
-            {FUNNY_AWARDS.map((award, i) => (
-              <Grid item xs={12} sm={6} md={3} key={i}>
-                <Card sx={{
-                  height: "100%", p: 3, borderRadius: 5, textAlign: "center",
-                  display: "flex", flexDirection: "column", alignItems: "center",
-                  background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                  transition: "all 0.3s ease",
-                  "&:hover": { transform: "translateY(-8px)", boxShadow: "0 15px 40px rgba(255,213,79,0.3)" }
-                }}>
-                  <Box sx={{ mb: 2, p: 2, borderRadius: "50%", bgcolor: "rgba(0,0,0,0.03)" }}>
-                    {award.icon}
-                  </Box>
-                  <Typography variant="h6" fontWeight="bold" sx={{ fontFamily: "'Outfit',sans-serif", color: "#374151", mb: 1, fontSize: "1.1rem" }}>
-                    {award.title}
-                  </Typography>
-                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#616161", fontSize: "0.9rem", flexGrow: 1 }}>
-                    {award.reason}
-                  </Typography>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        {/* ── Hidden Voice Notes ── */}
+        {/* Voice Notes */}
         <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 2 }}>
             <MicIcon sx={{ color: "white", fontSize: 30 }} />
@@ -2051,7 +2965,7 @@ export default function App() {
             </Typography>
           </Box>
           <Typography align="center" sx={{ color: "rgba(255,255,255,0.8)", mb: 5, fontFamily: "'Outfit',sans-serif", fontSize: "1.05rem" }}>
-            Special messages, just for you 💌
+            Special audio messages simulated for you 🔊
           </Typography>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center", px: { xs: 2, md: 0 } }}>
             {VOICE_NOTES.map((note, idx) => (
@@ -2064,7 +2978,7 @@ export default function App() {
                   fontFamily: "'Outfit',sans-serif", fontSize: "1.05rem",
                   boxShadow: `0 12px 35px ${note.color}55`,
                   flexDirection: "column", gap: 1,
-                  transition: "all 0.35s cubic-bezier(0.175,0.885,0.32,1.275)",
+                  transition: "all 0.35s ease",
                   "&:hover": { transform: "translateY(-6px) scale(1.04)", boxShadow: `0 20px 45px ${note.color}88` },
                 }}
               >
@@ -2075,132 +2989,9 @@ export default function App() {
           </Box>
         </Box>
 
-        {/* ── "Open When..." Letters ── */}
+        {/* ── Before You / After You ── */}
         <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 2 }}>
-            <EmailIcon sx={{ color: "white", fontSize: 30 }} />
-            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
-              "Open When..." Letters 💌
-            </Typography>
-          </Box>
-          <Typography align="center" sx={{ color: "rgba(255,255,255,0.8)", mb: 5, fontFamily: "'Outfit',sans-serif", fontSize: "1.05rem" }}>
-            Virtual envelopes for whatever you're feeling.
-          </Typography>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center", px: { xs: 2, md: 0 }, maxWidth: 1000, mx: "auto" }}>
-            {OPEN_WHEN_LETTERS.map((letter, idx) => (
-              <Button
-                key={idx}
-                onClick={() => setOpenWhenLetter(idx)}
-                sx={{
-                  borderRadius: 4, px: 3, py: 2, minWidth: { xs: "100%", sm: 220 },
-                  background: letter.bg, color: "#fff", fontWeight: "bold",
-                  fontFamily: "'Outfit',sans-serif", fontSize: "1rem", textTransform: "none",
-                  boxShadow: `0 10px 25px ${letter.color}55`,
-                  flexDirection: "column", gap: 1,
-                  transition: "all 0.3s ease",
-                  "&:hover": { transform: "translateY(-6px)", boxShadow: `0 15px 35px ${letter.color}88` },
-                }}
-              >
-                <Typography sx={{ fontSize: "2rem" }}>{letter.emoji}</Typography>
-                {letter.label}
-              </Button>
-            ))}
-          </Box>
-        </Box>
-
-        {/* ── Constellation Night Sky ── */}
-        <Box sx={{ py: 8, position: "relative", zIndex: 1, bgcolor: "#050014", borderRadius: 8, mx: { xs: 2, md: 4 }, my: 6, boxShadow: "0 20px 60px rgba(0,0,0,0.5)", overflow: "hidden" }}>
-          {/* Starry background effect */}
-          {[...Array(30)].map((_, i) => (
-            <Box key={i} sx={{
-              position: "absolute", width: Math.random() * 3 + 1, height: Math.random() * 3 + 1,
-              bgcolor: "white", borderRadius: "50%",
-              top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.8 + 0.2, animation: `sparkle ${Math.random() * 3 + 2}s infinite alternate`
-            }} />
-          ))}
-          <Box textAlign="center" sx={{ position: "relative", zIndex: 2, px: 2 }}>
-            <NightsStayIcon sx={{ fontSize: 60, color: "#fff", mb: 2, opacity: 0.9 }} />
-            <Typography variant="h4" sx={{ fontFamily: "'Pacifico',cursive", color: "#fff", mb: 2 }}>
-              Under This Sky
-            </Typography>
-            <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.8)", fontSize: "1.2rem", maxWidth: 500, mx: "auto", lineHeight: 1.8 }}>
-              The sky looked exactly like this on the night my life changed forever. The universe aligned, and I found you. ✨
-            </Typography>
-          </Box>
-
-          {/* Scavenger Heart 5 */}
-          {!foundHearts.includes(5) && (
-            <IconButton
-              onClick={(e) => {
-                e.stopPropagation();
-                handleFindHeart(5);
-              }}
-              sx={{
-                position: "absolute",
-                bottom: 20,
-                right: 30,
-                color: "rgba(255, 255, 255, 0.25)",
-                zIndex: 3,
-                p: 0.5,
-                "&:hover": { color: "#ff4081", transform: "scale(1.3)" },
-                transition: "all 0.2s",
-              }}
-            >
-              <FavoriteIcon sx={{ fontSize: 16 }} />
-            </IconButton>
-          )}
-        </Box>
-
-        {/* ── Future Dreams Timeline ── */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Typography variant="h4" align="center" fontWeight="bold" color="white" mb={2} sx={{ fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
-            Coming Soon ❤️
-          </Typography>
-          <Typography align="center" sx={{ color: "rgba(255,255,255,0.8)", mb: 6, fontFamily: "'Outfit',sans-serif", fontSize: "1.05rem" }}>
-            Our future dreams, waiting to be lived ✨
-          </Typography>
-          <Box sx={{ maxWidth: 700, mx: "auto", px: { xs: 2, md: 0 }, position: "relative" }}>
-            {/* vertical line */}
-            <Box sx={{ position: "absolute", left: { xs: 28, md: 36 }, top: 0, bottom: 0, width: 3, background: "linear-gradient(to bottom, #ff4081, #ba68c8, #5c6bc0)", borderRadius: 10, opacity: 0.5 }} />
-            {FUTURE_DREAMS.map((dream, i) => (
-              <Box key={i} sx={{ display: "flex", gap: 3, mb: 4, alignItems: "flex-start", position: "relative" }}>
-                <Box sx={{
-                  minWidth: 56, height: 56, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center",
-                  background: "rgba(255,255,255,0.9)", boxShadow: "0 8px 24px rgba(255,64,129,0.25)",
-                  border: "2.5px solid rgba(255,64,129,0.3)", zIndex: 1, flexShrink: 0,
-                }}>
-                  {dream.icon}
-                </Box>
-                <Card sx={{
-                  flex: 1, p: 3, borderRadius: 4,
-                  background: "rgba(255,255,255,0.88)", backdropFilter: "blur(12px)",
-                  border: "1.5px solid rgba(255,255,255,0.6)",
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.07)",
-                  transition: "all 0.35s ease",
-                  "&:hover": { transform: "translateX(6px)", boxShadow: "0 14px 36px rgba(255,64,129,0.18)" },
-                }}>
-                  <Typography fontWeight="bold" sx={{ fontFamily: "'Outfit',sans-serif", color: "#c2185b", mb: 0.8, fontSize: "1.1rem" }}>
-                    {dream.title}
-                  </Typography>
-                  <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#4a4a4a", lineHeight: 1.8, fontSize: "0.95rem" }}>
-                    {dream.desc}
-                  </Typography>
-                </Card>
-              </Box>
-            ))}
-          </Box>
-        </Box>
-
-        {/* ── Before & After Section ── */}
-        <Box sx={{ py: 6, position: "relative", zIndex: 1 }}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 4 }}>
-            <AutoAwesomeIcon sx={{ color: "white", fontSize: 30 }} />
-            <Typography variant="h4" fontWeight="bold" color="white" sx={{ fontFamily: "'Outfit', sans-serif", fontSize: { xs: "1.8rem", md: "2.4rem" }, textShadow: "0 4px 10px rgba(106,27,154,0.2)" }}>
-              The Impact of You ✨
-            </Typography>
-          </Box>
-          <Grid container spacing={4} sx={{ maxWidth: 800, mx: "auto", px: 2 }}>
+          <Grid container spacing={4} sx={{ maxWidth: 900, mx: "auto", px: 2 }}>
             <Grid item xs={12} sm={6}>
               <Card sx={{ height: "100%", p: 4, borderRadius: 6, background: "rgba(255,255,255,0.85)", backdropFilter: "blur(10px)", textAlign: "center", border: "2px solid rgba(255,255,255,0.5)" }}>
                 <Typography sx={{ fontFamily: "'Pacifico',cursive", fontSize: "1.8rem", color: "#757575", mb: 2 }}>Before You</Typography>
