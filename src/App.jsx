@@ -1269,6 +1269,17 @@ export default function App() {
   const letterAudioRef = useRef(null);
   const surpriseAudioRef = useRef(null);
 
+  // Vault unlock handler
+  const handleUnlockVault = () => {
+    const pw = vaultPassword.trim().toLowerCase();
+    if (pw === "kuttymaa" || pw === "jessy" || pw === "kutty" || pw === "k" || pw === "j") {
+      setVaultUnlocked(true);
+      setVaultError("");
+    } else {
+      setVaultError("Hmm, that's not right. Try again! 💕");
+    }
+  };
+
   // --- NEW FEATURE STATES ---
   // Secret Hunt
   const [foundHearts, setFoundHearts] = useState([]);
@@ -2025,6 +2036,7 @@ export default function App() {
             { id: "home", label: "🏠 Home & Stats" },
             { id: "memories", label: "🎬 Memory Lane" },
             { id: "vault", label: "💌 Love Vault" },
+            { id: "journey", label: "✨ Our Journey" },
             { id: "arcade", label: "🕹️ Arcade Hub" },
             { id: "cosmos", label: "🌌 Sky & Map" },
             { id: "future", label: "🌸 Future Trail" }
@@ -2687,6 +2699,107 @@ export default function App() {
                     </Typography>
                   </Box>
                 )}
+              </Card>
+            </Box>
+          </Box>
+        )}
+
+        {/* Our Beautiful Journey Tab Panel */}
+        {activeTab === "journey" && (
+          <Box sx={{ animation: "fadeInUp 0.6s ease", mt: 2, maxWidth: 800, mx: "auto" }}>
+            {/* Journey Header */}
+            <Box sx={{ textAlign: "center", mb: 6 }}>
+              <Typography variant="h3" sx={{ fontFamily: "'Pacifico', cursive", color: "#ff4081", mb: 2, textShadow: "0 4px 20px rgba(255,64,129,0.3)" }}>
+                Our Beautiful Journey ✨
+              </Typography>
+              <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.8)", fontFamily: "'Outfit', sans-serif", fontSize: "1.1rem", maxWidth: 600, mx: "auto" }}>
+                A love story written in smiles, late-night calls, and little moments that changed everything.
+              </Typography>
+            </Box>
+
+            {/* Chapter Cards */}
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              {/* Chapter 1 */}
+              <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 6, background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,240,245,0.95))", border: "2px solid rgba(255,64,129,0.15)", boxShadow: "0 20px 50px rgba(0,0,0,0.08)", position: "relative", overflow: "hidden" }}>
+                <Box sx={{ position: "absolute", top: -30, right: -30, width: 120, height: 120, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,64,129,0.1), transparent)", pointerEvents: "none" }} />
+                <Typography variant="h5" sx={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: "#c2185b", mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
+                  💖 The Day Everything Changed
+                </Typography>
+                <Typography variant="body1" sx={{ fontFamily: "'Outfit', sans-serif", color: "#374151", lineHeight: 2, fontSize: "1.05rem", fontStyle: "italic" }}>
+                  "I never knew one person could change my whole world until you came into my life. What started as simple conversations slowly became the most beautiful part of my every day. Meeting you wasn't just a moment—it was the beginning of my favorite story."
+                </Typography>
+              </Card>
+
+              {/* Chapter 2 */}
+              <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 6, background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(232,245,255,0.95))", border: "2px solid rgba(76,195,247,0.15)", boxShadow: "0 20px 50px rgba(0,0,0,0.08)", position: "relative", overflow: "hidden" }}>
+                <Box sx={{ position: "absolute", bottom: -20, left: -20, width: 100, height: 100, borderRadius: "50%", background: "radial-gradient(circle, rgba(76,195,247,0.1), transparent)", pointerEvents: "none" }} />
+                <Typography variant="h5" sx={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: "#1565c0", mb: 2 }}>
+                  🌍❤️ Through Every Distance
+                </Typography>
+                <Typography variant="body1" sx={{ fontFamily: "'Outfit', sans-serif", color: "#374151", lineHeight: 2, fontSize: "1.05rem", fontStyle: "italic" }}>
+                  "There were times when life kept us apart and moments when we couldn't be together as much as we wanted. Yet somehow, every reunion felt special, every message felt precious, and every call reminded me that our bond was stronger than any distance or absence."
+                </Typography>
+              </Card>
+
+              {/* Chapter 3 */}
+              <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 6, background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,243,224,0.95))", border: "2px solid rgba(255,183,77,0.15)", boxShadow: "0 20px 50px rgba(0,0,0,0.08)", position: "relative", overflow: "hidden" }}>
+                <Box sx={{ position: "absolute", top: -15, left: "50%", width: 80, height: 80, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,183,77,0.15), transparent)", pointerEvents: "none" }} />
+                <Typography variant="h5" sx={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: "#e65100", mb: 2 }}>
+                  🌹 The Real You
+                </Typography>
+                <Typography variant="body1" sx={{ fontFamily: "'Outfit', sans-serif", color: "#374151", lineHeight: 2, fontSize: "1.05rem", fontStyle: "italic" }}>
+                  "You may be a little short-tempered sometimes, but that's one of the many things that makes you uniquely you. Behind that tiny storm is the sweetest, most innocent soul I've ever known. Your heart is pure, your intentions are genuine, and your smile has a way of making everything better."
+                </Typography>
+              </Card>
+
+              {/* Chapter 4 */}
+              <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 6, background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(243,229,245,0.95))", border: "2px solid rgba(186,104,200,0.15)", boxShadow: "0 20px 50px rgba(0,0,0,0.08)", position: "relative", overflow: "hidden" }}>
+                <Typography variant="h5" sx={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: "#7b1fa2", mb: 2 }}>
+                  🤗 Our Safe Place
+                </Typography>
+                <Typography variant="body1" sx={{ fontFamily: "'Outfit', sans-serif", color: "#374151", lineHeight: 2, fontSize: "1.05rem", fontStyle: "italic" }}>
+                  "One of the things I treasure most is the trust we share. You've let me see the real you—the happy you, the emotional you, the stubborn you, and the innocent you. Knowing that you're comfortable being yourself with me is one of the greatest gifts you've ever given me."
+                </Typography>
+              </Card>
+
+              {/* Chapter 5 */}
+              <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 6, background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(232,245,233,0.95))", border: "2px solid rgba(129,199,132,0.15)", boxShadow: "0 20px 50px rgba(0,0,0,0.08)", position: "relative", overflow: "hidden" }}>
+                <Typography variant="h5" sx={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: "#2e7d32", mb: 2 }}>
+                  📸 The Memories We Created
+                </Typography>
+                <Typography variant="body1" sx={{ fontFamily: "'Outfit', sans-serif", color: "#374151", lineHeight: 2, fontSize: "1.05rem", fontStyle: "italic" }}>
+                  "From random conversations to unforgettable moments, from laughter that made our cheeks hurt to the smallest memories that only we understand, every moment with you has become a piece of a beautiful collection I'll cherish forever."
+                </Typography>
+              </Card>
+
+              {/* Chapter 6 */}
+              <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 6, background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,235,238,0.95))", border: "2px solid rgba(244,67,54,0.12)", boxShadow: "0 20px 50px rgba(0,0,0,0.08)", position: "relative", overflow: "hidden" }}>
+                <Typography variant="h5" sx={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: "#c62828", mb: 2 }}>
+                  ❤️ My Happiness, My Home
+                </Typography>
+                <Typography variant="body1" sx={{ fontFamily: "'Outfit', sans-serif", color: "#374151", lineHeight: 2, fontSize: "1.05rem", fontStyle: "italic" }}>
+                  "What I love most is seeing you happy. Some of my favorite memories are the moments when we forgot about everything else and simply enjoyed being together. Your happiness has become my happiness, and your smile will always be one of my favorite sights in the world."
+                </Typography>
+              </Card>
+
+              {/* Final Chapter - Birthday */}
+              <Card sx={{ p: { xs: 4, md: 6 }, borderRadius: 6, background: "linear-gradient(135deg, #fff0f5, #fce4ec, #fff)", border: "3px solid rgba(255,64,129,0.3)", boxShadow: "0 25px 60px rgba(255,64,129,0.15)", textAlign: "center", position: "relative", overflow: "hidden" }}>
+                <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "radial-gradient(circle at 50% 0%, rgba(255,64,129,0.08), transparent 70%)", pointerEvents: "none" }} />
+                <CakeIcon sx={{ fontSize: 50, color: "#ff4081", mb: 2, animation: "heartbeat 2s infinite" }} />
+                <Typography variant="h4" sx={{ fontFamily: "'Pacifico', cursive", color: "#c2185b", mb: 3 }}>
+                  Today & Forever 🎂✨
+                </Typography>
+                <Typography variant="body1" sx={{ fontFamily: "'Outfit', sans-serif", color: "#374151", lineHeight: 2.2, fontSize: "1.1rem", fontStyle: "italic", maxWidth: 600, mx: "auto", mb: 4 }}>
+                  "On your birthday, I just want you to know how grateful I am for every moment, every memory, every challenge we've overcome, and every smile we've shared. Thank you for trusting me, for staying by my side, and for being the beautiful person you are. No matter what comes next, our story will always be one of the most precious parts of my life."
+                </Typography>
+                <Box sx={{ p: 3, borderRadius: 4, background: "linear-gradient(135deg, #ff4081, #e91e63)", display: "inline-block", boxShadow: "0 10px 30px rgba(255,64,129,0.4)" }}>
+                  <Typography variant="h5" sx={{ fontFamily: "'Caveat', cursive", color: "#fff", fontWeight: "bold", fontSize: "1.6rem" }}>
+                    Happy Birthday, My Love. ❤️🎂✨
+                  </Typography>
+                </Box>
+                <Typography variant="body1" sx={{ fontFamily: "'Caveat', cursive", color: "#ff4081", mt: 3, fontSize: "1.4rem", fontWeight: "bold" }}>
+                  "You are my favorite chapter, my safest place, and the most beautiful blessing life has given me."
+                </Typography>
               </Card>
             </Box>
           </Box>
