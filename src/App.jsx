@@ -381,13 +381,13 @@ export default function App() {
 
   const saveCapsule = () => {
     if (capsuleMessage.trim()) {
-      localStorage.setItem("jessy_capsule", capsuleMessage);
+      localStorage.setItem("kuttymaa_capsule", capsuleMessage);
       setCapsuleSaved(true);
     }
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem("jessy_capsule");
+    const saved = localStorage.getItem("kuttymaa_capsule");
     if (saved) setCapsuleSaved(true);
   }, []);
 
@@ -768,7 +768,7 @@ export default function App() {
 
   const surpriseSlides = [
     {
-      title: "Happy Birthday, Jessy! 🎉",
+      title: "Happy Birthday, Kuttymaa! 🎉",
       content: "Today is a beautiful day, because it marks another year of you spreading light, warmth, and laughter into this world. Click the arrows to read your special story... ❤️",
       icon: <CakeIcon sx={{ fontSize: 60, color: "#ff4081" }} />,
     },
@@ -1006,7 +1006,7 @@ export default function App() {
                 animation: "pulseText 3s ease-in-out infinite",
               }}
             >
-              Happy Birthday, Jessy! ❤️
+              Happy Birthday, Kuttymaa! ❤️
             </Typography>
           </Box>
 
@@ -1044,7 +1044,7 @@ export default function App() {
             <Box
               component="img"
               src="/image/WhatsApp Image 2026-06-13 at 12.19.20 AM.jpeg"
-              alt="Jessy"
+              alt="Kuttymaa"
               sx={{
                 width: { xs: 260, md: 320 },
                 height: { xs: 260, md: 320 },
@@ -1159,7 +1159,7 @@ export default function App() {
                     fontSize: { xs: "1.8rem", md: "2.4rem" },
                   }}
                 >
-                  To Jessy, My Love 💌
+                  To Kuttymaa, My Love 💌
                 </Typography>
                 <Typography variant="body1" sx={{ color: "#5c5c5c", fontSize: "1.1rem", mb: 3 }}>
                   Click to open your special handwritten letter
@@ -1211,7 +1211,7 @@ export default function App() {
                     mb: 4,
                   }}
                 >
-                  Dearest Jessy, 💌
+                  Dearest Kuttymaa, 💌
                 </Typography>
 
                 <Typography
@@ -1252,7 +1252,7 @@ export default function App() {
                 >
                   Yours Forever & Always,
                   <br />
-                  Prasad ❤️
+                  Prasanth ❤️
                 </Typography>
               </Box>
             )}
@@ -1507,7 +1507,7 @@ export default function App() {
             <Grid item xs={12} sm={6} md={4}>
               <PolaroidCard
                 img="/image/WhatsApp Image 2026-06-13 at 12.29.01 AM.jpeg"
-                caption="My beautiful Jessy 🌹"
+                caption="My beautiful Kuttymaa 🌹"
                 rotation={1}
               />
             </Grid>
@@ -2067,7 +2067,7 @@ export default function App() {
                 <>
                   <TextField
                     multiline rows={3} fullWidth
-                    placeholder="Dear future Jessy..."
+                    placeholder="Dear future Kuttymaa..."
                     value={capsuleMessage}
                     onChange={(e) => setCapsuleMessage(e.target.value)}
                     sx={{ mb: 2, bgcolor: "rgba(255,255,255,0.5)", borderRadius: 2 }}
@@ -2573,7 +2573,7 @@ export default function App() {
                 </Box>
               ) : (
                 <Typography align="center" sx={{ color: "#9e9e9e", fontFamily: "'Outfit',sans-serif", fontSize: "0.85rem" }}>
-                  🎙️ Voice note from Prasad — read the message above with your heart 💙
+                  🎙️ Voice note from Prasanth — read the message above with your heart 💙
                 </Typography>
               )}
             </DialogContent>
@@ -2613,20 +2613,20 @@ export default function App() {
           <Box sx={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", animation: "fadeInUp 3s ease" }}>
             <Box textAlign="center">
               <Typography sx={{ fontFamily: "'Pacifico',cursive", color: "#ff4081", fontSize: "3rem", mb: 6 }}>
-                Jessy's Birthday Project
+                Kuttymaa's Birthday Project
               </Typography>
               <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.7)", fontSize: "1.2rem", mb: 2, letterSpacing: "2px" }}>
                 PRODUCED & DIRECTED BY
               </Typography>
               <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#fff", fontSize: "1.8rem", mb: 5 }}>
-                Prasad
+                Prasanth
               </Typography>
 
               <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.7)", fontSize: "1.2rem", mb: 2, letterSpacing: "2px" }}>
                 STARRING
               </Typography>
               <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "#fff", fontSize: "1.8rem", mb: 5 }}>
-                Jessy ❤️
+                Kuttymaa ❤️
               </Typography>
 
               <Typography sx={{ fontFamily: "'Outfit',sans-serif", color: "rgba(255,255,255,0.7)", fontSize: "1.2rem", mb: 2, letterSpacing: "2px" }}>
