@@ -3395,9 +3395,12 @@ export default function App() {
             </Button>
 
             <Button
+              component="a"
+              href="/VID-20260628-WA0001.mp4"
+              target="_blank"
+              rel="noopener noreferrer"
               size="large"
               variant="contained"
-              onClick={() => window.open("/public/VID-20260628-WA0001.mp4", "_blank")}
               sx={{
                 borderRadius: 50,
                 px: { xs: 4, md: 6 },
