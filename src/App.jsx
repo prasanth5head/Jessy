@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars, react-hooks/exhaustive-deps */
 import { useState, useRef, useEffect } from "react";
 import {
   Box,
@@ -41,6 +42,7 @@ import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import VideocamIcon from "@mui/icons-material/Videocam";
+import galleryData from "./galleryData.json";
 
 const CONFETTI_COLORS = ["#ff4081", "#ff80ab", "#ffd54f", "#4fc3f7", "#81c784", "#ba68c8"];
 const CONFETTI_PIECES = Array.from({ length: 100 }).map((_, i) => ({
@@ -69,46 +71,94 @@ const RELATIONSHIP_START = new Date("2025-02-19T00:00:00");
 
 const MEMORIES = [
   {
-    img: "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM.jpeg",
-    date: "Feb 19, 2025",
-    story: "The day everything changed. One message turned into a whole new world.",
-    joke: "You still pretend you weren't nervous 😏",
+    img: "/image/IMG-20250709-WA0004.jpg",
+    date: "A sweet little moment",
+    story: "One of those pictures that instantly brings a smile to my face.",
+    joke: "You always had the cutest expression 😍",
   },
   {
-    img: "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM (2).jpeg",
-    date: "March 2025",
-    story: "Late nights, endless calls, and realizing this was something truly special.",
-    joke: "Who fell asleep first? Not saying. 😴",
+    img: "/image/IMG-20250709-WA0005.jpg",
+    date: "A favorite memory",
+    story: "Every time I see this, I remember how effortlessly beautiful it felt.",
+    joke: "Still not over how good this picture looks 💖",
   },
   {
-    img: "/image/WhatsApp Image 2026-06-13 at 12.19.19 AM.jpeg",
-    date: "April 2025",
-    story: "Even distance couldn't dim the warmth. Every message felt like a hug.",
-    joke: "Your read receipts gave me mini heart attacks 😂",
+    img: "/image/IMG-20250712-WA0011.jpg",
+    date: "Pure joy",
+    story: "A little burst of happiness captured in the best way.",
+    joke: "You were glowing and I was trying not to stare 😌",
   },
   {
-    img: "/image/WhatsApp Image 2026-06-13 at 12.19.20 AM.jpeg",
-    date: "May 2025",
-    story: "The moment I knew — you are my favorite part of every single day.",
-    joke: "You denied it. Twice. Then smiled. 🥺",
+    img: "/image/IMG-20250712-WA0012.jpg",
+    date: "A tiny treasure",
+    story: "Some memories are small, but they stay with you forever.",
+    joke: "This one is way too pretty to keep to myself 📸",
   },
   {
-    img: "/image/WhatsApp Image 2026-06-13 at 12.29.00 AM.jpeg",
-    date: "June 2025",
-    story: "Sunshine, laughter, and you. My definition of a perfect day.",
-    joke: "The selfie war was totally your fault 📸",
+    img: "/image/IMG-20250712-WA0013.jpg",
+    date: "Bright and beautiful",
+    story: "A reminder that joy can be found in the simplest moments.",
+    joke: "The lighting was honestly unfair ✨",
   },
   {
-    img: "/image/WhatsApp Image 2026-06-13 at 12.29.00 AM (1).jpeg",
-    date: "Aug 2025",
-    story: "We've been through storms together, and I'd choose them all again with you.",
-    joke: "You win every argument. I'll admit it now. 🏳️",
+    img: "/image/IMG-20250712-WA0014.jpg",
+    date: "Soft and sweet",
+    story: "The kind of moment that feels calm, warm, and unforgettable.",
+    joke: "You make everything look extra lovely 🌸",
   },
   {
-    img: "/image/WhatsApp Image 2026-06-13 at 12.29.01 AM.jpeg",
-    date: "Today ❤️",
-    story: "Happy Birthday, my love. Every memory leads right back to you.",
-    joke: "You're stuck with me. No refunds. 😘",
+    img: "/image/IMG-20250712-WA0017.jpg",
+    date: "Little spark",
+    story: "A tiny piece of happiness I never want to lose.",
+    joke: "That smile still melts me every time 😘",
+  },
+  {
+    img: "/image/IMG-20250712-WA0018.jpg",
+    date: "Golden memory",
+    story: "Some pictures feel like they carry a whole feeling with them.",
+    joke: "This one feels like sunshine and hearts 💛",
+  },
+  {
+    img: "/image/IMG-20250712-WA0019.jpg",
+    date: "Sweet surprise",
+    story: "A memory that makes me smile without even trying.",
+    joke: "You always know how to make things beautiful 🥰",
+  },
+  {
+    img: "/image/IMG-20250712-WA0020.jpg",
+    date: "Forever glowing",
+    story: "The way this picture feels is exactly why I keep it close.",
+    joke: "You are the definition of beautiful 💕",
+  },
+  {
+    img: "/image/IMG-20250712-WA0021.jpg",
+    date: "Just us",
+    story: "Simple, genuine, and full of warmth.",
+    joke: "This one says everything without saying much 😊",
+  },
+  {
+    img: "/image/IMG-20250712-WA0022.jpg",
+    date: "My favorite kind of memory",
+    story: "A picture that feels like comfort and happiness all at once.",
+    joke: "You make even ordinary moments feel magical ✨",
+  },
+  {
+    img: "/image/IMG-20250712-WA0023.jpg",
+    date: "Always cherished",
+    story: "A beautiful little snapshot I will always treasure.",
+    joke: "I could look at this forever and never get bored 💖",
+  },
+  {
+    img: "/image/IMG-20250805-WA0004.jpg",
+    date: "Forever favorite",
+    story: "The kind of picture that feels like a warm memory every time you look at it.",
+    joke: "You make every frame feel special ✨",
+  },
+  {
+    img: "/image/IMG-20260423-WA0013.jpg",
+    date: "A little extra sparkle",
+    story: "One more beautiful memory to keep close.",
+    joke: "This one is just too cute to leave out 💫",
   },
 ];
 
@@ -435,20 +485,29 @@ function CatchHeartsGame() {
 }
 
 function MemoryMatchGame() {
+  const images = [
+    "/image/IMG-20250709-WA0004.jpg",
+    "/image/IMG-20250709-WA0005.jpg",
+    "/image/IMG-20250712-WA0011.jpg",
+    "/image/IMG-20250712-WA0012.jpg",
+    "/image/IMG-20250712-WA0013.jpg",
+    "/image/IMG-20250712-WA0014.jpg",
+    "/image/IMG-20250712-WA0017.jpg",
+    "/image/IMG-20250712-WA0018.jpg",
+    "/image/IMG-20250712-WA0019.jpg",
+    "/image/IMG-20250712-WA0020.jpg",
+    "/image/IMG-20250712-WA0021.jpg",
+    "/image/IMG-20250712-WA0022.jpg",
+    "/image/IMG-20250712-WA0023.jpg",
+    "/image/IMG-20250805-WA0004.jpg",
+    "/image/IMG-20260423-WA0013.jpg"
+  ];
+
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [matched, setMatched] = useState([]);
   const [moves, setMoves] = useState(0);
   const [gameWon, setGameWon] = useState(false);
-
-  const images = [
-    "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM.jpeg",
-    "/image/WhatsApp Image 2026-06-13 at 12.19.15 AM (2).jpeg",
-    "/image/WhatsApp Image 2026-06-13 at 12.19.19 AM.jpeg",
-    "/image/WhatsApp Image 2026-06-13 at 12.19.20 AM.jpeg",
-    "/image/WhatsApp Image 2026-06-13 at 12.29.00 AM.jpeg",
-    "/image/WhatsApp Image 2026-06-13 at 12.29.01 AM.jpeg"
-  ];
 
   const initGame = () => {
     const deck = [...images, ...images]
@@ -497,7 +556,7 @@ function MemoryMatchGame() {
       <Typography variant="body2" sx={{ color: "#666", mb: 2 }}>
         Find matching pairs of our sweet photos! Moves: {moves}
       </Typography>
-      <Grid container spacing={1.5} sx={{ maxWidth: 300, mx: "auto", justifyContent: "center" }}>
+      <Grid container spacing={1.5} sx={{ maxWidth: 300, width: "100%", mx: "auto", justifyContent: "center" }}>
         {cards.map((card, index) => {
           const isFlipped = flipped.includes(index) || matched.includes(index);
           return (
@@ -506,6 +565,7 @@ function MemoryMatchGame() {
                 onClick={() => handleCardClick(index)}
                 sx={{
                   width: "100%",
+                  minWidth: 80,
                   pt: "100%",
                   position: "relative",
                   cursor: "pointer",
@@ -589,9 +649,7 @@ function MemoryMatchGame() {
 
 function NightSky() {
   const [activeMemory, setActiveMemory] = useState(null);
-  const [stars, setStars] = useState([]);
-
-  useEffect(() => {
+  const [stars] = useState(() => {
     const starThoughts = [
       "The day you made me laugh until my stomach hurt. 😂",
       "The day I realized I loved you. 💖",
@@ -615,7 +673,7 @@ function NightSky() {
       "The day you sent a random reassure message. 🫂"
     ];
 
-    const generatedStars = Array.from({ length: 40 }).map((_, i) => ({
+    return Array.from({ length: 40 }).map((_, i) => ({
       id: i,
       x: 5 + Math.random() * 90,
       y: 5 + Math.random() * 90,
@@ -623,8 +681,8 @@ function NightSky() {
       pulse: 1 + Math.random() * 2,
       thought: starThoughts[i % starThoughts.length]
     }));
-    setStars(generatedStars);
-  }, []);
+  });
+
 
   return (
     <Box sx={{ p: 2, textAlign: "center" }}>
@@ -886,12 +944,25 @@ const COUPLE_QUIZ = [
   { q: "What's my absolute favorite thing about you?", options: ["Your looks", "Your kindness", "Your cooking", "Your jokes"], a: "Your kindness", feedback: "Correct ❤️ Your gentle soul is my favorite." },
   { q: "Who fell in love first?", options: ["Me", "You", "We fell at the exact same time", "Still deciding"], a: "Me", feedback: "Guilty. I fell first, and I fell hard. ❤️" },
   { q: "What's my dream date with you?", options: ["Fancy dinner", "Movie night", "Late night drive", "Cozy at home with food"], a: "Cozy at home with food", feedback: "Yes! Nothing beats being lazy together with good food. 🍕❤️" },
+  { q: "What is the song that feels most like us?", options: ["A love ballad", "A happy dance track", "A slow melody", "A remix"], a: "A love ballad", feedback: "Exactly — our story feels like a beautiful love ballad. 🎶" },
+  { q: "What do I love most when you text me?", options: ["Your morning messages", "Your goodnight notes", "Your long stories", "Your emoji replies"], a: "Your goodnight notes", feedback: "Right — your goodnight notes make my heart calm and happy. 🌙" },
+  { q: "What always makes me smile about you?", options: ["Your laugh", "Your voice", "Your style", "Your food"], a: "Your laugh", feedback: "Yes! Your laugh is one of the sweetest sounds I know. 😊" },
+  { q: "What do I think is the cutest thing you do?", options: ["Send selfies", "Send voice notes", "Share memes", "Send long texts"], a: "Send voice notes", feedback: "Absolutely — your voice notes feel so close and warm. 💌" },
+  { q: "What moment do I cherish most?", options: ["Our first call", "Our first picture", "Our first plan", "Our first date"], a: "Our first call", feedback: "Yes — that first call was the moment everything changed. 💫" },
+  { q: "What do I hope for our future?", options: ["Travel together", "Build a home", "Always stay kind", "All of these"], a: "All of these", feedback: "Exactly — I want all of those beautiful things with you. ✨" },
+  { q: "What makes me feel safe with you?", options: ["Your honesty", "Your patience", "Your hugs", "Your words"], a: "Your honesty", feedback: "Correct — your honesty is the foundation of everything. ❤️" },
+  { q: "What do I miss most when we're apart?", options: ["Your voice", "Your smile", "Your messages", "Your presence"], a: "Your presence", feedback: "Yes — being close to you is what I miss most. 💕" },
+  { q: "Which of these is my favorite thing to do with you?", options: ["Talk all night", "Watch movies", "Eat together", "Walk together"], a: "Talk all night", feedback: "Right — our all-night talks are the best memories. 🌙" },
+  { q: "What do I admire most about you?", options: ["Your strength", "Your kindness", "Your beauty", "Your sense of humor"], a: "Your kindness", feedback: "Yes — your kindness is what makes you truly special. 💖" },
+  { q: "How do I feel when you say my name?", options: ["Warm", "Happy", "Loved", "All of the above"], a: "All of the above", feedback: "Exactly — your voice makes me feel all of that. 🥰" },
+  { q: "What do I want to promise you forever?", options: ["My time", "My support", "My love", "All of these"], a: "All of these", feedback: "Exactly — I promise you my whole heart and everything I have. 💞" },
 ];
 
 const MUSIC_MEMORIES = [
   { title: "Our first long call 📞", song: "The song we talked over", desc: "We lost track of time entirely.", src: "" },
   { title: "The song that reminds me of you 🎶", song: "Every time it plays", desc: "It feels like you're right next to me.", src: "" },
   { title: "When I missed you the most 🌧️", song: "Late night playlist", desc: "This got me through the long nights.", src: "" },
+  { title: "Our Special Soundtrack 🎵", song: "Marappadhilai Nenje", desc: "A new song added to the soundtrack just for you.", src: "" },
 ];
 
 const FUNNY_AWARDS = [
@@ -965,9 +1036,13 @@ function PolaroidCard({ img, caption, rotation }) {
         alt={caption}
         sx={{
           height: { xs: 260, md: 320 },
-          objectFit: "cover",
+          width: "100%",
+          objectFit: "contain",
+          objectPosition: "center",
           borderRadius: 0,
           border: "1px solid #f0f0f0",
+          bgcolor: "#fffafc",
+          display: "block",
         }}
       />
       <Typography
@@ -1253,6 +1328,8 @@ export default function App() {
   const [randomThought, setRandomThought] = useState("");
   const [pickupLine, setPickupLine] = useState("");
   const [selectedCoupon, setSelectedCoupon] = useState(null);
+  const [galleryViewMode, setGalleryViewMode] = useState("netflix"); // "netflix" | "folders"
+  const [lightboxImage, setLightboxImage] = useState(null); // { src, folderName, index }
 
   const [openSurprise, setOpenSurprise] = useState(false);
   const [openVideoSurprise, setOpenVideoSurprise] = useState(false);
@@ -1268,6 +1345,7 @@ export default function App() {
   const videoRef = useRef(null);
   const letterAudioRef = useRef(null);
   const surpriseAudioRef = useRef(null);
+  const extraAudioRef = useRef(null);
 
   // Vault unlock handler
   const handleUnlockVault = () => {
@@ -1278,6 +1356,21 @@ export default function App() {
     } else {
       setVaultError("Hmm, that's not right. Try again! 💕");
     }
+  };
+
+  // --- Lightbox Helpers ---
+  const handleLightboxPrev = () => {
+    if (!lightboxImage) return;
+    const images = galleryData[lightboxImage.folderName];
+    const prevIndex = (lightboxImage.index - 1 + images.length) % images.length;
+    setLightboxImage({ src: images[prevIndex], folderName: lightboxImage.folderName, index: prevIndex });
+  };
+
+  const handleLightboxNext = () => {
+    if (!lightboxImage) return;
+    const images = galleryData[lightboxImage.folderName];
+    const nextIndex = (lightboxImage.index + 1) % images.length;
+    setLightboxImage({ src: images[nextIndex], folderName: lightboxImage.folderName, index: nextIndex });
   };
 
   // --- NEW FEATURE STATES ---
@@ -1332,7 +1425,7 @@ export default function App() {
 
   // Time Capsule
   const [capsuleMessage, setCapsuleMessage] = useState("");
-  const [capsuleSaved, setCapsuleSaved] = useState(false);
+  const [capsuleSaved, setCapsuleSaved] = useState(() => !!localStorage.getItem("kuttymaa_capsule"));
 
   const saveCapsule = () => {
     if (capsuleMessage.trim()) {
@@ -1341,10 +1434,6 @@ export default function App() {
     }
   };
 
-  useEffect(() => {
-    const saved = localStorage.getItem("kuttymaa_capsule");
-    if (saved) setCapsuleSaved(true);
-  }, []);
 
   // Heartbeat Moment
   const [heartbeatActive, setHeartbeatActive] = useState(false);
@@ -1396,6 +1485,7 @@ export default function App() {
     if (idx === 0) return letterAudioRef;
     if (idx === 1) return audioRef;
     if (idx === 2) return surpriseAudioRef;
+    if (idx === 3) return extraAudioRef;
     return null;
   };
 
@@ -1798,6 +1888,12 @@ export default function App() {
         src="/Maru-Varthai-Pesathey-MassTamilan.com.mp3"
       />
 
+      <audio
+        ref={extraAudioRef}
+        loop
+        src="/Marappadhilai-Nenje-(Additional-Song)-MassTamilan.io.mp3"
+      />
+
       {/* Heart Rain Background */}
       <HeartRainBackground />
 
@@ -1968,7 +2064,7 @@ export default function App() {
           >
             <Box
               component="img"
-              src="/image/WhatsApp Image 2026-06-13 at 12.19.20 AM.jpeg"
+              src="/image/IMG-20250712-WA0022.jpg"
               alt="Kuttymaa"
               sx={{
                 width: { xs: 260, md: 320 },
@@ -2293,44 +2389,93 @@ export default function App() {
         {/* Memories Tab Panel */}
         {activeTab === "memories" && (
           <Box sx={{ animation: "fadeInUp 0.6s ease", mt: 2 }}>
-            {/* Netflix Carousel */}
+            {/* 🎬 The Movie of Us — Folder Gallery */}
             <Box sx={{ mb: 6 }}>
-              <Typography variant="h5" color="white" fontWeight="bold" mb={3} sx={{ fontFamily: "'Outfit', sans-serif", textShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
-                🎬 The Movie of Us (Netflix Style)
+              <Typography variant="h5" color="white" fontWeight="bold" mb={4} sx={{ fontFamily: "'Outfit', sans-serif", textShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
+                🎬 The Movie of Us
               </Typography>
-              <Grid container spacing={3} sx={{ overflowX: "auto", flexWrap: { xs: "nowrap", md: "wrap" }, pb: 2 }}>
-                {NETFLIX_EPISODES.map((ep) => (
-                  <Grid item xs={10} sm={6} md={2.4} key={ep.id} sx={{ flexShrink: 0 }}>
-                    <Card
+
+              {Object.keys(galleryData).map((folderName) => (
+                <Box key={folderName} sx={{ mb: 5 }}>
+                  {/* Folder Header */}
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2, pl: 0.5 }}>
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
                       sx={{
-                        bgcolor: "#181818", color: "#fff", height: "100%", borderRadius: 3, overflow: "hidden",
-                        transition: "all 0.3s ease",
-                        "&:hover": { transform: "scale(1.05) translateY(-5px)", boxShadow: "0 15px 30px rgba(0,0,0,0.5)" }
+                        fontFamily: "'Outfit', sans-serif",
+                        color: "#fff",
+                        textShadow: "0 2px 6px rgba(0,0,0,0.3)",
+                        textTransform: "capitalize",
+                        letterSpacing: "0.5px"
                       }}
                     >
-                      <CardMedia component="img" image={ep.img} sx={{ height: 140, objectFit: "cover" }} />
-                      <Box sx={{ p: 2 }}>
-                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1 }}>
-                          <Typography variant="caption" sx={{ color: "#46d369", fontWeight: "bold" }}>{ep.match}</Typography>
-                          <Typography variant="caption" sx={{ color: "#777" }}>{ep.duration}</Typography>
-                        </Box>
-                        <Typography variant="body2" fontWeight="bold" sx={{ color: "#fff", mb: 1, height: 40, overflow: "hidden" }}>{ep.title}</Typography>
-                        <Typography variant="caption" sx={{ color: "#b3b3b3", display: "block", height: 80, overflow: "hidden", mb: 2 }}>{ep.desc}</Typography>
-                        <Button
-                          fullWidth size="small" variant="contained"
-                          onClick={() => {
-                            setCurrentReason(ep.thoughts);
-                            setReasonsDialogOpen(true);
+                      📁 {folderName}
+                    </Typography>
+                    <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Outfit', sans-serif" }}>
+                      {galleryData[folderName].length} photos
+                    </Typography>
+                  </Box>
+
+                  {/* Horizontal scroll row */}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      gap: 1.5,
+                      overflowX: "auto",
+                      pb: 1.5,
+                      "&::-webkit-scrollbar": { height: 4 },
+                      "&::-webkit-scrollbar-track": { bgcolor: "rgba(255,255,255,0.1)", borderRadius: 2 },
+                      "&::-webkit-scrollbar-thumb": { bgcolor: "#e50914", borderRadius: 2 }
+                    }}
+                  >
+                    {galleryData[folderName].map((imgSrc, idx) => (
+                      <Box
+                        key={idx}
+                        onClick={() => setLightboxImage({ src: imgSrc, folderName, index: idx })}
+                        sx={{
+                          flexShrink: 0,
+                          width: { xs: 140, sm: 180, md: 200 },
+                          height: { xs: 140, sm: 180, md: 200 },
+                          borderRadius: 2,
+                          overflow: "hidden",
+                          cursor: "pointer",
+                          position: "relative",
+                          transition: "transform 0.25s ease, box-shadow 0.25s ease",
+                          "&:hover": {
+                            transform: "scale(1.06)",
+                            boxShadow: "0 12px 28px rgba(0,0,0,0.55)",
+                            "& .img-overlay": { opacity: 1 }
+                          }
+                        }}
+                      >
+                        <img
+                          src={imgSrc}
+                          alt={`${folderName} ${idx + 1}`}
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                        />
+                        <Box
+                          className="img-overlay"
+                          sx={{
+                            position: "absolute",
+                            inset: 0,
+                            background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)",
+                            opacity: 0,
+                            transition: "opacity 0.25s ease",
+                            display: "flex",
+                            alignItems: "flex-end",
+                            p: 1
                           }}
-                          sx={{ bgcolor: "#e50914", color: "#fff", fontWeight: "bold", textTransform: "none", "&:hover": { bgcolor: "#b80710" } }}
                         >
-                          Play Thought ▶️
-                        </Button>
+                          <Typography variant="caption" sx={{ color: "#fff", fontFamily: "'Outfit', sans-serif", fontWeight: "bold" }}>
+                            {idx + 1} / {galleryData[folderName].length}
+                          </Typography>
+                        </Box>
                       </Box>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
+                    ))}
+                  </Box>
+                </Box>
+              ))}
             </Box>
 
             {/* Polaroid Memory Grid */}
@@ -2368,6 +2513,7 @@ export default function App() {
                           {i === 0 && "Why it counts: Because that night, I realized your voice was my favorite melody. ❤️"}
                           {i === 1 && "Why it counts: Every lyric feels like it was written directly about your smile. 🎶"}
                           {i === 2 && "Why it counts: On long lonely nights, this was the bridge that connected my thoughts to you. 🌧️"}
+                          {i === 3 && "Why it counts: This song reminds me of the way you look at me with so much love. 💕"}
                         </Typography>
                       </Box>
 
@@ -2434,11 +2580,23 @@ export default function App() {
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 2, maxWidth: 650, mx: "auto" }}>
                 {[
-                  "That night when we couldn't stop laughing and forgot the world existed. 💫",
-                  "The moment you called me by my nickname for the very first time. 🥺",
-                  "Watching sunsets virtually while listening to our soundtrack. 🌅",
-                  "That sleepy 3 AM phone call where we just listened to each other breathe. 🌙",
-                  "The moment you sent your selfie and I realized I fell hard. 🌹"
+                  "19 feb 2025 first meet on snap",
+                  "1 march 2025 first long term call around 5 hours, unconditionally",
+                  "7 july 2025 first poem for my kuttymaa",
+                  "12 july 2025 my kuttymaa wanted to talk with me at 12am, and I felt so happy to have her in my life",
+                  "6 aug 2025 my kuttymaa put a sweet status for me and mentioned me",
+                  "11 aug 2025 I called my kuttymaa by her dad's name, George Bush, and it made us laugh",
+                  "14 aug 2025 first video call",
+                  "14 aug 2025 long video call with my kuttymaaa",
+                  "3 sept 2025 she blocked me everywhere",
+                  "16 nov 2025 we talked again and grew even closer over the next two months",
+                  "20 dec 2025 first time my kuttymaa on my dream the untold story with you happy ah kai pudichu oru vayal pakkathula nadanthu porom nii sirichu sirichu pesura romba happy romba romba romba happy ah namma journey 1 day kovil porom oru vayikaal jolly ah thanniya kaal nianichutu something anga orama sappadu saptu aprm unnai karur la vittutu aprm nan erode vanthutan",
+                  "18 nov 2025 my kuttymaa told me I am her gem and that she never wanted to leave me",
+                  "10 jan 2026 I shared my loneliness with her",
+                  "4 feb 2026 she blocked me again",
+                  "13 may 2026 she came back to talk, gave me clarity, and made me feel how deeply she missed me",
+                  "7 june 2026 we had a late-night conversation full of warmth, affection, and unforgettable closeness",
+                  "12 june 2026 she blocked me again because she felt guilty"
                 ].map((moment, mIdx) => (
                   <Card key={mIdx} sx={{ p: 3, borderRadius: 4, background: "rgba(255,255,255,0.9)", borderLeft: "5px solid #ff4081" }}>
                     <Typography variant="body1" fontWeight="bold" color="#c2185b" sx={{ fontFamily: "'Outfit', sans-serif" }}>
@@ -2694,6 +2852,9 @@ export default function App() {
                       Words often fail me when I try to write down what you mean to me. You came into my life like a quiet breeze, and before I knew it, you became my entire atmosphere. Every laugh we share, every late-night call where we lose track of time, and even the moments when distance makes things hard, only serves to show me how special what we have is. <br/><br/>
                       You have a way of lighting up my darkest days with just a single text. I love your innocence, your gentle soul, and the fierce loyalty you carry. On your birthday, I want to promise you that no matter what storms come, I am holding your hand. I believe in you, in your dreams, and in us. Thank you for choosing me every single day. Happy Birthday, my love. ❤️
                     </Typography>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
+                      <Box component="img" src="/letter/WhatsApp Image 2026-06-16 at 6.50.00 PM.jpeg" alt="Letter Photo" sx={{ width: '100%', maxWidth: 420, borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
+                    </Box>
                     <Typography align="right" sx={{ fontFamily: "'Caveat', cursive", fontSize: "2rem", color: "#ff4081", fontWeight: "bold" }}>
                       Yours Forever, Prasanth.
                     </Typography>
@@ -3180,13 +3341,12 @@ export default function App() {
             A Message From Me to You 🎬
           </Typography>
           <Box sx={{ maxWidth: 640, mx: "auto", px: 2 }}>
-            <Card sx={{ bgcolor: "black", borderRadius: 4, overflow: "hidden", position: "relative", paddingTop: "56.25%", border: "2px solid rgba(255,255,255,0.2)" }}>
-              {/* This is a placeholder for the genuine video. Replace src below. */}
-              <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
-                <VideocamIcon sx={{ color: "rgba(255,255,255,0.3)", fontSize: 60, mb: 2 }} />
-                <Typography sx={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Outfit',sans-serif" }}>Your Genuine Video Goes Here</Typography>
-              </Box>
-              {/* <video src="/genuine-video.mp4" controls style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover" }} /> */}
+            <Card sx={{ borderRadius: 4, overflow: "hidden", position: "relative", paddingTop: "56.25%", border: "2px solid rgba(255,255,255,0.2)" }}>
+              <Box component="img" src="/msgforyou/WhatsApp Image 2026-06-14 at 9.45.08 AM.jpeg" alt="Message For You" sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.95 }} />
+              <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.65) 80%)" }} />
+              <Typography sx={{ position: "absolute", bottom: 24, left: 24, right: 24, color: "#ffffff", fontFamily: "'Outfit',sans-serif", fontSize: { xs: "1rem", md: "1.2rem" }, fontWeight: 700, textShadow: "0 0 20px rgba(0,0,0,0.8)", lineHeight: 1.4 }}>
+                "Every message from you feels like a little piece of forever."
+              </Typography>
             </Card>
           </Box>
         </Box>
@@ -3236,7 +3396,7 @@ export default function App() {
             <Button
               size="large"
               variant="contained"
-              onClick={openVideoSurpriseDialog}
+              onClick={() => window.open("/public/VID-20260628-WA0001.mp4", "_blank")}
               sx={{
                 borderRadius: 50,
                 px: { xs: 4, md: 6 },
@@ -3261,7 +3421,7 @@ export default function App() {
 
         {/* ── Secret Final Surprise ── */}
         <Box textAlign="center" sx={{ py: 6, pb: 10, position: "relative", zIndex: 1 }}>
-          <Typography sx={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Outfit',sans-serif", fontSize: "0.9rem", mb: 3, letterSpacing: "2px", textTransform: "uppercase" }}>
+          <Typography sx={{ display: "inline-block", color: "rgba(255,255,255,0.95)", fontFamily: "'Outfit',sans-serif", fontSize: "0.95rem", mb: 3, letterSpacing: "2px", textTransform: "uppercase", px: 3, py: 1, borderRadius: 3, background: "rgba(255,255,255,0.12)", backdropFilter: "blur(10px)", boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}>
             Scroll down... one last thing awaits
           </Typography>
           <Button
@@ -3486,96 +3646,133 @@ export default function App() {
             A Special Memory Just For You ✨
           </Typography>
 
-          {/* Video Switcher Tabs */}
-          <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 3 }}>
-            <Button
-              variant={activeVideo === 0 ? "contained" : "outlined"}
-              onClick={() => {
-                if (videoRef.current) videoRef.current.pause();
-                setActiveVideo(0);
-              }}
-              sx={{
-                borderRadius: 20,
-                borderColor: "#ab47bc",
-                color: activeVideo === 0 ? "#fff" : "#ab47bc",
-                bgcolor: activeVideo === 0 ? "#ab47bc" : "transparent",
-                fontWeight: "bold",
-                px: 3.5,
-                py: 0.8,
-                textTransform: "none",
-                fontFamily: "'Outfit', sans-serif",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  bgcolor: activeVideo === 0 ? "#8e24aa" : "rgba(171, 71, 188, 0.08)",
-                  borderColor: "#8e24aa",
-                  transform: "scale(1.04)",
-                }
-              }}
-            >
-              Moment 1 🌸
-            </Button>
-            <Button
-              variant={activeVideo === 1 ? "contained" : "outlined"}
-              onClick={() => {
-                if (videoRef.current) videoRef.current.pause();
-                setActiveVideo(1);
-              }}
-              sx={{
-                borderRadius: 20,
-                borderColor: "#ab47bc",
-                color: activeVideo === 1 ? "#fff" : "#ab47bc",
-                bgcolor: activeVideo === 1 ? "#ab47bc" : "transparent",
-                fontWeight: "bold",
-                px: 3.5,
-                py: 0.8,
-                textTransform: "none",
-                fontFamily: "'Outfit', sans-serif",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  bgcolor: activeVideo === 1 ? "#8e24aa" : "rgba(171, 71, 188, 0.08)",
-                  borderColor: "#8e24aa",
-                  transform: "scale(1.04)",
-                }
-              }}
-            >
-              Moment 2 💫
-            </Button>
-          </Box>
+          {/* Moments video list */}
+          {(() => {
+            const MOMENTS_VIDEOS = [
+              { src: "/Moments/Screenrecorder-2026-06-20-17-15-26-124.mp4", label: "Moment 1 🌸" },
+              { src: "/Moments/Screenrecorder-2026-06-20-17-17-12-903.mp4", label: "Moment 2 💫" },
+              { src: "/Moments/Screenrecorder-2026-06-20-17-40-12-553.mp4", label: "Moment 3 🌙" },
+              { src: "/Moments/Screenrecorder-2026-06-20-17-42-16-575.mp4", label: "Moment 4 💖" },
+              { src: "/Moments/Screenrecorder-2026-06-20-18-12-12-138.mp4", label: "Moment 5 ✨" },
+              { src: "/Moments/Screenrecorder-2026-06-27-16-11-21-211.mp4", label: "Moment 6 🎀" },
+              { src: "/Moments/Screenrecorder-2026-06-27-16-14-59-420.mp4", label: "Moment 7 🌺" },
+              { src: "/Moments/Screenrecorder-2026-06-27-16-48-01-885.mp4", label: "Moment 8 💝" },
+              { src: "/Moments/Screenrecorder-2026-06-27-17-10-50-992.mp4", label: "Moment 9 🦋" },
+              { src: "/Moments/Screenrecorder-2026-06-27-18-34-07-963.mp4", label: "Moment 10 🌈" },
+              { src: "/Moments/VID-20250804-WA0024.mp4", label: "Moment 11 💌" },
+              { src: "/Moments/VID-20260514-WA0000.mp4", label: "Moment 12 🩷" },
+              { src: "/Moments/20251203232759917.mp4", label: "Moment 13 ✨" },
+            ];
+            return (
+              <>
+                {/* Main Video Player */}
+                <Box
+                  sx={{
+                    position: "relative",
+                    borderRadius: 4,
+                    overflow: "hidden",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+                    border: "4px solid #ffffff",
+                    lineHeight: 0,
+                    bgcolor: "#08060d",
+                    mb: 2,
+                  }}
+                >
+                  <Box
+                    component="video"
+                    ref={videoRef}
+                    controls
+                    autoPlay
+                    onPlay={handleVideoPlay}
+                    onPause={handleVideoPause}
+                    onEnded={handleVideoPause}
+                    sx={{
+                      width: "100%",
+                      maxHeight: "55vh",
+                      borderRadius: 1,
+                      objectFit: "contain",
+                    }}
+                  >
+                    <source src={MOMENTS_VIDEOS[activeVideo].src} type="video/mp4" />
+                  </Box>
+                </Box>
 
-          <Box
-            sx={{
-              position: "relative",
-              borderRadius: 4,
-              overflow: "hidden",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-              border: "4px solid #ffffff",
-              lineHeight: 0,
-              bgcolor: "#08060d",
-            }}
-          >
-            <Box
-              component="video"
-              ref={videoRef}
-              controls
-              autoPlay
-              onPlay={handleVideoPlay}
-              onPause={handleVideoPause}
-              onEnded={handleVideoPause}
-              sx={{
-                width: "100%",
-                maxHeight: "70vh",
-                borderRadius: 1,
-                objectFit: "contain",
-              }}
-            >
-              <source
-                src={activeVideo === 0 ? "/20260509105908560.mp4" : "/20251203232759917.mp4"}
-                type="video/mp4"
-              />
-            </Box>
-          </Box>
+                {/* Now playing label */}
+                <Typography
+                  variant="body2"
+                  fontWeight="bold"
+                  sx={{ color: "#ab47bc", fontFamily: "'Outfit', sans-serif", mb: 1.5, textAlign: "center" }}
+                >
+                  ▶ Playing: {MOMENTS_VIDEOS[activeVideo].label}
+                </Typography>
+
+                {/* Scrollable thumbnail strip */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: 1,
+                    overflowX: "auto",
+                    pb: 1,
+                    px: 0.5,
+                    "&::-webkit-scrollbar": { height: 4 },
+                    "&::-webkit-scrollbar-track": { bgcolor: "rgba(0,0,0,0.05)", borderRadius: 2 },
+                    "&::-webkit-scrollbar-thumb": { bgcolor: "#ab47bc", borderRadius: 2 },
+                  }}
+                >
+                  {MOMENTS_VIDEOS.map((vid, idx) => (
+                    <Box
+                      key={idx}
+                      onClick={() => {
+                        if (videoRef.current) videoRef.current.pause();
+                        setActiveVideo(idx);
+                      }}
+                      sx={{
+                        flexShrink: 0,
+                        width: 90,
+                        cursor: "pointer",
+                        borderRadius: 2,
+                        overflow: "hidden",
+                        border: activeVideo === idx ? "2.5px solid #ab47bc" : "2.5px solid transparent",
+                        opacity: activeVideo === idx ? 1 : 0.6,
+                        transition: "all 0.2s ease",
+                        "&:hover": { opacity: 1, transform: "scale(1.05)" },
+                        bgcolor: "#1a0a2e",
+                      }}
+                    >
+                      <Box
+                        component="video"
+                        src={vid.src}
+                        muted
+                        preload="metadata"
+                        sx={{ width: "100%", height: 60, objectFit: "cover", display: "block", pointerEvents: "none" }}
+                      />
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          display: "block",
+                          textAlign: "center",
+                          color: activeVideo === idx ? "#ab47bc" : "#888",
+                          fontFamily: "'Outfit', sans-serif",
+                          fontWeight: "bold",
+                          fontSize: "0.65rem",
+                          py: 0.5,
+                          px: 0.5,
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {vid.label}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </>
+            );
+          })()}
         </DialogContent>
       </Dialog>
+
 
       {/* Voice Note Dialog */}
       <Dialog
@@ -3888,6 +4085,153 @@ export default function App() {
           }
         `}
       </style>
+
+      {/* ── Lightbox Dialog ── */}
+      <Dialog
+        open={!!lightboxImage}
+        onClose={() => setLightboxImage(null)}
+        maxWidth={false}
+        fullScreen
+        PaperProps={{
+          sx: {
+            bgcolor: "rgba(0,0,0,0.96)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative"
+          }
+        }}
+      >
+        {/* Close button */}
+        <IconButton
+          onClick={() => setLightboxImage(null)}
+          sx={{
+            position: "absolute",
+            top: 16,
+            right: 16,
+            color: "#fff",
+            bgcolor: "rgba(255,255,255,0.12)",
+            zIndex: 10,
+            "&:hover": { bgcolor: "rgba(255,64,129,0.5)" },
+            transition: "background 0.2s"
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+
+        {/* Folder + position label */}
+        {lightboxImage && (
+          <Typography
+            variant="caption"
+            sx={{
+              position: "absolute",
+              top: 20,
+              left: "50%",
+              transform: "translateX(-50%)",
+              color: "rgba(255,255,255,0.6)",
+              fontFamily: "'Outfit', sans-serif",
+              letterSpacing: "0.5px",
+              textTransform: "capitalize"
+            }}
+          >
+            📁 {lightboxImage.folderName} &nbsp;·&nbsp; {lightboxImage.index + 1} / {galleryData[lightboxImage.folderName]?.length}
+          </Typography>
+        )}
+
+        {/* Prev button */}
+        <IconButton
+          onClick={handleLightboxPrev}
+          sx={{
+            position: "absolute",
+            left: { xs: 6, sm: 20 },
+            color: "#fff",
+            bgcolor: "rgba(255,255,255,0.1)",
+            "&:hover": { bgcolor: "rgba(229,9,20,0.7)" },
+            transition: "background 0.2s",
+            zIndex: 10,
+            p: { xs: 1, sm: 1.5 }
+          }}
+        >
+          <KeyboardArrowLeftIcon sx={{ fontSize: { xs: 28, sm: 40 } }} />
+        </IconButton>
+
+        {/* Image */}
+        {lightboxImage && (
+          <Box
+            component="img"
+            src={lightboxImage.src}
+            alt="Gallery preview"
+            sx={{
+              maxWidth: "90vw",
+              maxHeight: "85vh",
+              objectFit: "contain",
+              borderRadius: 2,
+              boxShadow: "0 20px 60px rgba(0,0,0,0.8)",
+              userSelect: "none",
+              animation: "fadeInUp 0.2s ease"
+            }}
+          />
+        )}
+
+        {/* Next button */}
+        <IconButton
+          onClick={handleLightboxNext}
+          sx={{
+            position: "absolute",
+            right: { xs: 6, sm: 20 },
+            color: "#fff",
+            bgcolor: "rgba(255,255,255,0.1)",
+            "&:hover": { bgcolor: "rgba(229,9,20,0.7)" },
+            transition: "background 0.2s",
+            zIndex: 10,
+            p: { xs: 1, sm: 1.5 }
+          }}
+        >
+          <KeyboardArrowRightIcon sx={{ fontSize: { xs: 28, sm: 40 } }} />
+        </IconButton>
+
+        {/* Bottom thumbnail strip */}
+        {lightboxImage && (
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: 12,
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              gap: 0.8,
+              maxWidth: "80vw",
+              overflowX: "auto",
+              pb: 0.5,
+              "&::-webkit-scrollbar": { height: 3 },
+              "&::-webkit-scrollbar-thumb": { bgcolor: "#e50914", borderRadius: 2 }
+            }}
+          >
+            {galleryData[lightboxImage.folderName]?.map((src, i) => (
+              <Box
+                key={i}
+                onClick={() => setLightboxImage({ src, folderName: lightboxImage.folderName, index: i })}
+                component="img"
+                src={src}
+                alt={`thumb-${i}`}
+                sx={{
+                  flexShrink: 0,
+                  width: 48,
+                  height: 48,
+                  objectFit: "cover",
+                  borderRadius: 1,
+                  cursor: "pointer",
+                  opacity: lightboxImage.index === i ? 1 : 0.45,
+                  border: lightboxImage.index === i ? "2px solid #e50914" : "2px solid transparent",
+                  transition: "all 0.2s ease",
+                  "&:hover": { opacity: 1 }
+                }}
+              />
+            ))}
+          </Box>
+        )}
+      </Dialog>
     </Box>
   );
 }
